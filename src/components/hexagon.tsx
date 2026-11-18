@@ -29,7 +29,7 @@ export function HexTile({ href, title, icon, variant = "blue", className = "" }:
           {icon}
         </span>
         <span className="relative font-heading text-base font-semibold leading-tight sm:text-xl">{title}</span>
-        <span className="relative rounded-full border border-white/60 px-3 py-1 text-xs font-semibold uppercase tracking-wider transition-colors group-hover:bg-white group-hover:text-navy">
+        <span className="relative hidden whitespace-nowrap rounded-full border border-white/60 px-3 py-1 text-xs font-semibold uppercase tracking-wider transition-colors group-hover:bg-white group-hover:text-navy sm:inline-block">
           Learn more
         </span>
       </span>
