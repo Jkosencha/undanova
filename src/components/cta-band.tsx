@@ -8,7 +8,7 @@ type CTABandProps = {
   title?: string;
   text?: string;
   /** Colour of the section above, so the card straddles it and the navy footer. */
-  from?: "paper" | "white";
+  from?: "paper" | "white" | "night";
 };
 
 /** Glowing navy card that sits half on the page and half on the footer. */
@@ -20,7 +20,7 @@ export function CTABand({
   return (
     <section
       aria-labelledby="cta-title"
-      className={`bg-gradient-to-b to-navy to-50% pt-8 md:pt-12 ${from === "white" ? "from-white from-50%" : "from-paper from-50%"}`}
+      className={`bg-gradient-to-b to-navy to-50% pt-8 md:pt-12 ${{ paper: "from-paper", white: "from-white", night: "from-night" }[from]} from-50%`}
     >
       <Container>
         <div className="reveal relative isolate overflow-hidden rounded-3xl border border-white/10 bg-navy bg-dots px-6 py-14 text-center text-white md:px-16 md:py-20">
