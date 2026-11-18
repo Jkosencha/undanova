@@ -13,6 +13,28 @@ export function Container({ children, className = "" }: { children: ReactNode; c
   return <div className={`mx-auto w-full max-w-[1200px] px-4 sm:px-6 ${className}`}>{children}</div>;
 }
 
+type SectionHeadingProps = {
+  id: string;
+  title: string;
+  intro?: string;
+  /** Use "dark" inside navy sections. */
+  tone?: "light" | "dark";
+};
+
+/** Standard h2 + optional intro line used at the top of a section. */
+export function SectionHeading({ id, title, intro, tone = "light" }: SectionHeadingProps) {
+  return (
+    <div className="max-w-2xl">
+      <h2 id={id} className={`text-3xl md:text-4xl ${tone === "dark" ? "text-white" : "text-navy"}`}>
+        {title}
+      </h2>
+      {intro && (
+        <p className={`mt-3 text-lg ${tone === "dark" ? "text-white/80" : "text-ink/70"}`}>{intro}</p>
+      )}
+    </div>
+  );
+}
+
 type SectionProps = {
   children: ReactNode;
   tone?: Tone;

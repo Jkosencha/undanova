@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PagePlaceholder } from "@/components/page-placeholder";
+import { work } from "@/content/work";
 
 export const metadata: Metadata = {
   title: "Case study",
 };
 
-// Placeholder until Phase 4, which will read these from content/work.ts.
-const slugs = ["nula-leer", "ngo-management-system", "anika"];
+// Placeholder until Phase 4 builds the case study template.
+const slugs = work.map((item) => item.slug);
 
 export function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
