@@ -23,6 +23,8 @@ type SectionHeadingProps = {
   /** Use "dark" inside navy sections. */
   tone?: "light" | "dark";
   align?: "left" | "center";
+  /** Short plum line under the title. */
+  divider?: boolean;
 };
 
 /** Highlights part of a heading: wave underline on light sections, gradient on navy. */
@@ -32,7 +34,15 @@ export function Accent({ children, tone = "light" }: { children: ReactNode; tone
 }
 
 /** Standard section heading: optional pill label, h2 and intro line. */
-export function SectionHeading({ id, title, intro, eyebrow, tone = "light", align = "left" }: SectionHeadingProps) {
+export function SectionHeading({
+  id,
+  title,
+  intro,
+  eyebrow,
+  tone = "light",
+  align = "left",
+  divider = false,
+}: SectionHeadingProps) {
   const dark = tone === "dark";
   return (
     <div className={`max-w-2xl ${align === "center" ? "mx-auto text-center" : ""}`}>
@@ -46,6 +56,12 @@ export function SectionHeading({ id, title, intro, eyebrow, tone = "light", alig
       <h2 id={id} className={`text-[34px] md:text-5xl ${dark ? "text-white" : "text-navy"}`}>
         {title}
       </h2>
+      {divider && (
+        <span
+          aria-hidden
+          className={`mt-5 block h-0.5 w-14 rounded-full bg-plum ${align === "center" ? "mx-auto" : ""}`}
+        />
+      )}
       {intro && <p className={`mt-4 text-lg md:text-xl ${dark ? "text-white/80" : "text-ink/70"}`}>{intro}</p>}
     </div>
   );
