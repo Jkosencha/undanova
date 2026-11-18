@@ -1,26 +1,44 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * UndaNova design tokens (see CLAUDE.md §3).
+ * Tailwind's default palette is cleared so only brand colours exist.
+ */
+@theme {
+  --color-*: initial;
+  --color-navy: #0b1f3a;
+  --color-wave: #2f7bd9;
+  --color-paper: #f5f3ef;
+  --color-ink: #0a0e17;
+  --color-slate: #8a94a6;
+  --color-white: #ffffff;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-outfit);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-inter), system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-outfit), system-ui, sans-serif;
+    font-weight: 600;
+    line-height: 1.15;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-wave);
+    outline-offset: 2px;
+  }
 }
