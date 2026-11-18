@@ -19,15 +19,15 @@ export type ContactState =
   | { status: "error"; values: ContactValues };
 
 const labelFor = (options: { value: string; label: string }[], value: string) =>
-  options.find((o) => o.value === value)?.label ?? "—";
+  options.find((o) => o.value === value)?.label ?? "Not given";
 
 function formatEmail(v: ContactValues) {
   return [
     `Name: ${v.name}`,
     `Email or phone: ${v.contact}`,
-    `Organisation: ${v.organisation || "—"}`,
+    `Organisation: ${v.organisation || "Not given"}`,
     `Service: ${labelFor(serviceOptions, v.service)}`,
-    `Budget: ${v.budget ? labelFor(budgetOptions, v.budget) : "—"}`,
+    `Budget: ${v.budget ? labelFor(budgetOptions, v.budget) : "Not given"}`,
     "",
     v.message,
   ].join("\n");

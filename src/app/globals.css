@@ -6,11 +6,11 @@
  */
 @theme {
   --color-*: initial;
-  /* Imperial Blue (Pantone 2768 C): primary — backgrounds, headings, buttons */
+  /* Imperial Blue (Pantone 2768 C): primary: backgrounds, headings, buttons */
   --color-navy: #001d51;
   /* Deepest satin shadow, for the darkest backgrounds and gradients */
   --color-night: #000b24;
-  /* Dusty Plum: the accent — highlights, focus rings, small details */
+  /* Dusty Plum: the accent: highlights, focus rings, small details */
   --color-plum: #906e84;
   /* Lilac satin: soft tint for gentle sections and sheen */
   --color-lilac: #d8c6d2;

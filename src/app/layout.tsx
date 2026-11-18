@@ -20,7 +20,7 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "UndaNova — We build what's next",
+    default: "UndaNova | We build what's next",
     template: "%s | UndaNova",
   },
   description: site.description,

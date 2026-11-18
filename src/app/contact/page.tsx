@@ -26,7 +26,7 @@ export default function ContactPage() {
             <span className="font-bold text-gradient-plum">something.</span>
           </>
         }
-        intro="Tell us a bit about your project. No jargon needed — just what you want to get done."
+        intro="Tell us a bit about your project. No jargon needed. Just tell us what you want to get done."
       />
       <section aria-label="Contact form and details" className="bg-paper pb-20 md:pb-28">
         {/* The form overlaps the header's wave edge */}
@@ -71,7 +71,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <dt className={label}>Location</dt>
-                {/* TODO: city, Kenya — set site.location in lib/site.ts */}
+                {/* TODO: city, Kenya: set site.location in lib/site.ts */}
                 <dd className="mt-1 text-white/90">{site.location}</dd>
               </div>
               <div>

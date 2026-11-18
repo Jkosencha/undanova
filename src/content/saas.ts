@@ -1,6 +1,6 @@
 /**
  * Ready-made systems (SaaS) shown on /saas.
- * TODO: all wording here is placeholder — Jennifer to supply product details,
+ * TODO: all wording here is placeholder: Jennifer to supply product details,
  * features, pricing model and launch status for each system.
  */
 export type SaasProduct = {

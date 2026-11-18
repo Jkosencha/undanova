@@ -1,5 +1,5 @@
 /**
- * Case study: "Snapview" design — phone-in-hand hero, lilac facts band, story. See CLAUDE.md §10.
+ * Case study: "Snapview" design: phone-in-hand hero, lilac facts band, story. See CLAUDE.md §10.
  */
 import type { Metadata } from "next";
 import Image from "next/image";

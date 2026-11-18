@@ -1,5 +1,5 @@
 /**
- * About: "Modall" design — a dark rounded hero card holding a bento of tiles,
+ * About: "Modall" design: a dark rounded hero card holding a bento of tiles,
  * then a white panel with the story, illustrated cards and the name. See CLAUDE.md §10.
  */
 import type { Metadata } from "next";
@@ -105,7 +105,7 @@ export default function AboutPage() {
             id="about-title"
             className="mx-auto mt-5 max-w-4xl text-[40px] font-bold italic leading-[1.05] md:text-6xl"
           >
-            Hi, I&apos;m Jennifer — I build software that works for real businesses.
+            Hi, I&apos;m Jennifer. I build software that works for real businesses.
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg text-white/85">
             UndaNova is a Kenyan software studio making practical websites, apps and systems for businesses, NGOs and
@@ -356,7 +356,7 @@ export default function AboutPage() {
             </dl>
             <p className="mt-10 max-w-3xl text-lg text-ink/80">
               <em>Unda</em> is Swahili for &lsquo;create&rsquo;. <em>Nova</em> is Latin for &lsquo;new&rsquo;. Together,
-              UndaNova means creating something new — and in Latin, <em>unda nova</em> means &lsquo;new wave&rsquo;.
+              UndaNova means creating something new. And in Latin, <em>unda nova</em> means &lsquo;new wave&rsquo;.
               That&apos;s what we want to bring to African businesses.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">

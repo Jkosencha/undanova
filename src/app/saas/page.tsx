@@ -1,5 +1,5 @@
 /**
- * SaaS: "Equinox" design — dark page, pill badge, serif-italic accent word,
+ * SaaS: "Equinox" design: dark page, pill badge, serif-italic accent word,
  * glowing ribbon, trust row and glass product cards. See CLAUDE.md §10.
  * TODO: all product wording is placeholder (src/content/saas.ts).
  */
@@ -103,9 +103,9 @@ export default function SaasPage() {
             Run your business with{" "}
             <span className={`${serif.className} font-normal tracking-normal text-lilac`}>ready-made systems</span>
           </h1>
-          {/* TODO: placeholder intro — Jennifer to confirm. */}
+          {/* TODO: placeholder intro: Jennifer to confirm. */}
           <p className="mx-auto mt-6 max-w-2xl text-lg text-white/80">
-            Software for NGOs, shops and restaurants that you sign up for and start using — no custom build needed.
+            Software for NGOs, shops and restaurants that you sign up for and start using, with no custom build needed.
             Built in Kenya, with M-Pesa where it matters.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">

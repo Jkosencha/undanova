@@ -76,5 +76,5 @@ export const services: Service[] = [
 export const comingSoon = {
   slug: "mobile-apps",
   title: "Mobile apps",
-  note: "Coming soon — ask us about your app idea.",
+  note: "Coming soon. Ask us about your app idea.",
 };

@@ -1,5 +1,5 @@
 /**
- * Work: "Snapview" design — phone-in-hand hero, lilac band, project grid. See CLAUDE.md §10.
+ * Work: "Snapview" design: phone-in-hand hero, lilac band, project grid. See CLAUDE.md §10.
  */
 import type { Metadata } from "next";
 import Link from "next/link";

@@ -59,7 +59,7 @@ const reasons: Reason[] = [
   {
     label: "M-Pesa & WhatsApp",
     title: "Built for M-Pesa, SMS and WhatsApp",
-    text: "Your customers pay, get updates and reach you the way they already do — no new apps for them to learn.",
+    text: "Your customers pay, get updates and reach you the way they already do, with no new apps to learn.",
     visual: (
       <Collage>
         <PhoneFrame className="w-40">
@@ -89,7 +89,7 @@ const reasons: Reason[] = [
   {
     label: "We know NGOs",
     title: "We understand NGOs and small businesses from the inside",
-    text: "We've worked in them, so we build for how they really run — the reports, the people and the budgets.",
+    text: "We've worked in them, so we build for how they really run: the reports, the people and the budgets.",
     visual: (
       <Collage>
         <BrowserFrame className="w-full">
@@ -122,7 +122,7 @@ const steps = [
 export default function Home() {
   return (
     <>
-      {/* 1. Hero — Digital Backbone */}
+      {/* 1. Hero: Digital Backbone */}
       <section aria-labelledby="hero-title" className="relative isolate overflow-hidden bg-satin text-white">
         <div aria-hidden className="absolute inset-0 -z-10 bg-dots opacity-60" />
         <HeroWaves className="top-[38%] -z-10 h-48 opacity-70" />
@@ -133,8 +133,8 @@ export default function Home() {
             <span className="font-bold text-gradient-plum">what&apos;s next.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-white/85 md:text-xl">
-            UndaNova designs and builds websites, apps and business systems for growing businesses, NGOs and schools —
-            fast, reliable and made for how Kenya works.
+            UndaNova designs and builds websites, apps and business systems for growing businesses, NGOs and schools.
+            Fast, reliable and made for how Kenya works.
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
             <Button href="/contact" tone="dark">
@@ -198,7 +198,7 @@ export default function Home() {
         <WaveEdge fill="paper" />
       </section>
 
-      {/* 2. Capability strip overlapping the hero — Ocean Crown */}
+      {/* 2. Capability strip overlapping the hero: Ocean Crown */}
       <section
         id="capabilities"
         aria-label="What's built in"
@@ -222,7 +222,7 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* 3. Why choose us — tabs with a collage */}
+      {/* 3. Why choose us: tabs with a collage */}
       <section aria-labelledby="why-title" className="bg-paper py-20 md:py-28">
         <Container>
           <SectionHeading id="why-title" title="Why choose UndaNova?" align="center" divider />
@@ -261,7 +261,7 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* 5. Dark card grid — how we work */}
+      {/* 5. Dark card grid: how we work */}
       <section
         aria-labelledby="process-title"
         className="relative isolate overflow-hidden bg-night py-20 text-white md:py-28"

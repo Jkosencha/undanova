@@ -1,5 +1,5 @@
 /**
- * Services: "Snapview" design — phone-in-hand hero, icon band, features arranged
+ * Services: "Snapview" design: phone-in-hand hero, icon band, features arranged
  * around a phone, then full details for each service. See CLAUDE.md §10.
  */
 import type { Metadata } from "next";
