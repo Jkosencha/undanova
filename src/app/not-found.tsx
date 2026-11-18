@@ -14,7 +14,7 @@ export default function NotFound() {
       <Glow className="-bottom-40 right-0 -z-10 size-[30rem]" />
       <HeroWaves className="bottom-8 -z-10 h-48" />
       <Container>
-        <p aria-hidden className="font-heading text-[120px] font-bold leading-none text-gradient-wave md:text-[180px]">
+        <p aria-hidden className="font-heading text-[120px] font-bold leading-none text-gradient-plum md:text-[180px]">
           404
         </p>
         <h1 className="mt-4 text-[44px] leading-[1.05] md:text-[64px]">This page wandered off.</h1>

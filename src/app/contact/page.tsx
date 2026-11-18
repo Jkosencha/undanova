@@ -23,7 +23,7 @@ export default function ContactPage() {
         title={
           <>
             <span className="font-light">Let&apos;s build</span>{" "}
-            <span className="font-bold text-gradient-wave">something.</span>
+            <span className="font-bold text-gradient-plum">something.</span>
           </>
         }
         intro="Tell us a bit about your project. No jargon needed — just what you want to get done."
@@ -63,7 +63,7 @@ export default function ContactPage() {
                 <dd className="mt-1">
                   <a
                     href={`mailto:${site.email}`}
-                    className="font-medium text-white underline decoration-wave decoration-2 underline-offset-4 hover:decoration-white"
+                    className="font-medium text-white underline decoration-plum decoration-2 underline-offset-4 hover:decoration-white"
                   >
                     {site.email}
                   </a>
@@ -77,7 +77,7 @@ export default function ContactPage() {
               <div>
                 <dt className={label}>Response time</dt>
                 <dd className="mt-1 inline-flex items-center gap-2 text-white/90">
-                  <span aria-hidden className="size-2 animate-glow rounded-full bg-wave" />
+                  <span aria-hidden className="size-2 animate-glow rounded-full bg-plum" />
                   {site.responseTime}
                 </dd>
               </div>

@@ -11,8 +11,8 @@ export function HeroWaves({ className = "" }: { className?: string }) {
   return (
     <div aria-hidden className={`pointer-events-none absolute inset-x-0 overflow-hidden ${className}`}>
       <svg viewBox="0 0 2400 300" preserveAspectRatio="none" className="h-full w-[200%] animate-drift-slow">
-        <path d={RIBBON} fill="none" className="stroke-wave/25" strokeWidth={26} vectorEffect="non-scaling-stroke" />
-        <path d={RIBBON} fill="none" className="stroke-wave" strokeWidth={2.5} vectorEffect="non-scaling-stroke" />
+        <path d={RIBBON} fill="none" className="stroke-plum/25" strokeWidth={26} vectorEffect="non-scaling-stroke" />
+        <path d={RIBBON} fill="none" className="stroke-plum" strokeWidth={2.5} vectorEffect="non-scaling-stroke" />
         <path
           d={RIBBON}
           fill="none"
@@ -51,7 +51,7 @@ export function Eyebrow({ children, tone = "light" }: { children: ReactNode; ton
   const styles = tone === "dark" ? "border-white/20 bg-white/5 text-white/90" : "border-navy/15 bg-white text-navy";
   return (
     <span className={`inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-sm font-medium ${styles}`}>
-      <span aria-hidden className="size-1.5 rounded-full bg-wave" />
+      <span aria-hidden className="size-1.5 rounded-full bg-plum" />
       {children}
     </span>
   );
@@ -59,5 +59,5 @@ export function Eyebrow({ children, tone = "light" }: { children: ReactNode; ton
 
 /** Soft blue glow blob for navy backgrounds. */
 export function Glow({ className = "" }: { className?: string }) {
-  return <div aria-hidden className={`pointer-events-none absolute glow-wave opacity-70 ${className}`} />;
+  return <div aria-hidden className={`pointer-events-none absolute glow-plum opacity-70 ${className}`} />;
 }

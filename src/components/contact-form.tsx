@@ -49,7 +49,7 @@ function Field({
       <div className="mt-2">{children}</div>
       {error && (
         <p id={`${id}-error`} className="mt-2 flex items-start gap-1.5 text-sm font-medium text-navy">
-          <span aria-hidden className="mt-1.5 size-2 shrink-0 rounded-full bg-wave" />
+          <span aria-hidden className="mt-1.5 size-2 shrink-0 rounded-full bg-plum" />
           {error}
         </p>
       )}

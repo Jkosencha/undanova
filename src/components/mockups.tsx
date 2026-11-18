@@ -76,7 +76,7 @@ export function DashboardScreen({ compact = false }: { compact?: boolean }) {
         <div className="hidden w-20 shrink-0 space-y-2 sm:block">
           <span className="block h-3 w-14 rounded bg-navy" />
           {[0, 1, 2, 3].map((i) => (
-            <span key={i} className={`block h-2.5 rounded ${i === 0 ? "bg-wave/40" : "bg-slate/25"}`} />
+            <span key={i} className={`block h-2.5 rounded ${i === 0 ? "bg-plum/40" : "bg-slate/25"}`} />
           ))}
         </div>
       )}
@@ -98,7 +98,7 @@ export function DashboardScreen({ compact = false }: { compact?: boolean }) {
             <span
               key={i}
               style={{ height: `${h}%` }}
-              className={`flex-1 rounded-t ${i === bars.length - 2 ? "bg-wave" : "bg-navy/80"}`}
+              className={`flex-1 rounded-t ${i === bars.length - 2 ? "bg-plum" : "bg-navy/80"}`}
             />
           ))}
         </div>
@@ -122,7 +122,7 @@ export function WebsiteScreen() {
       <div className="bg-navy px-3 py-4">
         <span className="block h-3 w-2/3 rounded bg-white" />
         <span className="mt-1.5 block h-2 w-1/2 rounded bg-white/50" />
-        <span className="mt-3 block h-4 w-16 rounded-full bg-wave" />
+        <span className="mt-3 block h-4 w-16 rounded-full bg-plum" />
       </div>
       <div className="grid grid-cols-3 gap-2 p-3">
         {[0, 1, 2].map((i) => (
@@ -162,7 +162,7 @@ export function Toast({ title, text, icon, className = "" }: { title: string; te
     <div
       className={`flex items-center gap-3 rounded-2xl border border-slate/20 bg-white px-4 py-3 text-left shadow-xl shadow-ink/30 ${className}`}
     >
-      <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-wave text-white">{icon}</span>
+      <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-plum text-white">{icon}</span>
       <span>
         <span className="block text-sm font-semibold text-navy">{title}</span>
         <span className="block text-xs text-ink/70">{text}</span>
@@ -179,13 +179,13 @@ export function StatusScreen() {
         <div key={label} className="flex items-center justify-between rounded-lg border border-slate/20 px-3 py-2">
           <span className="font-medium text-ink">{label}</span>
           <span className="inline-flex items-center gap-1.5 font-semibold text-navy">
-            <span className="size-2 rounded-full bg-wave" /> OK
+            <span className="size-2 rounded-full bg-plum" /> OK
           </span>
         </div>
       ))}
       <div className="flex h-8 items-end gap-0.5 px-1">
         {Array.from({ length: 30 }, (_, i) => (
-          <span key={i} className="h-full flex-1 rounded-sm bg-wave/70" />
+          <span key={i} className="h-full flex-1 rounded-sm bg-plum/70" />
         ))}
       </div>
     </div>

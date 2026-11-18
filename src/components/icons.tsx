@@ -61,7 +61,7 @@ export function ArrowIcon(props: IconProps) {
 export function CheckIcon(props: IconProps) {
   return (
     <svg viewBox="0 0 24 24" {...base} {...props}>
-      <circle cx="12" cy="12" r="12" className="fill-wave" />
+      <circle cx="12" cy="12" r="12" className="fill-plum" />
       <path d="M7 12.5l3.2 3.2L17 9" fill="none" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" className="stroke-white" />
     </svg>
   );

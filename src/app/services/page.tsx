@@ -24,7 +24,7 @@ export default function ServicesPage() {
         title={
           <>
             <span className="font-light">Software that fits</span>{" "}
-            <span className="font-bold text-gradient-wave">how you work.</span>
+            <span className="font-bold text-gradient-plum">how you work.</span>
           </>
         }
         intro="Websites, systems and online shops for businesses, NGOs and schools. Pick what you need, or tell us the problem and we'll suggest the right fit."

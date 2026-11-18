@@ -11,7 +11,7 @@ export function StatusBadge({ status, tone = "light" }: { status: WorkStatus; to
     <span
       className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-medium ${styles}`}
     >
-      <span aria-hidden className="size-1.5 animate-glow rounded-full bg-wave" />
+      <span aria-hidden className="size-1.5 animate-glow rounded-full bg-plum" />
       In progress
     </span>
   );

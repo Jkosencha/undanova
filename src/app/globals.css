@@ -6,11 +6,18 @@
  */
 @theme {
   --color-*: initial;
-  --color-navy: #0b1f3a;
-  --color-wave: #2f7bd9;
-  --color-paper: #f5f3ef;
+  /* Imperial Blue (Pantone 2768 C): primary — backgrounds, headings, buttons */
+  --color-navy: #001d51;
+  /* Deepest satin shadow, for the darkest backgrounds and gradients */
+  --color-night: #000b24;
+  /* Dusty Plum: the accent — highlights, focus rings, small details */
+  --color-plum: #906e84;
+  /* Lilac satin: soft tint for gentle sections and sheen */
+  --color-lilac: #d8c6d2;
+  /* Light background with a hint of plum */
+  --color-paper: #f6f2f5;
   --color-ink: #0a0e17;
-  --color-slate: #8a94a6;
+  --color-slate: #8b8496;
   --color-white: #ffffff;
 
   --animate-drift: drift 22s linear infinite;
@@ -79,9 +86,30 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-wave);
+    outline: 2px solid var(--color-plum);
     outline-offset: 3px;
   }
+}
+
+/*
+ * Satin: the silky folds from the mood board, built from soft gradients
+ * (no image download). "bg-satin" is deep blue, "bg-satin-plum" is lilac.
+ */
+@utility bg-satin {
+  background-color: var(--color-navy);
+  background-image:
+    radial-gradient(120% 60% at 15% 10%, color-mix(in srgb, var(--color-plum) 35%, transparent), transparent 60%),
+    radial-gradient(90% 70% at 85% 30%, color-mix(in srgb, var(--color-lilac) 14%, transparent), transparent 55%),
+    linear-gradient(160deg, transparent 30%, color-mix(in srgb, var(--color-white) 7%, transparent) 42%, transparent 52%),
+    linear-gradient(200deg, var(--color-navy) 0%, var(--color-night) 100%);
+}
+
+@utility bg-satin-plum {
+  background-color: var(--color-plum);
+  background-image:
+    radial-gradient(90% 70% at 20% 20%, color-mix(in srgb, var(--color-lilac) 55%, transparent), transparent 60%),
+    linear-gradient(155deg, transparent 30%, color-mix(in srgb, var(--color-white) 18%, transparent) 45%, transparent 58%),
+    linear-gradient(200deg, var(--color-plum) 0%, color-mix(in srgb, var(--color-plum) 70%, var(--color-navy)) 100%);
 }
 
 /* Dot-grid texture: light dots for navy sections, navy dots for light ones. */
@@ -95,14 +123,14 @@
   background-size: 24px 24px;
 }
 
-/* Soft blue glow behind key elements on navy. */
-@utility glow-wave {
-  background: radial-gradient(closest-side, color-mix(in srgb, var(--color-wave) 55%, transparent), transparent);
+/* Soft plum glow behind key elements on navy. */
+@utility glow-plum {
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--color-plum) 55%, transparent), transparent);
 }
 
-/* Large headline text in a white-to-wave gradient (AA for large text on navy). */
-@utility text-gradient-wave {
-  background-image: linear-gradient(100deg, var(--color-white) 0%, var(--color-wave) 85%);
+/* Large headline text in a white-to-plum gradient (AA for large text on navy). */
+@utility text-gradient-plum {
+  background-image: linear-gradient(100deg, var(--color-white) 0%, var(--color-lilac) 45%, var(--color-plum) 95%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;

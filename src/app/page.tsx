@@ -78,7 +78,7 @@ export default function Home() {
             <h1 id="hero-title" className="mt-6 text-[48px] leading-[1.02] sm:text-6xl lg:text-[80px]">
               <span className="font-light">We build</span>
               <br />
-              <span className="font-bold text-gradient-wave">what&apos;s next.</span>
+              <span className="font-bold text-gradient-plum">what&apos;s next.</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg text-white/80 md:text-xl">
               UndaNova designs and builds websites, apps and business systems for growing businesses, NGOs and schools —
@@ -235,7 +235,7 @@ export default function Home() {
           <span aria-hidden className="absolute bottom-6 left-7 top-6 w-0.5 bg-navy/15 lg:hidden" />
           <span
             aria-hidden
-            className="absolute left-[12.5%] right-[12.5%] top-7 hidden h-0.5 bg-gradient-to-r from-navy via-wave to-navy lg:block"
+            className="absolute left-[12.5%] right-[12.5%] top-7 hidden h-0.5 bg-gradient-to-r from-navy via-plum to-navy lg:block"
           />
           {steps.map((step, i) => (
             <li key={step.title} className="reveal relative flex gap-5 lg:flex-col lg:items-center lg:text-center">

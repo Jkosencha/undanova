@@ -18,7 +18,7 @@ export default function WorkPage() {
         title={
           <>
             <span className="font-light">Real projects for</span>{" "}
-            <span className="font-bold text-gradient-wave">real organisations.</span>
+            <span className="font-bold text-gradient-plum">real organisations.</span>
           </>
         }
         intro="Websites, online stores and systems we're building for businesses and NGOs."

@@ -32,8 +32,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  // Navy (#0B1F3A). Meta tags can't read CSS variables, so this is the one hex outside the theme.
-  themeColor: "#0B1F3A",
+  // Imperial Blue (#001D51). Meta tags can't read CSS variables, so this is the one hex outside the theme.
+  themeColor: "#001D51",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -12,7 +12,7 @@ type CardProps = {
 
 const tones = {
   light: { base: "border-slate/25 bg-white", hover: "hover:border-navy/40" },
-  dark: { base: "border-white/10 bg-white/[0.04]", hover: "hover:border-wave/60 hover:bg-white/[0.08]" },
+  dark: { base: "border-white/10 bg-white/[0.04]", hover: "hover:border-plum/60 hover:bg-white/[0.08]" },
 };
 
 export function Card({ children, href, tone = "light", className = "" }: CardProps) {

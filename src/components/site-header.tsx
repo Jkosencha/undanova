@@ -10,7 +10,7 @@ import { CloseIcon, MenuIcon } from "@/components/icons";
 import { nav } from "@/lib/site";
 
 const activeLink =
-  "aria-[current=page]:text-white aria-[current=page]:underline aria-[current=page]:decoration-wave aria-[current=page]:decoration-2 aria-[current=page]:underline-offset-8";
+  "aria-[current=page]:text-white aria-[current=page]:underline aria-[current=page]:decoration-plum aria-[current=page]:decoration-2 aria-[current=page]:underline-offset-8";
 
 export function SiteHeader() {
   const pathname = usePathname();

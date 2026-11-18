@@ -48,7 +48,7 @@ export default function AboutPage() {
         title={
           <>
             <span className="font-light">Hi, I&apos;m Jennifer —</span>{" "}
-            <span className="font-bold text-gradient-wave">I build software that works for real businesses.</span>
+            <span className="font-bold text-gradient-plum">I build software that works for real businesses.</span>
           </>
         }
       />
@@ -56,7 +56,7 @@ export default function AboutPage() {
       <section aria-labelledby="story-title" className="bg-white py-14 md:py-24">
         <Container className="grid items-center gap-14 md:grid-cols-[minmax(0,380px)_1fr] md:gap-20">
           <div className="reveal relative mx-auto w-full max-w-80 md:max-w-none">
-            <div aria-hidden className="absolute -bottom-4 -right-4 h-full w-full rounded-3xl bg-wave/15" />
+            <div aria-hidden className="absolute -bottom-4 -right-4 h-full w-full rounded-3xl bg-plum/15" />
             {/* TODO: replace with Jennifer's photo (e.g. public/about/jennifer.jpg via next/image). */}
             <div className="relative isolate flex aspect-[4/5] items-center justify-center overflow-hidden rounded-3xl bg-navy bg-dots">
               <Glow className="left-1/2 top-1/2 -z-10 size-72 -translate-x-1/2 -translate-y-1/2" />
@@ -100,7 +100,7 @@ export default function AboutPage() {
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">The name</p>
           <h2 id="name-title" className="mt-4 text-[64px] leading-none sm:text-8xl lg:text-[140px]">
             <span className="font-light">Unda</span>
-            <span className="font-bold text-gradient-wave">Nova</span>
+            <span className="font-bold text-gradient-plum">Nova</span>
           </h2>
           <dl className="mt-10 grid gap-4 md:grid-cols-3">
             {words.map((w) => (
