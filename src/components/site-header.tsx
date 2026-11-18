@@ -66,7 +66,7 @@ export function SiteHeader() {
               </li>
             ))}
           </ul>
-          <Link href="/contact" className={buttonClasses("primary", "dark")}>
+          <Link href="/contact" className={buttonClasses("primary", "dark", "", true)}>
             Start a project
           </Link>
         </nav>

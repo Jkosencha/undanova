@@ -16,16 +16,18 @@ const styles: Record<Tone, Record<Variant, string>> = {
   },
 };
 
-export function buttonClasses(variant: Variant = "primary", tone: Tone = "light", className = "") {
+export function buttonClasses(variant: Variant = "primary", tone: Tone = "light", className = "", glow = false) {
   return [
     "inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-6 py-2.5",
     "text-base font-medium leading-tight transition-colors",
-    styles[tone][variant],
+    glow ? "border-glow text-navy shadow-lg shadow-plum/30 hover:shadow-plum/50" : styles[tone][variant],
     className,
   ].join(" ");
 }
 
 type CommonProps = {
+  /** Animated glowing border (white button with navy text). For one key action per screen. */
+  glow?: boolean;
   variant?: Variant;
   tone?: Tone;
   className?: string;
@@ -36,8 +38,8 @@ type LinkButtonProps = CommonProps & { href: string } & Omit<ComponentProps<"a">
 type NativeButtonProps = CommonProps & { href?: undefined } & Omit<ComponentProps<"button">, "className">;
 
 export function Button(props: LinkButtonProps | NativeButtonProps) {
-  const { variant, tone, className, children, ...rest } = props;
-  const classes = buttonClasses(variant, tone, className);
+  const { variant, tone, className, glow, children, ...rest } = props;
+  const classes = buttonClasses(variant, tone, className, glow);
 
   if (rest.href !== undefined) {
     const { href, ...anchorProps } = rest as LinkButtonProps;
