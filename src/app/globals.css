@@ -112,6 +112,15 @@
     linear-gradient(200deg, var(--color-plum) 0%, color-mix(in srgb, var(--color-plum) 70%, var(--color-navy)) 100%);
 }
 
+/* Fine diagonal lines, from the Modall reference's dark card. */
+@utility bg-lines {
+  background-image: repeating-linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-white) 5%, transparent) 0 1px,
+    transparent 1px 28px
+  );
+}
+
 /* Dot-grid texture: light dots for navy sections, navy dots for light ones. */
 @utility bg-dots {
   background-image: radial-gradient(color-mix(in srgb, var(--color-white) 14%, transparent) 1px, transparent 1.5px);
