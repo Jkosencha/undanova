@@ -15,6 +15,10 @@ export const site = {
   // TODO: city, e.g. "Nairobi, Kenya".
   location: "Kenya",
   responseTime: "We reply within 24 hours",
+  // TODO: keep this current (e.g. "Booking projects from February 2027"), or set to "" to hide it.
+  availability: "Taking on new projects",
+  // TODO: registered business name and number, once registered.
+  legalName: "UndaNova",
   // TODO: social media links. Icons are hidden until a link is filled in.
   social: {
     linkedin: "",
