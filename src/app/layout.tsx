@@ -13,8 +13,8 @@ const inter = Inter({
 
 const outfit = Outfit({
   variable: "--font-outfit",
+  // Variable font: one file covers the light (300) to bold (700) weights the headings mix.
   subsets: ["latin"],
-  weight: ["600"],
 });
 
 export const metadata: Metadata = {
