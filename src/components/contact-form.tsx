@@ -1,6 +1,7 @@
 "use client";
 
 import { type FormEvent, type ReactNode, startTransition, useActionState, useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { type ContactState, sendContactMessage } from "@/app/contact/actions";
 import { buttonClasses } from "@/components/button";
@@ -227,6 +228,14 @@ export function ContactForm({ defaultService = "" }: { defaultService?: string }
         <label htmlFor={HONEYPOT_FIELD}>Leave this empty</label>
         <input id={HONEYPOT_FIELD} name={HONEYPOT_FIELD} type="text" tabIndex={-1} autoComplete="off" />
       </div>
+
+      <p className="text-sm text-ink/70">
+        We only use your details to reply to you. See our{" "}
+        <Link href="/privacy" className="font-medium text-navy underline decoration-plum underline-offset-2">
+          privacy policy
+        </Link>
+        .
+      </p>
 
       <button
         type="submit"
