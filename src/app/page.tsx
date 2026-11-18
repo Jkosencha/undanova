@@ -5,6 +5,7 @@ import { ArrowIcon, CheckIcon } from "@/components/icons";
 import { Section, SectionHeading } from "@/components/section";
 import { TextLink } from "@/components/text-link";
 import { WaveDivider } from "@/components/wave-divider";
+import { WorkCard } from "@/components/work-card";
 import { services } from "@/content/services";
 import { featuredWork } from "@/content/work";
 
@@ -104,21 +105,7 @@ export default function Home() {
         <ul className="mt-10 grid gap-4 md:grid-cols-3">
           {featuredWork.map((item) => (
             <li key={item.slug} className="flex">
-              <Card href={`/work/${item.slug}`} className="flex w-full flex-col">
-                <div className="flex flex-wrap items-center gap-2">
-                  <p className="text-sm font-medium text-ink/70">{item.category}</p>
-                  {item.status === "in-progress" && (
-                    <span className="rounded-full border border-navy/20 bg-paper px-2.5 py-0.5 text-xs font-medium text-navy">
-                      In progress
-                    </span>
-                  )}
-                </div>
-                <h3 className="mt-3 text-xl text-navy">{item.title}</h3>
-                <p className="mt-2 flex-1 text-ink/70">{item.summary}</p>
-                <span className="mt-4 inline-flex items-center gap-1 font-medium text-navy">
-                  View project <ArrowIcon className="size-4" />
-                </span>
-              </Card>
+              <WorkCard item={item} />
             </li>
           ))}
         </ul>
