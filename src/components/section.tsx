@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Glow, WaveEdge } from "@/components/brand-shapes";
 
 type Tone = "paper" | "white" | "navy";
 
@@ -27,9 +28,7 @@ type SectionHeadingProps = {
 /** Highlights part of a heading: wave underline on light sections, gradient on navy. */
 export function Accent({ children, tone = "light" }: { children: ReactNode; tone?: "light" | "dark" }) {
   if (tone === "dark") return <span className="text-gradient-wave">{children}</span>;
-  return (
-    <span className="underline decoration-wave decoration-[0.12em] underline-offset-[0.18em]">{children}</span>
-  );
+  return <span className="underline decoration-wave decoration-[0.12em] underline-offset-[0.18em]">{children}</span>;
 }
 
 /** Standard section heading: optional pill label, h2 and intro line. */
@@ -57,15 +56,39 @@ type SectionProps = {
   tone?: Tone;
   id?: string;
   className?: string;
+  /** Curved wave edge into the next section, filled with its colour. */
+  edge?: Tone;
+  /** Flip the wave edge horizontally, for variety between sections. */
+  flipEdge?: boolean;
+  /** Navy only: dot grid and a soft glow. */
+  textured?: boolean;
   "aria-labelledby"?: string;
   "aria-label"?: string;
 };
 
-/** A full-width page section with standard vertical padding (64px mobile / 96px desktop). */
-export function Section({ children, tone = "paper", id, className = "", ...rest }: SectionProps) {
+/**
+ * A full-width page section with standard vertical padding (64px mobile / 96px desktop),
+ * plus extra bottom room when it ends in a wave edge.
+ */
+export function Section({
+  children,
+  tone = "paper",
+  id,
+  className = "",
+  edge,
+  flipEdge = false,
+  textured = false,
+  ...rest
+}: SectionProps) {
   return (
-    <section id={id} className={`py-16 md:py-24 ${tones[tone]} ${className}`} {...rest}>
+    <section
+      id={id}
+      className={`relative isolate overflow-hidden pt-16 md:pt-24 ${edge ? "pb-28 md:pb-40" : "pb-16 md:pb-24"} ${tones[tone]} ${textured ? "bg-dots" : ""} ${className}`}
+      {...rest}
+    >
+      {textured && <Glow className="-right-40 top-0 -z-10 size-[34rem]" />}
       <Container>{children}</Container>
+      {edge && <WaveEdge fill={edge} flip={flipEdge} />}
     </section>
   );
 }
