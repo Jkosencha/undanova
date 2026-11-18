@@ -21,6 +21,8 @@ export type WorkItem = {
   stack: string[];
   images: WorkImage[];
   status: WorkStatus;
+  /** Illustration shown until real screenshots are added. */
+  preview: "website" | "shop" | "dashboard";
 };
 
 export const work: WorkItem[] = [
@@ -37,6 +39,7 @@ export const work: WorkItem[] = [
     stack: [], // TODO: tech stack
     images: [], // TODO: screenshots
     status: "in-progress",
+    preview: "shop",
   },
   {
     slug: "ngo-management-system",
@@ -51,6 +54,7 @@ export const work: WorkItem[] = [
     stack: [], // TODO: tech stack
     images: [], // TODO: screenshots
     status: "in-progress",
+    preview: "dashboard",
   },
   {
     slug: "anika",
@@ -65,6 +69,7 @@ export const work: WorkItem[] = [
     stack: [], // TODO: tech stack
     images: [], // TODO: screenshots
     status: "in-progress", // TODO: confirm whether ANIKA is live or in progress.
+    preview: "website",
   },
 ];
 
