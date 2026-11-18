@@ -4,7 +4,6 @@
  * TODO: all product wording is placeholder (src/content/saas.ts).
  */
 import type { Metadata } from "next";
-import { Instrument_Serif } from "next/font/google";
 import { useId } from "react";
 import { Button } from "@/components/button";
 import { CTABand } from "@/components/cta-band";
@@ -12,9 +11,6 @@ import { ArrowIcon, CheckIcon, RefreshIcon, ServiceIcon } from "@/components/ico
 import { Container } from "@/components/section";
 import { TextLink } from "@/components/text-link";
 import { saasProducts } from "@/content/saas";
-
-// Loaded only on this page, for the italic accent words.
-const serif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: "italic" });
 
 export const metadata: Metadata = {
   title: "Ready-made systems",
@@ -101,7 +97,7 @@ export default function SaasPage() {
           </a>
           <h1 id="saas-title" className="mx-auto mt-7 max-w-4xl text-[44px] leading-[1.05] md:text-7xl">
             Run your business with{" "}
-            <span className={`${serif.className} font-normal tracking-normal text-lilac`}>ready-made systems</span>
+            <span className="font-serif font-normal tracking-normal text-lilac">ready-made systems</span>
           </h1>
           {/* TODO: placeholder intro: Jennifer to confirm. */}
           <p className="mx-auto mt-6 max-w-2xl text-lg text-white/80">
@@ -145,7 +141,7 @@ export default function SaasPage() {
             </span>
             <h2 id="products-title" className="mx-auto mt-5 max-w-3xl text-[36px] leading-[1.05] md:text-5xl">
               Everything you need, in{" "}
-              <span className={`${serif.className} font-normal tracking-normal text-lilac`}>one place</span>
+              <span className="font-serif font-normal tracking-normal text-lilac">one place</span>
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-white/75">
               Three systems, each built for how Kenyan organisations really work.

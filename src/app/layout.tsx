@@ -1,21 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Outfit } from "next/font/google";
+import { Bricolage_Grotesque, Hanken_Grotesk, IBM_Plex_Mono, Instrument_Serif } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const outfit = Outfit({
-  variable: "--font-outfit",
-  // Variable font: one file covers the light (300) to bold (700) weights the headings mix.
-  subsets: ["latin"],
-});
+// Headings: a characterful grotesque with ink traps (variable, 200-800).
+const display = Bricolage_Grotesque({ variable: "--font-display", subsets: ["latin"] });
+// Body: warm and very readable at small sizes.
+const body = Hanken_Grotesk({ variable: "--font-body", subsets: ["latin"] });
+// Accent words in headings.
+const serif = Instrument_Serif({ variable: "--font-accent", subsets: ["latin"], weight: "400", style: "italic" });
+// Small technical labels (step numbers, status tags). Not preloaded: never above the fold's main text.
+const mono = IBM_Plex_Mono({ variable: "--font-code", subsets: ["latin"], weight: ["400", "500"], preload: false });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -38,7 +36,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${inter.variable} ${outfit.variable} h-full antialiased`}>
+    <html lang="en" className={`${display.variable} ${body.variable} ${serif.variable} ${mono.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
         <a
           href="#main"

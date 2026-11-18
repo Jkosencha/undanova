@@ -29,8 +29,10 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-inter);
-  --font-heading: var(--font-outfit);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-display);
+  --font-serif: var(--font-accent);
+  --font-mono: var(--font-code);
 }
 
 @keyframes drift {
@@ -70,7 +72,7 @@
   body {
     background-color: var(--color-paper);
     color: var(--color-ink);
-    font-family: var(--font-inter), system-ui, sans-serif;
+    font-family: var(--font-body), system-ui, sans-serif;
     font-size: 1rem;
     line-height: 1.6;
   }
@@ -79,10 +81,10 @@
   h2,
   h3,
   h4 {
-    font-family: var(--font-outfit), system-ui, sans-serif;
+    font-family: var(--font-display), system-ui, sans-serif;
     font-weight: 600;
     line-height: 1.1;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
   }
 
   :focus-visible {
