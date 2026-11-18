@@ -13,13 +13,14 @@ export function HeroWaves({ className = "" }: { className?: string }) {
       <svg viewBox="0 0 2400 300" preserveAspectRatio="none" className="h-full w-[200%] animate-drift-slow">
         <path d={RIBBON} fill="none" className="stroke-wave/25" strokeWidth={26} vectorEffect="non-scaling-stroke" />
         <path d={RIBBON} fill="none" className="stroke-wave" strokeWidth={2.5} vectorEffect="non-scaling-stroke" />
-      </svg>
-      <svg
-        viewBox="0 0 2400 300"
-        preserveAspectRatio="none"
-        className="absolute inset-0 h-full w-[200%] translate-y-6 animate-drift opacity-60"
-      >
-        <path d={RIBBON} fill="none" className="stroke-white/30" strokeWidth={1.5} vectorEffect="non-scaling-stroke" />
+        <path
+          d={RIBBON}
+          fill="none"
+          className="stroke-white/25"
+          strokeWidth={1.5}
+          vectorEffect="non-scaling-stroke"
+          transform="translate(0 24)"
+        />
       </svg>
     </div>
   );
@@ -47,8 +48,7 @@ export function WaveEdge({ fill, flip = false, className = "" }: { fill: Fill; f
 
 /** Small pill label above headings. */
 export function Eyebrow({ children, tone = "light" }: { children: ReactNode; tone?: "light" | "dark" }) {
-  const styles =
-    tone === "dark" ? "border-white/20 bg-white/5 text-white/90" : "border-navy/15 bg-white text-navy";
+  const styles = tone === "dark" ? "border-white/20 bg-white/5 text-white/90" : "border-navy/15 bg-white text-navy";
   return (
     <span className={`inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-sm font-medium ${styles}`}>
       <span aria-hidden className="size-1.5 rounded-full bg-wave" />
@@ -59,5 +59,5 @@ export function Eyebrow({ children, tone = "light" }: { children: ReactNode; ton
 
 /** Soft blue glow blob for navy backgrounds. */
 export function Glow({ className = "" }: { className?: string }) {
-  return <div aria-hidden className={`pointer-events-none absolute glow-wave animate-glow ${className}`} />;
+  return <div aria-hidden className={`pointer-events-none absolute glow-wave opacity-70 ${className}`} />;
 }
