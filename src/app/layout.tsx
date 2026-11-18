@@ -36,7 +36,10 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} ${serif.variable} ${mono.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      className={`${display.variable} ${body.variable} ${serif.variable} ${mono.variable} h-full antialiased`}
+    >
       <body className="flex min-h-full flex-col">
         <a
           href="#main"
@@ -44,12 +47,35 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
+        {/* Reading progress, driven by scroll in CSS */}
+        <div
+          aria-hidden
+          className="scroll-progress fixed inset-x-0 top-0 z-50 h-0.5 bg-gradient-to-r from-plum via-lilac to-white"
+        />
         <SiteHeader />
         <main id="main" className="flex flex-1 flex-col">
           {children}
         </main>
         <SiteFooter />
         <WhatsAppFloat />
+        <a
+          href="#main"
+          aria-label="Back to top"
+          className="to-top fixed bottom-4 left-4 z-30 size-12 items-center justify-center rounded-full border border-white/20 bg-navy text-white shadow-lg shadow-navy/30 md:bottom-6 md:left-auto md:right-6"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden
+            className="size-5"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="m6 15 6-6 6 6" />
+          </svg>
+        </a>
       </body>
     </html>
   );
