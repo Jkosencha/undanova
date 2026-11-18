@@ -24,7 +24,7 @@ export function Card({ children, href, tone = "light", className = "" }: CardPro
       <Link
         href={href}
         prefetch={false}
-        className={`group block transition-all duration-300 hover:-translate-y-1 ${base} ${tones[tone].hover} ${className}`}
+        className={`tilt group block transition-colors duration-300 ${base} ${tones[tone].hover} ${className}`}
       >
         {children}
       </Link>
