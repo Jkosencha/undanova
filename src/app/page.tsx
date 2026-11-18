@@ -108,8 +108,8 @@ export default function Home() {
             <BrowserFrame className="absolute right-0 top-4 w-[90%]">
               <DashboardScreen />
             </BrowserFrame>
-            <div className="absolute bottom-0 left-0 w-[34%] max-w-[170px] animate-float">
-              <PhoneFrame>
+            <div className="absolute bottom-0 left-0 w-[46%] max-w-[170px] animate-float sm:w-[34%]">
+              <PhoneFrame className="w-full">
                 <CheckoutScreen />
               </PhoneFrame>
             </div>
@@ -182,7 +182,7 @@ export default function Home() {
           <div aria-hidden className="relative mx-auto w-56 sm:w-64">
             <div className="absolute left-1/2 top-1/2 -z-0 size-80 -translate-x-1/2 sm:size-96 -translate-y-1/2 rounded-full bg-paper" />
             <div className="absolute left-1/2 top-1/2 size-[17rem] -translate-x-1/2 sm:size-[19rem] -translate-y-1/2 rounded-full border border-dashed border-navy/20" />
-            <PhoneFrame className="relative">
+            <PhoneFrame className="relative w-full">
               <ChatScreen />
             </PhoneFrame>
           </div>

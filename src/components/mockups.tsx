@@ -8,7 +8,7 @@ import type { ReactNode } from "react";
 export function PhoneFrame({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
     <div
-      className={`relative aspect-[9/19] w-full rounded-[2.4rem] border border-white/15 bg-navy p-2 shadow-2xl shadow-ink/50 ring-1 ring-ink/20 ${className}`}
+      className={`relative aspect-[9/19] rounded-[2.4rem] border border-white/15 bg-navy p-2 shadow-2xl shadow-ink/50 ring-1 ring-ink/20 ${className}`}
     >
       <div className="absolute left-1/2 top-3.5 z-10 h-4 w-20 -translate-x-1/2 rounded-full bg-navy" />
       <div className="relative h-full w-full overflow-hidden rounded-[1.9rem] bg-paper">{children}</div>
