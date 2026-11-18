@@ -53,7 +53,7 @@ export function CheckoutScreen() {
         <span>Total</span>
         <span>KES 2,500</span>
       </div>
-      <div className="mt-auto rounded-xl bg-navy p-3 text-white">
+      <div className="mt-4 rounded-xl bg-navy p-3 text-white">
         <p className="text-[9px] uppercase tracking-wider text-white/70">M-Pesa payment</p>
         <p className="mt-1 font-medium">Pay KES 2,500?</p>
         <div className="mt-2 flex gap-1">

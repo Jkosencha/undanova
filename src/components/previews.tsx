@@ -32,11 +32,11 @@ export function PreviewPanel({ kind, className = "" }: { kind: PreviewKind; clas
   return (
     <div
       aria-hidden
-      className={`relative isolate flex items-end justify-center overflow-hidden rounded-2xl bg-navy bg-dots px-6 pt-8 ${className}`}
+      className={`relative isolate flex justify-center overflow-hidden rounded-2xl bg-navy bg-dots px-6 pt-8 ${phone ? "items-start" : "items-end"} ${className}`}
     >
       <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 size-72 -translate-x-1/2 -translate-y-1/2 glow-wave opacity-70" />
       {phone ? (
-        <PhoneFrame className="-mb-24 w-40 transition-transform duration-500 group-hover:-translate-y-2">
+        <PhoneFrame className="w-44 shrink-0 transition-transform duration-500 group-hover:-translate-y-2">
           {kind === "shop" ? <CheckoutScreen /> : <ChatScreen />}
         </PhoneFrame>
       ) : (
