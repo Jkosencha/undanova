@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import type { ReactNode, SVGProps } from "react";
 
 type IconProps = SVGProps<SVGSVGElement>;
 
@@ -63,6 +63,87 @@ export function CheckIcon(props: IconProps) {
     <svg viewBox="0 0 24 24" {...base} {...props}>
       <circle cx="12" cy="12" r="12" className="fill-wave" />
       <path d="M7 12.5l3.2 3.2L17 9" fill="none" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" className="stroke-white" />
+    </svg>
+  );
+}
+
+const line = { fill: "none", stroke: "currentColor", strokeWidth: 1.75, strokeLinecap: "round", strokeLinejoin: "round" } as const;
+
+/** Line icon for each service, keyed by the service slug. */
+export function ServiceIcon({ slug, ...props }: IconProps & { slug: string }) {
+  const paths: Record<string, ReactNode> = {
+    "business-websites": (
+      <>
+        <rect x="3" y="4" width="18" height="14" rx="2" />
+        <path d="M3 8h18M8 21h8M12 18v3" />
+      </>
+    ),
+    "ngo-school-systems": (
+      <>
+        <circle cx="9" cy="8" r="3" />
+        <path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" />
+        <circle cx="17.5" cy="9.5" r="2.5" />
+        <path d="M16 14.2c.5-.1 1-.2 1.5-.2 2.5 0 4.5 2 4.5 4.5" />
+      </>
+    ),
+    "ecommerce-mpesa": (
+      <>
+        <path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6.2" />
+        <circle cx="10" cy="20" r="1.2" />
+        <circle cx="17" cy="20" r="1.2" />
+      </>
+    ),
+    "support-maintenance": (
+      <>
+        <path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z" />
+        <path d="M8.5 12l2.5 2.5 4.5-5" />
+      </>
+    ),
+    "mobile-apps": (
+      <>
+        <rect x="7" y="2.5" width="10" height="19" rx="2.5" />
+        <path d="M11 18.5h2" />
+      </>
+    ),
+  };
+  return (
+    <svg viewBox="0 0 24 24" {...line} {...base} {...props}>
+      {paths[slug] ?? paths["business-websites"]}
+    </svg>
+  );
+}
+
+export function BoltIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...line} {...base} {...props}>
+      <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z" />
+    </svg>
+  );
+}
+
+export function ChatIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...line} {...base} {...props}>
+      <path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-5A8 8 0 1 1 21 12z" />
+      <path d="M8.5 11h7M8.5 14h4.5" />
+    </svg>
+  );
+}
+
+export function HeartHandIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...line} {...base} {...props}>
+      <path d="M12 8.5C10.6 6 6 6.3 6 9.8c0 2.6 3.2 4.8 6 6.7 2.8-1.9 6-4.1 6-6.7 0-3.5-4.6-3.8-6-1.3z" />
+      <path d="M3 20h4l3-1.5h4.5" />
+    </svg>
+  );
+}
+
+export function RefreshIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...line} {...base} {...props}>
+      <path d="M20 12a8 8 0 0 1-14.3 4.9M4 12A8 8 0 0 1 18.3 7.1" />
+      <path d="M18.5 3v4.5H14M5.5 21v-4.5H10" />
     </svg>
   );
 }
