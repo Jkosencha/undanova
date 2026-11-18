@@ -149,11 +149,147 @@
   }
 }
 
+/* ------------------------------------------------------------------ */
+/* Motion                                                              */
+/* ------------------------------------------------------------------ */
+
+/* Page transitions (React <ViewTransition> in app/template.tsx). */
+::view-transition-old(.page-exit) {
+  animation: 160ms ease-in both vt-out;
+}
+::view-transition-new(.page-enter) {
+  animation: 360ms cubic-bezier(0.2, 0.7, 0.2, 1) 60ms both vt-in;
+}
+@keyframes vt-out {
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+@keyframes vt-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+/* Headline words drift up on load. They stay visible throughout, so the
+   largest paint isn't delayed (opacity never starts at 0). */
+@keyframes word-up {
+  from {
+    transform: translateY(0.35em);
+    filter: blur(6px);
+  }
+}
+@utility word-in {
+  display: inline-block;
+  animation: word-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* Endless marquee: the track holds the list twice and slides by half. */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@utility animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+/* Glowing animated border for key buttons. */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes spin-angle {
+  to {
+    --angle: 360deg;
+  }
+}
+@utility border-glow {
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(var(--color-white), var(--color-white)) padding-box,
+    conic-gradient(from var(--angle), var(--color-plum), var(--color-lilac), var(--color-white), var(--color-plum))
+      border-box;
+  animation: spin-angle 4s linear infinite;
+}
+
+/* Gentle 3D tilt on hover (pointer devices only). */
+@media (hover: hover) {
+  .tilt {
+    transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .tilt:hover {
+    transform: perspective(900px) rotateX(3deg) rotateY(-4deg) translateY(-4px);
+  }
+}
+
+/* Reading progress bar and back-to-top button, driven by scroll (no JS).
+   Browsers without scroll timelines simply don't show them. */
+.scroll-progress,
+.to-top {
+  display: none;
+}
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    display: block;
+    transform-origin: 0 50%;
+    animation: grow-x linear both;
+    animation-timeline: scroll(root);
+  }
+  .to-top {
+    display: inline-flex;
+    animation: appear linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 120vh;
+  }
+}
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+}
+@keyframes appear {
+  0%,
+  60% {
+    opacity: 0;
+    transform: translateY(12px);
+    pointer-events: none;
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Smooth FAQ open/close where supported. */
+:root {
+  interpolate-size: allow-keywords;
+}
+details::details-content {
+  block-size: 0;
+  overflow-y: clip;
+  transition:
+    block-size 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+    content-visibility 0.35s allow-discrete;
+}
+details[open]::details-content {
+  block-size: auto;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,
-  ::after {
+  ::after,
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
     animation: none !important;
     transition: none !important;
+  }
+  .tilt:hover {
+    transform: none;
   }
 }
