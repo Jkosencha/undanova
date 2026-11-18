@@ -8,10 +8,9 @@ export function WaveDivider({ color = "white", className = "" }: { color?: "whit
   return (
     <svg
       viewBox="0 0 1200 80"
-      preserveAspectRatio="none"
       aria-hidden
       focusable={false}
-      className={`block h-12 w-full md:h-16 ${className}`}
+      className={`block h-auto w-full ${className}`}
     >
       <path
         d="M0 70 C 180 0, 360 0, 540 40 S 900 90, 1110 22"
