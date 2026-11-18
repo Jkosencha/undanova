@@ -24,6 +24,11 @@ export const metadata: Metadata = {
     template: "%s | UndaNova",
   },
   description: site.description,
+  openGraph: {
+    type: "website",
+    siteName: site.name,
+    locale: "en_KE",
+  },
 };
 
 export const viewport: Viewport = {
