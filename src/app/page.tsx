@@ -7,7 +7,9 @@ import type { ReactNode } from "react";
 import { HeroWaves, WaveEdge } from "@/components/brand-shapes";
 import { Button } from "@/components/button";
 import { CTABand } from "@/components/cta-band";
+import { FaqList } from "@/components/faq";
 import { HexTile } from "@/components/hexagon";
+import { Marquee } from "@/components/marquee";
 import { PhotoBackground } from "@/components/photo-background";
 import {
   ArrowIcon,
@@ -36,11 +38,24 @@ import { Container, SectionHeading } from "@/components/section";
 import { TextLink } from "@/components/text-link";
 import { WorkCard } from "@/components/work-card";
 import { services } from "@/content/services";
+import { commitments, faqs } from "@/content/studio";
 import { featuredWork } from "@/content/work";
+import { site } from "@/lib/site";
 
 const hexes = [
   ...services.map((s) => ({ href: `/services#${s.slug}`, title: s.title, slug: s.slug })),
   { href: "/saas", title: "Ready-made systems", slug: "mobile-apps" },
+];
+
+const marqueeItems = [
+  "M-Pesa payments",
+  "WhatsApp",
+  "SMS alerts",
+  "Dashboards",
+  "PDF reports",
+  "Online shops",
+  "School systems",
+  "NGO reporting",
 ];
 
 const capabilities = [
@@ -147,19 +162,41 @@ export default function Home() {
         <PhotoBackground photo="nairobi" priority />
         <HeroWaves className="top-[38%] -z-10 h-48 opacity-70" />
         <Container className="pb-36 pt-14 text-center md:pb-48 md:pt-20">
-          <p className="text-sm font-mono font-medium uppercase tracking-[0.2em] text-white/80">
+          {site.availability && (
+            <p className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 font-mono text-xs font-medium uppercase tracking-[0.14em] text-white backdrop-blur-sm">
+              <span aria-hidden className="relative inline-flex size-2">
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-lilac opacity-70" />
+                <span className="relative inline-flex size-2 rounded-full bg-lilac" />
+              </span>
+              {site.availability}
+            </p>
+          )}
+          <p className="mt-6 font-mono text-sm font-medium uppercase tracking-[0.2em] text-white/80">
             Software studio · Made in Kenya
           </p>
-          <h1 id="hero-title" className="mx-auto mt-6 max-w-5xl text-[52px] leading-[1] sm:text-7xl lg:text-[96px]">
-            <span className="font-extralight">We build </span>
-            <span className="font-bold text-gradient-plum">what&apos;s next.</span>
+          <h1 id="hero-title" className="mx-auto mt-5 max-w-5xl text-[52px] leading-[1] sm:text-7xl lg:text-[104px]">
+            {/* Each word drifts up in turn (CSS only; words stay visible throughout). */}
+            {["We", "build"].map((w, i) => (
+              <span key={w} className="word-in font-extralight" style={{ animationDelay: `${i * 90}ms` }}>
+                {w}&nbsp;
+              </span>
+            ))}
+            <span className="word-in font-bold text-gradient-plum" style={{ animationDelay: "180ms" }}>
+              what&apos;s&nbsp;
+            </span>
+            <span
+              className="word-in font-serif font-normal tracking-normal text-lilac"
+              style={{ animationDelay: "270ms" }}
+            >
+              next.
+            </span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-white/85 md:text-xl">
             UndaNova designs and builds websites, apps and business systems for growing businesses, NGOs and schools.
             Fast, reliable and made for how Kenya works.
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-            <Button href="/contact" tone="dark">
+            <Button href="/contact" tone="dark" glow>
               Start a project
               <ArrowIcon className="size-4" />
             </Button>
@@ -240,10 +277,24 @@ export default function Home() {
         </Container>
       </section>
 
+      {/* Capability marquee */}
+      <div className="mt-16 md:mt-20">
+        <Marquee label="What we work with" items={marqueeItems} />
+      </div>
+
       {/* 3. Why choose us: tabs with a collage */}
       <section aria-labelledby="why-title" className="bg-paper py-20 md:py-28">
         <Container>
-          <SectionHeading id="why-title" title="Why choose UndaNova?" align="center" divider />
+          <SectionHeading
+            id="why-title"
+            title={
+              <>
+                Why choose <span className="font-serif font-normal tracking-normal text-plum">UndaNova</span>?
+              </>
+            }
+            align="center"
+            divider
+          />
           <div className="mt-12">
             <ReasonTabs reasons={reasons} />
           </div>
@@ -255,7 +306,8 @@ export default function Home() {
         <Container className="grid gap-12 lg:grid-cols-[0.8fr_2fr] lg:gap-14">
           <div className="reveal">
             <h2 id="work-title" className="text-[36px] leading-[1.05] text-navy md:text-5xl">
-              A studio with a difference. <span className="text-plum">Built in Kenya.</span>
+              A studio with a difference.{" "}
+              <span className="font-serif font-normal tracking-normal text-plum">Built in Kenya.</span>
             </h2>
             <p className="mt-5 text-lg text-ink/75">
               We&apos;re a small, focused team. You talk to the person building your project, and we build it to work
@@ -336,8 +388,45 @@ export default function Home() {
         </Container>
       </section>
 
+      {/* Our promise: commitments */}
+      <section aria-labelledby="promise-title" className="bg-white py-20 md:py-28">
+        <Container className="grid gap-12 lg:grid-cols-[0.9fr_2fr]">
+          <div>
+            <p className="font-mono text-sm font-medium uppercase tracking-[0.14em] text-ink/60">Our promise</p>
+            <h2 id="promise-title" className="mt-4 text-[36px] leading-[1.05] text-navy md:text-5xl">
+              What you can <span className="font-serif font-normal tracking-normal text-plum">count on</span>
+            </h2>
+          </div>
+          <ol className="grid gap-px bg-navy/10 sm:grid-cols-2">
+            {commitments.map((c, i) => (
+              <li key={c.title} className="reveal bg-white p-6 md:p-8">
+                <span className="font-mono text-xs text-plum">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="mt-3 text-2xl text-navy">{c.title}</h3>
+                <p className="mt-2 text-ink/75">{c.text}</p>
+              </li>
+            ))}
+          </ol>
+        </Container>
+      </section>
+
+      {/* Questions */}
+      <section aria-labelledby="faq-title" className="bg-paper py-20 md:py-28">
+        <Container className="grid gap-12 lg:grid-cols-[0.9fr_2fr]">
+          <div>
+            <p className="font-mono text-sm font-medium uppercase tracking-[0.14em] text-ink/60">Questions</p>
+            <h2 id="faq-title" className="mt-4 text-[36px] leading-[1.05] text-navy md:text-5xl">
+              Good to <span className="font-serif font-normal tracking-normal text-plum">know</span>
+            </h2>
+            <TextLink href="/services#faq" className="mt-6">
+              All questions <ArrowIcon className="size-4" />
+            </TextLink>
+          </div>
+          <FaqList faqs={faqs.slice(0, 4)} />
+        </Container>
+      </section>
+
       {/* 6. CTA band */}
-      <CTABand from="night" />
+      <CTABand />
     </>
   );
 }
