@@ -7,11 +7,13 @@ import { HeroWaves } from "@/components/brand-shapes";
 import { PhotoBackground } from "@/components/photo-background";
 import { Button } from "@/components/button";
 import { CTAStrip } from "@/components/cta-strip";
+import { FaqList } from "@/components/faq";
 import { BoltIcon, CheckIcon, RefreshIcon, ServiceIcon, WhatsAppIcon } from "@/components/icons";
 import { CheckoutScreen } from "@/components/mockups";
 import { PhoneInHand } from "@/components/phone-in-hand";
 import { Container, SectionHeading } from "@/components/section";
 import { comingSoon, services } from "@/content/services";
+import { engagements, faqs, stack } from "@/content/studio";
 import { whatsappUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -114,7 +116,11 @@ export default function ServicesPage() {
         <Container>
           <SectionHeading
             id="build-title"
-            title="What we build"
+            title={
+              <>
+                What we <span className="font-serif font-normal tracking-normal text-plum">build</span>
+              </>
+            }
             intro="Five ways we help. Tap one to see what's included."
             align="center"
             divider
@@ -194,6 +200,101 @@ export default function ServicesPage() {
           </section>
         ))}
       </div>
+
+      {/* How we engage */}
+      <section aria-labelledby="engage-title" className="bg-white py-20 md:py-28">
+        <Container>
+          <SectionHeading
+            id="engage-title"
+            eyebrow="How we work together"
+            title={
+              <>
+                Three ways to <span className="font-serif font-normal tracking-normal text-plum">work with us</span>
+              </>
+            }
+            intro="Pick the one that fits. Every option starts with a free call and a written quote in KES."
+            align="center"
+            divider
+          />
+          <ul className="mt-14 grid gap-px bg-navy/15 md:grid-cols-3">
+            {engagements.map((e, i) => (
+              <li
+                key={e.title}
+                className={`reveal flex flex-col p-7 md:p-9 ${i === 1 ? "bg-navy text-white" : "bg-white text-ink"}`}
+              >
+                <span className={`font-mono text-xs ${i === 1 ? "text-lilac" : "text-plum"}`}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className={`mt-3 text-2xl ${i === 1 ? "text-white" : "text-navy"}`}>{e.title}</h3>
+                <p className={`mt-2 ${i === 1 ? "text-white/80" : "text-ink/70"}`}>{e.bestFor}</p>
+                <ul className="mt-6 flex-1 space-y-3">
+                  {e.points.map((pt) => (
+                    <li key={pt} className="flex gap-3">
+                      <span aria-hidden className={`mt-2 size-1.5 shrink-0 ${i === 1 ? "bg-lilac" : "bg-plum"}`} />
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
+                <Button
+                  href="/contact"
+                  tone={i === 1 ? "dark" : "light"}
+                  variant={i === 1 ? "primary" : "secondary"}
+                  className="mt-8 self-start"
+                >
+                  Ask about this
+                </Button>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
+
+      {/* Tech stack */}
+      <section
+        aria-labelledby="stack-title"
+        className="relative isolate overflow-hidden bg-night py-20 text-white md:py-28"
+      >
+        <PhotoBackground photo="satin" tint="strong" />
+        <Container className="grid gap-12 lg:grid-cols-[0.9fr_2fr]">
+          <div>
+            <p className="font-mono text-sm font-medium uppercase tracking-[0.14em] text-white/70">Under the hood</p>
+            <h2 id="stack-title" className="mt-4 text-[36px] leading-[1.05] md:text-5xl">
+              Modern tools, <span className="font-serif font-normal tracking-normal text-lilac">proven</span> in Kenya
+            </h2>
+            <p className="mt-5 max-w-sm text-lg text-white/80">
+              Fast, secure and easy to look after, connected to the services your customers already use.
+            </p>
+          </div>
+          <dl className="grid gap-px bg-white/15 sm:grid-cols-2">
+            {stack.map((g) => (
+              <div key={g.title} className="bg-night/80 p-6 backdrop-blur-sm md:p-8">
+                <dt className="font-mono text-xs uppercase tracking-[0.14em] text-lilac">{g.title}</dt>
+                <dd className="mt-4 flex flex-wrap gap-2">
+                  {g.items.map((item) => (
+                    <span key={item} className="border border-white/20 px-3 py-1.5 font-mono text-sm text-white/90">
+                      {item}
+                    </span>
+                  ))}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </Container>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" aria-labelledby="faq-title" className="scroll-mt-20 bg-paper py-20 md:py-28">
+        <Container className="grid gap-12 lg:grid-cols-[0.9fr_2fr]">
+          <div>
+            <p className="font-mono text-sm font-medium uppercase tracking-[0.14em] text-ink/60">FAQ</p>
+            <h2 id="faq-title" className="mt-4 text-[36px] leading-[1.05] text-navy md:text-5xl">
+              Questions, <span className="font-serif font-normal tracking-normal text-plum">answered</span>
+            </h2>
+            <p className="mt-5 max-w-sm text-lg text-ink/75">Can&apos;t find yours? Ask us on WhatsApp.</p>
+          </div>
+          <FaqList faqs={faqs} structuredData />
+        </Container>
+      </section>
 
       {/* 5. Satin band: mobile apps, coming soon */}
       <section
