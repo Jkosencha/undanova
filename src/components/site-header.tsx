@@ -6,8 +6,8 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { buttonClasses } from "@/components/button";
 import { Container } from "@/components/section";
-import { CloseIcon, MenuIcon } from "@/components/icons";
-import { nav } from "@/lib/site";
+import { CloseIcon, MenuIcon, WhatsAppIcon } from "@/components/icons";
+import { nav, site, whatsappUrl } from "@/lib/site";
 
 const activeLink =
   "aria-[current=page]:text-white aria-[current=page]:underline aria-[current=page]:decoration-plum aria-[current=page]:decoration-2 aria-[current=page]:underline-offset-8";
@@ -59,7 +59,7 @@ export function SiteHeader() {
                 <Link
                   href={item.href}
                   aria-current={isActive(item.href) ? "page" : undefined}
-                  className={`py-2 font-medium text-white/80 transition-colors hover:text-white ${activeLink}`}
+                  className={`bg-[linear-gradient(var(--color-lilac),var(--color-lilac))] bg-[length:0%_2px] bg-bottom-left bg-no-repeat py-2 font-medium text-white/80 transition-[color,background-size] duration-300 hover:bg-[length:100%_2px] hover:text-white ${activeLink}`}
                 >
                   {item.label}
                 </Link>
@@ -114,6 +114,23 @@ export function SiteHeader() {
           >
             Start a project
           </Link>
+          <div className="mt-8 grid grid-cols-2 gap-3 border-t border-white/10 pt-6 text-sm">
+            <a
+              href={whatsappUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex min-h-12 items-center justify-center gap-2 border border-white/20 text-white"
+            >
+              <WhatsAppIcon className="size-5" />
+              WhatsApp
+            </a>
+            <a
+              href={`mailto:${site.email}`}
+              className="flex min-h-12 items-center justify-center border border-white/20 text-white"
+            >
+              Email us
+            </a>
+          </div>
         </Container>
       </nav>
     </header>
