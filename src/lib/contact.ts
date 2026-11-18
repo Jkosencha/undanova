@@ -2,11 +2,13 @@
  * Contact form fields and validation, shared by the form (browser) and the
  * server action so both check exactly the same rules.
  */
+import { saasProducts } from "@/content/saas";
 import { comingSoon, services } from "@/content/services";
 
 export const serviceOptions = [
   ...services.map((s) => ({ value: s.slug, label: s.title })),
   { value: comingSoon.slug, label: comingSoon.title },
+  ...saasProducts.map((p) => ({ value: p.slug, label: `${p.title} (ready-made)` })),
   { value: "other", label: "Something else / not sure" },
 ];
 
