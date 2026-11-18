@@ -41,6 +41,7 @@ type SectionProps = {
   id?: string;
   className?: string;
   "aria-labelledby"?: string;
+  "aria-label"?: string;
 };
 
 /** A full-width page section with standard vertical padding (64px mobile / 96px desktop). */
