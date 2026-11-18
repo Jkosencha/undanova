@@ -11,8 +11,14 @@ import "./globals.css";
 const display = Bricolage_Grotesque({ variable: "--font-display", subsets: ["latin"] });
 // Body: warm and very readable at small sizes.
 const body = Hanken_Grotesk({ variable: "--font-body", subsets: ["latin"] });
-// Accent words in headings.
-const serif = Instrument_Serif({ variable: "--font-accent", subsets: ["latin"], weight: "400", style: "italic" });
+// Accent words in headings. Not preloaded so it doesn't compete with the main fonts.
+const serif = Instrument_Serif({
+  variable: "--font-accent",
+  subsets: ["latin"],
+  weight: "400",
+  style: "italic",
+  preload: false,
+});
 // Small technical labels (step numbers, status tags). Not preloaded: never above the fold's main text.
 const mono = IBM_Plex_Mono({ variable: "--font-code", subsets: ["latin"], weight: ["400", "500"], preload: false });
 

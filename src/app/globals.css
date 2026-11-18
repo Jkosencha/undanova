@@ -159,24 +159,14 @@
 /* Motion                                                              */
 /* ------------------------------------------------------------------ */
 
-/* Page transitions (React <ViewTransition> in app/template.tsx). */
-::view-transition-old(.page-exit) {
-  animation: 160ms ease-in both vt-out;
-}
-::view-transition-new(.page-enter) {
-  animation: 360ms cubic-bezier(0.2, 0.7, 0.2, 1) 60ms both vt-in;
-}
-@keyframes vt-out {
-  to {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-}
-@keyframes vt-in {
+/* Page transitions (app/template.tsx): each new page rises into place. */
+@keyframes page-rise {
   from {
-    opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(16px);
   }
+}
+.page-in {
+  animation: page-rise 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
 /* Headline words drift up on load. They stay visible throughout, so the
@@ -184,7 +174,6 @@
 @keyframes word-up {
   from {
     transform: translateY(0.35em);
-    filter: blur(6px);
   }
 }
 @utility word-in {
@@ -192,34 +181,39 @@
   animation: word-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
-/* Endless marquee: the track holds the list twice and slides by half. */
-@keyframes marquee {
+/* Glowing animated border for key buttons. A large conic gradient rotates
+   behind a white fill: only a transform animates, so the GPU handles it and
+   nothing is repainted each frame. */
+@keyframes spin {
   to {
-    transform: translateX(-50%);
-  }
-}
-@utility animate-marquee {
-  animation: marquee 40s linear infinite;
-}
-
-/* Glowing animated border for key buttons. */
-@property --angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-@keyframes spin-angle {
-  to {
-    --angle: 360deg;
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 @utility border-glow {
-  border: 1.5px solid transparent;
-  background:
-    linear-gradient(var(--color-white), var(--color-white)) padding-box,
-    conic-gradient(from var(--angle), var(--color-plum), var(--color-lilac), var(--color-white), var(--color-plum))
-      border-box;
-  animation: spin-angle 4s linear infinite;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: transparent;
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    background: conic-gradient(var(--color-plum), var(--color-lilac), var(--color-white), var(--color-plum));
+    animation: spin 4s linear infinite;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 1.5px;
+    border-radius: inherit;
+    background: var(--color-white);
+  }
 }
 
 /* Gentle 3D tilt on hover (pointer devices only). */
@@ -285,13 +279,28 @@ details[open]::details-content {
   block-size: auto;
 }
 
+/*
+ * Touch devices (mostly mid-range Android phones for our audience) skip the
+ * always-running loops: drifting waves, pulsing dots, the spinning border and
+ * floating elements. They cost battery and main-thread time on budget phones
+ * (about 8 Lighthouse points on Home). One-off entrance motion still plays.
+ */
+@media (hover: none) {
+  .animate-drift,
+  .animate-drift-slow,
+  .animate-ping,
+  .animate-float,
+  .animate-float-delayed,
+  .animate-glow,
+  .border-glow::before {
+    animation: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,
-  ::after,
-  ::view-transition-group(*),
-  ::view-transition-old(*),
-  ::view-transition-new(*) {
+  ::after {
     animation: none !important;
     transition: none !important;
   }
