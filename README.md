@@ -77,6 +77,18 @@ public/brand/     Logo files used by the site
 
 After the first deploy, check that the contact form delivers to your inbox. Then run Lighthouse in Chrome DevTools (mobile) on the live site.
 
+## Photo credits
+
+Photos are from [Unsplash](https://unsplash.com) under the [Unsplash License](https://unsplash.com/license) (free for commercial use; credit appreciated, not required). They live in `src/assets/photos/` and are tinted navy by `PhotoBackground`.
+
+| File | Photo | Used on |
+|---|---|---|
+| `nairobi-night.jpg` | [Nairobi at night](https://unsplash.com/photos/Zkao_QBEjk8) by Mustafa Omar | Home hero, 404 |
+| `satin.jpg` | [Silky, flowing fabric](https://unsplash.com/photos/1dhcuHUFXFw) by Am | Services, Work, About, Contact, CTA |
+| `team-laptop.jpg` | [A smiling woman works on a laptop](https://unsplash.com/photos/s3hlZ-gdfdQ) by Vitaly Gariev | Home, how we work |
+
+To swap a photo, replace the file (keep the name) and rebuild.
+
 ## Before launch: what's still needed
 
 These are marked `TODO:` in the code (`grep -rn "TODO" src` lists them):
