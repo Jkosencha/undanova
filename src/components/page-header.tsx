@@ -1,24 +1,31 @@
 import type { ReactNode } from "react";
+import { Eyebrow, Glow, HeroWaves, WaveEdge } from "@/components/brand-shapes";
 import { Container } from "@/components/section";
 
 type PageHeaderProps = {
-  title: string;
+  title: ReactNode;
   intro?: ReactNode;
-  /** Optional small line above the title, e.g. a category. */
+  /** A string becomes a pill label; pass an element for anything custom. */
   eyebrow?: ReactNode;
   children?: ReactNode;
+  /** Colour of the section that follows, for the curved edge. */
+  next?: "paper" | "white";
 };
 
-/** The H1 block at the top of inner pages. */
-export function PageHeader({ title, intro, eyebrow, children }: PageHeaderProps) {
+/** Navy hero at the top of inner pages, matching the home page. */
+export function PageHeader({ title, intro, eyebrow, children, next = "paper" }: PageHeaderProps) {
   return (
-    <div className="border-b border-slate/20 bg-paper pb-12 pt-12 md:pb-16 md:pt-20">
+    <div className="relative isolate overflow-hidden bg-navy bg-dots pb-24 pt-12 text-white md:pb-36 md:pt-20">
+      <Glow className="-left-32 -top-40 -z-10 size-[32rem]" />
+      <Glow className="-right-40 top-10 -z-10 size-[26rem]" />
+      <HeroWaves className="bottom-4 -z-10 h-28 opacity-70 md:h-40" />
       <Container>
-        {eyebrow && <div className="mb-4">{eyebrow}</div>}
-        <h1 className="max-w-3xl text-[40px] text-navy md:text-[56px]">{title}</h1>
-        {intro && <p className="mt-4 max-w-2xl text-lg text-ink/70 md:text-xl">{intro}</p>}
+        {eyebrow && <div className="mb-6">{typeof eyebrow === "string" ? <Eyebrow tone="dark">{eyebrow}</Eyebrow> : eyebrow}</div>}
+        <h1 className="max-w-4xl text-[44px] leading-[1.05] md:text-[64px]">{title}</h1>
+        {intro && <p className="mt-5 max-w-2xl text-lg text-white/80 md:text-xl">{intro}</p>}
         {children}
       </Container>
+      <WaveEdge fill={next} />
     </div>
   );
 }
