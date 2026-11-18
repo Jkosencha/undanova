@@ -9,6 +9,9 @@ import { Container } from "@/components/section";
 import { CloseIcon, MenuIcon } from "@/components/icons";
 import { nav } from "@/lib/site";
 
+const activeLink =
+  "aria-[current=page]:text-white aria-[current=page]:underline aria-[current=page]:decoration-wave aria-[current=page]:decoration-2 aria-[current=page]:underline-offset-8";
+
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -30,7 +33,7 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate/20 bg-paper">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-navy/90 text-white backdrop-blur-md">
       <Container className="flex h-16 items-center justify-between gap-4 md:h-20">
         <Link
           href="/"
@@ -39,7 +42,7 @@ export function SiteHeader() {
           onClick={() => setOpen(false)}
         >
           <Image
-            src="/brand/undanova-logo-primary.svg"
+            src="/brand/undanova-logo-white.svg"
             alt="UndaNova"
             width={611}
             height={317}
@@ -50,20 +53,20 @@ export function SiteHeader() {
 
         {/* Desktop navigation */}
         <nav aria-label="Main" className="hidden items-center gap-8 md:flex">
-          <ul className="flex items-center gap-6">
+          <ul className="flex items-center gap-7">
             {nav.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   aria-current={isActive(item.href) ? "page" : undefined}
-                  className="py-2 font-medium text-ink hover:text-navy aria-[current=page]:text-navy aria-[current=page]:underline aria-[current=page]:decoration-wave aria-[current=page]:decoration-2 aria-[current=page]:underline-offset-8"
+                  className={`py-2 font-medium text-white/80 transition-colors hover:text-white ${activeLink}`}
                 >
                   {item.label}
                 </Link>
               </li>
             ))}
           </ul>
-          <Link href="/contact" className={buttonClasses("primary", "light")}>
+          <Link href="/contact" className={buttonClasses("primary", "dark")}>
             Start a project
           </Link>
         </nav>
@@ -72,7 +75,7 @@ export function SiteHeader() {
         <button
           ref={toggleRef}
           type="button"
-          className="inline-flex size-11 items-center justify-center rounded-full text-navy hover:bg-navy/5 md:hidden"
+          className="inline-flex size-11 items-center justify-center rounded-full text-white hover:bg-white/10 md:hidden"
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -87,17 +90,17 @@ export function SiteHeader() {
         id="mobile-menu"
         aria-label="Main"
         hidden={!open}
-        className="absolute inset-x-0 top-full border-b border-slate/20 bg-paper md:hidden"
+        className="absolute inset-x-0 top-full h-[calc(100dvh-4rem)] overflow-y-auto bg-navy bg-dots md:hidden"
       >
-        <Container className="py-4">
+        <Container className="py-6">
           <ul className="flex flex-col">
-            {nav.map((item) => (
-              <li key={item.href}>
+            {nav.map((item, i) => (
+              <li key={item.href} className="animate-rise" style={{ animationDelay: `${i * 60}ms` }}>
                 <Link
                   href={item.href}
                   aria-current={isActive(item.href) ? "page" : undefined}
                   onClick={() => setOpen(false)}
-                  className="flex min-h-12 items-center border-b border-slate/15 text-lg font-medium text-ink aria-[current=page]:text-navy aria-[current=page]:underline aria-[current=page]:decoration-wave aria-[current=page]:decoration-2 aria-[current=page]:underline-offset-8"
+                  className={`flex min-h-16 items-center border-b border-white/10 font-heading text-3xl text-white/85 ${activeLink}`}
                 >
                   {item.label}
                 </Link>
@@ -107,7 +110,7 @@ export function SiteHeader() {
           <Link
             href="/contact"
             onClick={() => setOpen(false)}
-            className={buttonClasses("primary", "light", "mt-6 w-full")}
+            className={buttonClasses("primary", "dark", "mt-8 w-full")}
           >
             Start a project
           </Link>
