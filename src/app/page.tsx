@@ -9,7 +9,6 @@ import { Button } from "@/components/button";
 import { CTABand } from "@/components/cta-band";
 import { FaqList } from "@/components/faq";
 import { HexTile } from "@/components/hexagon";
-import { Marquee } from "@/components/marquee";
 import { PhotoBackground } from "@/components/photo-background";
 import {
   ArrowIcon,
@@ -45,17 +44,6 @@ import { site } from "@/lib/site";
 const hexes = [
   ...services.map((s) => ({ href: `/services#${s.slug}`, title: s.title, slug: s.slug })),
   { href: "/saas", title: "Ready-made systems", slug: "mobile-apps" },
-];
-
-const marqueeItems = [
-  "M-Pesa payments",
-  "WhatsApp",
-  "SMS alerts",
-  "Dashboards",
-  "PDF reports",
-  "Online shops",
-  "School systems",
-  "NGO reporting",
 ];
 
 const capabilities = [
@@ -163,7 +151,7 @@ export default function Home() {
         <HeroWaves className="top-[38%] -z-10 h-48 opacity-70" />
         <Container className="pb-36 pt-14 text-center md:pb-48 md:pt-20">
           {site.availability && (
-            <p className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 font-mono text-xs font-medium uppercase tracking-[0.14em] text-white backdrop-blur-sm">
+            <p className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 font-mono text-xs font-medium uppercase tracking-[0.14em] text-white">
               <span aria-hidden className="relative inline-flex size-2">
                 <span className="absolute inline-flex size-full animate-ping rounded-full bg-lilac opacity-70" />
                 <span className="relative inline-flex size-2 rounded-full bg-lilac" />
@@ -212,46 +200,29 @@ export default function Home() {
             <ChevronDownIcon className="size-6" />
           </a>
 
-          {/* Hexagon tiles: 3 + 2 honeycomb on desktop, two columns on phones */}
+          {/* Hexagon tiles, rendered once: two columns on phones, a 3 + 2 honeycomb on desktop
+              (a six-column grid where the second row starts half a tile in and tucks up). */}
           <nav aria-label="What we build" className="mx-auto mt-10 max-w-3xl">
-            <ul className="grid grid-cols-2 gap-3 sm:gap-4 lg:hidden">
+            <ul className="grid grid-cols-2 gap-3 sm:gap-4 lg:mx-auto lg:max-w-[690px] lg:grid-cols-6 lg:gap-x-3 lg:gap-y-0">
               {hexes.map((h, i) => (
-                <li key={h.href} className={i === hexes.length - 1 ? "col-span-2 mx-auto w-1/2" : ""}>
+                <li
+                  key={h.href}
+                  className={[
+                    "lg:col-span-2",
+                    i === hexes.length - 1 ? "col-span-2 mx-auto w-1/2 lg:w-full" : "",
+                    i === 3 ? "lg:col-start-2 lg:-mt-12" : "",
+                    i === 4 ? "lg:col-start-4 lg:-mt-12" : "",
+                  ].join(" ")}
+                >
                   <HexTile
                     href={h.href}
                     title={h.title}
                     variant={i % 2 ? "plum" : "blue"}
-                    icon={<ServiceIcon slug={h.slug} className="size-6" />}
+                    icon={<ServiceIcon slug={h.slug} className="size-6 lg:size-7" />}
                   />
                 </li>
               ))}
             </ul>
-            <div className="hidden lg:block">
-              <ul className="flex justify-center gap-3">
-                {hexes.slice(0, 3).map((h, i) => (
-                  <li key={h.href} className="w-[220px]">
-                    <HexTile
-                      href={h.href}
-                      title={h.title}
-                      variant={i % 2 ? "plum" : "blue"}
-                      icon={<ServiceIcon slug={h.slug} className="size-7" />}
-                    />
-                  </li>
-                ))}
-              </ul>
-              <ul className="-mt-12 flex justify-center gap-3">
-                {hexes.slice(3).map((h, i) => (
-                  <li key={h.href} className="w-[220px]">
-                    <HexTile
-                      href={h.href}
-                      title={h.title}
-                      variant={i % 2 ? "blue" : "plum"}
-                      icon={<ServiceIcon slug={h.slug} className="size-7" />}
-                    />
-                  </li>
-                ))}
-              </ul>
-            </div>
           </nav>
         </Container>
         <WaveEdge fill="paper" />
@@ -277,10 +248,6 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Capability marquee */}
-      <div className="mt-16 md:mt-20">
-        <Marquee label="What we work with" items={marqueeItems} />
-      </div>
 
       {/* 3. Why choose us: tabs with a collage */}
       <section aria-labelledby="why-title" className="bg-paper py-20 md:py-28">
@@ -400,7 +367,7 @@ export default function Home() {
           <ol className="grid gap-px bg-navy/10 sm:grid-cols-2">
             {commitments.map((c, i) => (
               <li key={c.title} className="reveal bg-white p-6 md:p-8">
-                <span className="font-mono text-xs text-plum">{String(i + 1).padStart(2, "0")}</span>
+                <span className="font-mono text-xs text-navy/70">{String(i + 1).padStart(2, "0")}</span>
                 <h3 className="mt-3 text-2xl text-navy">{c.title}</h3>
                 <p className="mt-2 text-ink/75">{c.text}</p>
               </li>
