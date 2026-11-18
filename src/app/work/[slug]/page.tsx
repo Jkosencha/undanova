@@ -82,7 +82,7 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
                 >
                   {f.icon}
                 </span>
-                <dt className="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-navy">{f.label}</dt>
+                <dt className="mt-4 text-sm font-mono font-medium uppercase tracking-[0.14em] text-navy">{f.label}</dt>
                 <dd className="mt-1 text-lg text-navy/85">{f.value}</dd>
               </div>
             ))}

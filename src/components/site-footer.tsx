@@ -15,7 +15,7 @@ async function CurrentYear() {
   return new Date().getFullYear();
 }
 
-const heading = "text-sm font-semibold uppercase tracking-[0.18em] text-slate";
+const heading = "text-sm font-mono font-medium uppercase tracking-[0.14em] text-slate";
 const link = "inline-flex min-h-11 items-center text-white/85 transition-colors hover:text-white";
 
 export function SiteFooter() {

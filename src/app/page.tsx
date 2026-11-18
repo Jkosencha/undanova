@@ -147,7 +147,7 @@ export default function Home() {
         <PhotoBackground photo="nairobi" priority />
         <HeroWaves className="top-[38%] -z-10 h-48 opacity-70" />
         <Container className="pb-36 pt-14 text-center md:pb-48 md:pt-20">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/80">
+          <p className="text-sm font-mono font-medium uppercase tracking-[0.2em] text-white/80">
             Software studio · Made in Kenya
           </p>
           <h1 id="hero-title" className="mx-auto mt-6 max-w-5xl text-[52px] leading-[1] sm:text-7xl lg:text-[96px]">
@@ -261,7 +261,7 @@ export default function Home() {
               We&apos;re a small, focused team. You talk to the person building your project, and we build it to work
               for the people who&apos;ll use it.
             </p>
-            <p className="mt-6 font-heading text-sm font-semibold uppercase tracking-[0.18em] text-navy">
+            <p className="mt-6 font-heading text-sm font-mono font-medium uppercase tracking-[0.14em] text-navy">
               Jennifer Kosencha
             </p>
             <p className="text-sm text-ink/70">Founder, UndaNova</p>
@@ -297,7 +297,7 @@ export default function Home() {
         </svg>
         <Container className="grid items-center gap-12 lg:grid-cols-[0.8fr_1.6fr]">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">How we work</p>
+            <p className="text-sm font-mono font-medium uppercase tracking-[0.14em] text-white/70">How we work</p>
             <h2 id="process-title" className="mt-4 text-[40px] leading-[1.02] md:text-6xl">
               Clear steps.
               <br />
@@ -324,11 +324,11 @@ export default function Home() {
               >
                 <div className="flex items-center justify-between">
                   <step.Icon className="size-8 text-lilac" />
-                  <span aria-hidden className="font-heading text-sm text-white/60">
+                  <span aria-hidden className="font-mono text-xs text-white/60">
                     Step {i + 1}
                   </span>
                 </div>
-                <h3 className="mt-5 text-sm font-semibold uppercase tracking-[0.18em]">{step.title}</h3>
+                <h3 className="mt-5 text-sm font-mono font-medium uppercase tracking-[0.14em]">{step.title}</h3>
                 <p className="mt-2 text-white/80">{step.text}</p>
               </li>
             ))}

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description: "Tell UndaNova about your website, app or system. We reply within 24 hours.",
 };
 
-const label = "text-sm font-semibold uppercase tracking-[0.18em] text-slate";
+const label = "text-sm font-mono font-medium uppercase tracking-[0.14em] text-slate";
 
 export default function ContactPage() {
   return (

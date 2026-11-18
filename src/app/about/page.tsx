@@ -81,7 +81,7 @@ function StoryCard({
         {art}
       </div>
       <div className="flex-1 p-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink/60">{label}</p>
+        <p className="text-xs font-mono font-medium uppercase tracking-[0.14em] text-ink/60">{label}</p>
         <h3 className="mt-2 text-2xl text-navy">{title}</h3>
         <div className="mt-3 text-ink/75">{children}</div>
       </div>
@@ -100,7 +100,7 @@ export default function AboutPage() {
         <PhotoBackground photo="satin" priority sizes="(min-width: 1320px) 1320px, 100vw" />
         <div aria-hidden className="absolute inset-0 -z-10 bg-lines" />
         <div className="px-5 pb-6 pt-14 text-center md:px-10 md:pb-10 md:pt-20">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/80">About UndaNova</p>
+          <p className="text-sm font-mono font-medium uppercase tracking-[0.2em] text-white/80">About UndaNova</p>
           <h1
             id="about-title"
             className="mx-auto mt-5 max-w-4xl text-[40px] font-bold italic leading-[1.05] md:text-6xl"
@@ -231,7 +231,7 @@ export default function AboutPage() {
       <div className="mx-auto mt-2 max-w-[1320px] overflow-hidden bg-white sm:mt-4">
         <section aria-labelledby="for-title" className="border-b border-slate/20 py-10">
           <Container>
-            <h2 id="for-title" className="text-center text-sm font-semibold uppercase tracking-[0.18em] text-ink/60">
+            <h2 id="for-title" className="text-center text-sm font-mono font-medium uppercase tracking-[0.14em] text-ink/60">
               Who we build for
             </h2>
             <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
@@ -247,7 +247,7 @@ export default function AboutPage() {
 
         <section aria-labelledby="story-title" className="py-16 md:py-24">
           <Container>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink/60">My story</p>
+            <p className="text-xs font-mono font-medium uppercase tracking-[0.14em] text-ink/60">My story</p>
             <h2 id="story-title" className="mt-3 border-l-4 border-plum pl-4 text-[34px] text-navy md:text-5xl">
               Why I started UndaNova
             </h2>
@@ -346,7 +346,7 @@ export default function AboutPage() {
                 <div key={w.word} className="border-l-2 border-navy pl-5">
                   <dt className="font-heading text-2xl font-semibold italic text-navy">{w.word}</dt>
                   <dd className="mt-2">
-                    <span className="block text-xs font-semibold uppercase tracking-[0.18em] text-ink/60">
+                    <span className="block text-xs font-mono font-medium uppercase tracking-[0.14em] text-ink/60">
                       {w.lang}
                     </span>
                     <span className="block text-lg text-ink/80">{w.meaning}</span>

@@ -68,7 +68,7 @@ export default function ServicesPage() {
         <HeroWaves className="bottom-0 -z-10 h-32 opacity-50" />
         <Container className="grid items-end gap-6 pt-14 md:grid-cols-[1.1fr_1fr] md:pt-20">
           <div className="pb-14 md:pb-24">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/80">Services</p>
+            <p className="text-sm font-mono font-medium uppercase tracking-[0.2em] text-white/80">Services</p>
             <h1 id="services-title" className="mt-5 text-[44px] leading-[1.05] md:text-[64px]">
               <span className="font-extralight">Software that fits</span>{" "}
               <span className="font-bold text-gradient-plum">how you work.</span>
@@ -101,7 +101,7 @@ export default function ServicesPage() {
                 <span className="mx-auto inline-flex size-16 items-center justify-center rounded-full border-2 border-navy/40 text-navy">
                   <p.Icon className="size-7" />
                 </span>
-                <h2 className="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-navy">{p.title}</h2>
+                <h2 className="mt-4 text-sm font-mono font-medium uppercase tracking-[0.14em] text-navy">{p.title}</h2>
                 <p className="mx-auto mt-2 max-w-xs text-navy/80">{p.text}</p>
               </li>
             ))}
@@ -178,7 +178,7 @@ export default function ServicesPage() {
                 </Button>
               </div>
               <div className="reveal bg-satin p-7 text-white md:p-9">
-                <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">
+                <h3 className="text-sm font-mono font-medium uppercase tracking-[0.14em] text-white/70">
                   What&apos;s included
                 </h3>
                 <ul className="mt-5 grid gap-4 sm:grid-cols-2">
@@ -204,7 +204,7 @@ export default function ServicesPage() {
         {/* Navy veil keeps white text above AA contrast on the lighter plum. */}
         <div aria-hidden className="absolute inset-0 -z-10 bg-navy/40" />
         <Container>
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white">Coming soon</p>
+          <p className="text-sm font-mono font-medium uppercase tracking-[0.2em] text-white">Coming soon</p>
           <h2 id="apps-title" className="mt-4 text-[34px] md:text-5xl">
             {comingSoon.title}
           </h2>
@@ -225,7 +225,7 @@ export default function ServicesPage() {
       {/* 6. Works-with band */}
       <section aria-labelledby="works-with" className="bg-navy py-10">
         <Container className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
-          <h2 id="works-with" className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">
+          <h2 id="works-with" className="text-sm font-mono font-medium uppercase tracking-[0.14em] text-white/70">
             Works with
           </h2>
           <ul className="flex flex-wrap justify-center gap-x-8 gap-y-3 md:justify-end">

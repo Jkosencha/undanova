@@ -23,7 +23,7 @@ export default function WorkPage() {
   return (
     <>
       <WorkHero screen={<ChatScreen />}>
-        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/80">Our work</p>
+        <p className="text-sm font-mono font-medium uppercase tracking-[0.2em] text-white/80">Our work</p>
         <h1 className="mt-5 text-[44px] leading-[1.05] md:text-[64px]">
           <span className="font-extralight">Real projects for</span>{" "}
           <span className="font-bold text-gradient-plum">real organisations.</span>
@@ -51,7 +51,7 @@ export default function WorkPage() {
                   <span className="inline-flex size-16 items-center justify-center rounded-full border-2 border-navy/40 text-navy transition-colors group-hover:bg-navy group-hover:text-white">
                     <ServiceIcon slug={kindIcon[item.preview]} className="size-7" />
                   </span>
-                  <span className="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-navy">{item.title}</span>
+                  <span className="mt-4 text-sm font-mono font-medium uppercase tracking-[0.14em] text-navy">{item.title}</span>
                   <span className="mt-1 text-navy/80">{item.category}</span>
                 </Link>
               </li>
