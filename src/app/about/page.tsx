@@ -133,9 +133,12 @@ export default function AboutPage() {
                   <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-navy text-white">
                     <value.Icon className="size-6" />
                   </span>
-                  <span aria-hidden className="font-heading text-4xl font-bold text-navy/10">
-                    0{i + 1}
-                  </span>
+                  {/* Drawn as CSS content: purely decorative, so it isn't part of the page text. */}
+                  <span
+                    aria-hidden
+                    data-num={`0${i + 1}`}
+                    className="font-heading text-4xl font-bold text-navy/10 before:content-[attr(data-num)]"
+                  />
                 </div>
                 <h3 className="mt-6 text-2xl text-navy">{value.title}</h3>
                 <p className="mt-2 text-ink/70">{value.text}</p>

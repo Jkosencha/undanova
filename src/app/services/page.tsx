@@ -67,9 +67,12 @@ export default function ServicesPage() {
                       <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-navy text-white">
                         <ServiceIcon slug={service.slug} className="size-6" />
                       </span>
-                      <span aria-hidden className="font-heading text-5xl font-bold text-navy/10">
-                        0{i + 1}
-                      </span>
+                      {/* Drawn as CSS content: purely decorative, so it isn't part of the page text. */}
+                      <span
+                        aria-hidden
+                        data-num={`0${i + 1}`}
+                        className="font-heading text-5xl font-bold text-navy/10 before:content-[attr(data-num)]"
+                      />
                     </div>
                     <h2 id={`${service.slug}-title`} className="mt-5 text-[34px] text-navy md:text-5xl">
                       {service.title}
