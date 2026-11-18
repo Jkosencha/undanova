@@ -147,3 +147,47 @@ export function RefreshIcon(props: IconProps) {
     </svg>
   );
 }
+
+export function SearchIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...line} {...base} {...props}>
+      <circle cx="11" cy="11" r="6.5" />
+      <path d="m20 20-4.2-4.2" />
+    </svg>
+  );
+}
+
+export function PenIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...line} {...base} {...props}>
+      <path d="M4 20l1.2-4.6L15.8 4.8a2 2 0 0 1 2.8 0l.6.6a2 2 0 0 1 0 2.8L8.6 18.8 4 20z" />
+      <path d="M13.5 7l3.5 3.5" />
+    </svg>
+  );
+}
+
+export function CodeIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...line} {...base} {...props}>
+      <path d="M8 7l-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16" />
+    </svg>
+  );
+}
+
+export function RocketIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...line} {...base} {...props}>
+      <path d="M12 15c-1.5-1-2.5-2-3.5-3.5C10 6.5 13.5 3.5 20.5 3.5 20.5 10.5 17.5 14 12.5 15.5" />
+      <path d="M9 12.5 5.5 12 8 8.5h4M11.5 15l.5 3.5L15.5 16v-4" />
+      <path d="M6.5 17.5c-1 .5-2 2-2 3 1 0 2.5-1 3-2" />
+    </svg>
+  );
+}
+
+export function ChevronDownIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...line} {...base} {...props}>
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  );
+}
