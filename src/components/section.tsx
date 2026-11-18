@@ -16,7 +16,6 @@ export function Container({ children, className = "" }: { children: ReactNode; c
 
 type SectionHeadingProps = {
   id: string;
-  /** Wrap a word in <Accent> to light it up. */
   title: ReactNode;
   intro?: string;
   eyebrow?: string;
@@ -26,12 +25,6 @@ type SectionHeadingProps = {
   /** Short plum line under the title. */
   divider?: boolean;
 };
-
-/** Highlights part of a heading: wave underline on light sections, gradient on navy. */
-export function Accent({ children, tone = "light" }: { children: ReactNode; tone?: "light" | "dark" }) {
-  if (tone === "dark") return <span className="text-gradient-plum">{children}</span>;
-  return <span className="underline decoration-plum decoration-[0.12em] underline-offset-[0.18em]">{children}</span>;
-}
 
 /** Standard section heading: optional pill label, h2 and intro line. */
 export function SectionHeading({

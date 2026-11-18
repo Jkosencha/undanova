@@ -14,18 +14,6 @@ import {
 
 export type PreviewKind = "website" | "shop" | "dashboard" | "support" | "app";
 
-const bySlug: Record<string, PreviewKind> = {
-  "business-websites": "website",
-  "ecommerce-mpesa": "shop",
-  "ngo-school-systems": "dashboard",
-  "support-maintenance": "support",
-  "mobile-apps": "app",
-};
-
-export function previewForService(slug: string): PreviewKind {
-  return bySlug[slug] ?? "website";
-}
-
 /** A navy panel with a device illustration centred in it. */
 export function PreviewPanel({ kind, className = "" }: { kind: PreviewKind; className?: string }) {
   const phone = kind === "shop" || kind === "app";
