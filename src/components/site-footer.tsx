@@ -114,11 +114,31 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-2 border-t border-white/15 pt-6 text-sm text-slate sm:flex-row sm:justify-between">
+        <div className="mt-14 flex flex-col gap-4 border-t border-white/15 pt-6 text-sm text-slate md:flex-row md:items-center md:justify-between">
           <p>
             © <CurrentYear /> UndaNova. Made in Kenya.
           </p>
-          <p>{site.responseTime}.</p>
+          {site.availability && (
+            <p className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.14em] text-white/85">
+              <span aria-hidden className="relative inline-flex size-2">
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-lilac opacity-60" />
+                <span className="relative inline-flex size-2 rounded-full bg-lilac" />
+              </span>
+              {site.availability}
+            </p>
+          )}
+          <ul className="flex gap-6">
+            <li>
+              <Link href="/privacy" prefetch={false} className="inline-flex min-h-11 items-center hover:text-white">
+                Privacy
+              </Link>
+            </li>
+            <li>
+              <Link href="/terms" prefetch={false} className="inline-flex min-h-11 items-center hover:text-white">
+                Terms
+              </Link>
+            </li>
+          </ul>
         </div>
       </Container>
     </footer>
