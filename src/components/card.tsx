@@ -16,7 +16,7 @@ const tones = {
 };
 
 export function Card({ children, href, tone = "light", className = "" }: CardProps) {
-  const base = `rounded-3xl border ${tones[tone].base}`;
+  const base = ` border ${tones[tone].base}`;
   if (href) {
     return (
       // No viewport prefetch: a page of cards would otherwise download every linked

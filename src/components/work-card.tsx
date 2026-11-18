@@ -38,7 +38,7 @@ export function WorkCard({ item, headingLevel = "h3", tone = "light" }: WorkCard
           width={800}
           height={500}
           sizes="(min-width: 768px) 33vw, 100vw"
-          className="aspect-[16/10] w-full rounded-2xl object-cover"
+          className="aspect-[16/10] w-full object-cover"
         />
       ) : (
         <PreviewPanel kind={item.preview} className="aspect-[16/10]" />

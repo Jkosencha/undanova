@@ -23,7 +23,7 @@ export function CTABand({
       className={`bg-gradient-to-b to-navy to-50% pt-8 md:pt-12 ${{ paper: "from-paper", white: "from-white", night: "from-night" }[from]} from-50%`}
     >
       <Container>
-        <div className="reveal relative isolate overflow-hidden rounded-3xl border border-white/10 bg-navy bg-dots px-6 py-14 text-center text-white md:px-16 md:py-20">
+        <div className="reveal relative isolate overflow-hidden border border-white/10 bg-navy bg-dots px-6 py-14 text-center text-white md:px-16 md:py-20">
           <Glow className="-left-24 -top-24 -z-10 size-96" />
           <Glow className="-bottom-32 -right-16 -z-10 size-[28rem]" />
           <HeroWaves className="bottom-0 -z-10 h-32 opacity-50" />

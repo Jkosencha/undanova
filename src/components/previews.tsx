@@ -20,7 +20,7 @@ export function PreviewPanel({ kind, className = "" }: { kind: PreviewKind; clas
   return (
     <div
       aria-hidden
-      className={`relative isolate flex justify-center overflow-hidden rounded-2xl bg-navy bg-dots px-6 pt-8 ${phone ? "items-start" : "items-end"} ${className}`}
+      className={`relative isolate flex justify-center overflow-hidden bg-navy bg-dots px-6 pt-8 ${phone ? "items-start" : "items-end"} ${className}`}
     >
       <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 size-72 -translate-x-1/2 -translate-y-1/2 glow-plum opacity-70" />
       {phone ? (

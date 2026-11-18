@@ -128,7 +128,7 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
                     width={1200}
                     height={675}
                     sizes={i === 0 ? "(min-width: 1200px) 1152px, 100vw" : "(min-width: 768px) 50vw, 100vw"}
-                    className="aspect-video w-full rounded-3xl border border-slate/20 object-cover"
+                    className="aspect-video w-full border border-slate/20 object-cover"
                   />
                 </li>
               ))}

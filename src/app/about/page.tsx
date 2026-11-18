@@ -56,9 +56,7 @@ const words = [
 /** Dark bento tile. */
 function Tile({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
-    <div
-      className={`relative overflow-hidden rounded-3xl border border-white/10 bg-night/60 p-5 text-left ${className}`}
-    >
+    <div className={`relative overflow-hidden border border-white/10 bg-night/60 p-5 text-left ${className}`}>
       {children}
     </div>
   );
@@ -77,7 +75,7 @@ function StoryCard({
   children: ReactNode;
 }) {
   return (
-    <article className="reveal flex flex-col overflow-hidden rounded-3xl border border-slate/25 bg-white">
+    <article className="reveal flex flex-col overflow-hidden border border-slate/25 bg-white">
       <div aria-hidden className="relative h-48 overflow-hidden bg-paper bg-dots-navy">
         {art}
       </div>
@@ -96,7 +94,7 @@ export default function AboutPage() {
       {/* 1. Dark rounded hero card with the bento */}
       <section
         aria-labelledby="about-title"
-        className="relative isolate mx-auto max-w-[1320px] overflow-hidden rounded-[2rem] border border-white/10 bg-satin text-white md:rounded-[2.5rem]"
+        className="relative isolate mx-auto max-w-[1320px] overflow-hidden border border-white/10 bg-satin text-white"
       >
         <div aria-hidden className="absolute inset-0 -z-10 bg-lines" />
         <div className="px-5 pb-6 pt-14 text-center md:px-10 md:pb-10 md:pt-20">
@@ -144,7 +142,7 @@ export default function AboutPage() {
               </svg>
               <a
                 href="/services"
-                className="flex items-center gap-3 rounded-2xl border border-white/15 bg-white/5 p-2 pr-4 text-sm font-medium hover:bg-white/10"
+                className="flex items-center gap-3 border border-white/15 bg-white/5 p-2 pr-4 text-sm font-medium hover:bg-white/10"
               >
                 <span className="inline-flex size-9 items-center justify-center rounded-full bg-white text-navy">
                   <ArrowIcon className="size-4" />
@@ -228,7 +226,7 @@ export default function AboutPage() {
       </section>
 
       {/* 2. White panel */}
-      <div className="mx-auto mt-2 max-w-[1320px] overflow-hidden rounded-[2rem] bg-white sm:mt-4 md:rounded-[2.5rem]">
+      <div className="mx-auto mt-2 max-w-[1320px] overflow-hidden bg-white sm:mt-4">
         <section aria-labelledby="for-title" className="border-b border-slate/20 py-10">
           <Container>
             <h2 id="for-title" className="text-center text-sm font-semibold uppercase tracking-[0.18em] text-ink/60">

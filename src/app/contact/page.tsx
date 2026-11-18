@@ -31,7 +31,7 @@ export default function ContactPage() {
       <section aria-label="Contact form and details" className="bg-paper pb-20 md:pb-28">
         {/* The form overlaps the header's wave edge */}
         <Container className="-mt-12 grid gap-6 md:-mt-24 lg:grid-cols-[1fr_380px] lg:gap-8">
-          <div className="relative rounded-3xl shadow-2xl shadow-ink/20">
+          <div className="relative shadow-2xl shadow-ink/20">
             {/* The URL's ?service= is only known in the browser, so the pre-filled
                 form renders there; the static page ships the same form without it. */}
             <Suspense fallback={<ContactForm />}>
@@ -41,7 +41,7 @@ export default function ContactPage() {
 
           <aside
             aria-labelledby="contact-details"
-            className="relative isolate overflow-hidden rounded-3xl bg-navy bg-dots p-6 text-white md:p-8 lg:self-start"
+            className="relative isolate overflow-hidden bg-navy bg-dots p-6 text-white md:p-8 lg:self-start"
           >
             <Glow className="-right-24 -top-24 -z-10 size-72" />
             <h2 id="contact-details" className="text-3xl">

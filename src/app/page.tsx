@@ -21,7 +21,15 @@ import {
   SearchIcon,
   ServiceIcon,
 } from "@/components/icons";
-import { BrowserFrame, ChatScreen, DashboardScreen, PhoneFrame, StatusScreen, Toast, WebsiteScreen } from "@/components/mockups";
+import {
+  BrowserFrame,
+  ChatScreen,
+  DashboardScreen,
+  PhoneFrame,
+  StatusScreen,
+  Toast,
+  WebsiteScreen,
+} from "@/components/mockups";
 import { ReasonTabs, type Reason } from "@/components/reason-tabs";
 import { Container, SectionHeading } from "@/components/section";
 import { TextLink } from "@/components/text-link";
@@ -35,9 +43,18 @@ const hexes = [
 ];
 
 const capabilities = [
-  { title: "M-Pesa", text: "Get paid on any phone", icon: <ServiceIcon slug="ecommerce-mpesa" className="size-7" />, highlight: true },
+  {
+    title: "M-Pesa",
+    text: "Get paid on any phone",
+    icon: <ServiceIcon slug="ecommerce-mpesa" className="size-7" />,
+    highlight: true,
+  },
   { title: "WhatsApp & SMS", text: "Reach customers", icon: <ChatIcon className="size-7" /> },
-  { title: "Dashboards", text: "Reports in one click", icon: <ServiceIcon slug="ngo-school-systems" className="size-7" /> },
+  {
+    title: "Dashboards",
+    text: "Reports in one click",
+    icon: <ServiceIcon slug="ngo-school-systems" className="size-7" />,
+  },
   { title: "Fast pages", text: "Even on slow data", icon: <BoltIcon className="size-7" /> },
   { title: "Support", text: "After launch", icon: <RefreshIcon className="size-7" /> },
 ];
@@ -46,11 +63,9 @@ const capabilities = [
 function Collage({ children }: { children: ReactNode }) {
   return (
     <div aria-hidden className="relative mx-auto max-w-md pb-4 pl-4">
-      <div className="absolute inset-0 -translate-x-4 translate-y-4 rounded-3xl bg-lilac/60" />
-      <div className="absolute inset-0 -translate-x-2 translate-y-2 rounded-3xl bg-plum/40" />
-      <div className="relative flex h-80 items-center justify-center overflow-hidden rounded-3xl bg-satin p-6">
-        {children}
-      </div>
+      <div className="absolute inset-0 -translate-x-4 translate-y-4 bg-lilac/60" />
+      <div className="absolute inset-0 -translate-x-2 translate-y-2 bg-plum/40" />
+      <div className="relative flex h-80 items-center justify-center overflow-hidden bg-satin p-6">{children}</div>
     </div>
   );
 }
@@ -116,7 +131,11 @@ const steps = [
   { title: "Discover", text: "We learn how your organisation works and what you need.", Icon: SearchIcon },
   { title: "Design", text: "We plan the pages and screens, and you approve them before we build.", Icon: PenIcon },
   { title: "Build", text: "We build it, test it on real phones and show you progress as we go.", Icon: CodeIcon },
-  { title: "Launch & support", text: "We put it live, show your team how to use it and keep it running.", Icon: RocketIcon },
+  {
+    title: "Launch & support",
+    text: "We put it live, show your team how to use it and keep it running.",
+    Icon: RocketIcon,
+  },
 ];
 
 export default function Home() {
@@ -127,7 +146,9 @@ export default function Home() {
         <div aria-hidden className="absolute inset-0 -z-10 bg-dots opacity-60" />
         <HeroWaves className="top-[38%] -z-10 h-48 opacity-70" />
         <Container className="pb-36 pt-14 text-center md:pb-48 md:pt-20">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/80">Software studio · Made in Kenya</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/80">
+            Software studio · Made in Kenya
+          </p>
           <h1 id="hero-title" className="mx-auto mt-6 max-w-5xl text-[52px] leading-[1] sm:text-7xl lg:text-[96px]">
             <span className="font-extralight">We build </span>
             <span className="font-bold text-gradient-plum">what&apos;s next.</span>
@@ -199,13 +220,9 @@ export default function Home() {
       </section>
 
       {/* 2. Capability strip overlapping the hero: Ocean Crown */}
-      <section
-        id="capabilities"
-        aria-label="What's built in"
-        className="relative z-10 -mt-16 scroll-mt-24 md:-mt-24"
-      >
+      <section id="capabilities" aria-label="What's built in" className="relative z-10 -mt-16 scroll-mt-24 md:-mt-24">
         <Container>
-          <ul className="grid grid-cols-2 overflow-hidden rounded-3xl bg-white shadow-2xl shadow-navy/20 sm:grid-cols-3 lg:grid-cols-5">
+          <ul className="grid grid-cols-2 overflow-hidden bg-white shadow-2xl shadow-navy/20 sm:grid-cols-3 lg:grid-cols-5">
             {capabilities.map((c) => (
               <li
                 key={c.title}
@@ -240,8 +257,8 @@ export default function Home() {
               A studio with a difference. <span className="text-plum">Built in Kenya.</span>
             </h2>
             <p className="mt-5 text-lg text-ink/75">
-              We&apos;re a small, focused team. You talk to the person building your project, and we build it to work for
-              the people who&apos;ll use it.
+              We&apos;re a small, focused team. You talk to the person building your project, and we build it to work
+              for the people who&apos;ll use it.
             </p>
             <p className="mt-6 font-heading text-sm font-semibold uppercase tracking-[0.18em] text-navy">
               Jennifer Kosencha
@@ -300,7 +317,7 @@ export default function Home() {
             {steps.map((step, i) => (
               <li
                 key={step.title}
-                className={`reveal rounded-2xl border p-6 transition-colors ${
+                className={`reveal border p-6 transition-colors ${
                   i === 0 ? "border-white bg-white/[0.06]" : "border-white/20 hover:border-white/60"
                 }`}
               >

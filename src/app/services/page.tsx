@@ -176,7 +176,7 @@ export default function ServicesPage() {
                   Get a quote
                 </Button>
               </div>
-              <div className="reveal rounded-3xl bg-satin p-7 text-white md:p-9">
+              <div className="reveal bg-satin p-7 text-white md:p-9">
                 <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">
                   What&apos;s included
                 </h3>

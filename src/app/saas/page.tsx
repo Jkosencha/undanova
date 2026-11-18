@@ -156,7 +156,7 @@ export default function SaasPage() {
             {saasProducts.map((product) => (
               <li
                 key={product.slug}
-                className="reveal group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-navy/80 to-night p-7 transition-colors hover:border-plum/60"
+                className="reveal group relative flex flex-col overflow-hidden border border-white/10 bg-gradient-to-b from-navy/80 to-night p-7 transition-colors hover:border-plum/60"
               >
                 <div aria-hidden className="absolute -right-16 -top-16 size-48 rounded-full glow-plum opacity-60" />
                 <span className="relative inline-flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-plum to-navy text-white shadow-lg shadow-plum/30">

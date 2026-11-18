@@ -99,7 +99,7 @@ export function ContactForm({ defaultService = "" }: { defaultService?: string }
 
   if (state.status === "success") {
     return (
-      <div role="status" className="rounded-3xl border border-slate/30 bg-white p-6 md:p-10">
+      <div role="status" className=" border border-slate/30 bg-white p-6 md:p-10">
         <h2 className="text-2xl text-navy">Thank you{state.name ? `, ${state.name.split(" ")[0]}` : ""}.</h2>
         <p className="mt-2 text-lg">We&apos;ve got your message and we&apos;ll reply within 24 hours.</p>
         <TextLink href="/work" className="mt-4">
@@ -115,10 +115,10 @@ export function ContactForm({ defaultService = "" }: { defaultService?: string }
       action={formAction}
       onSubmit={onSubmit}
       noValidate
-      className="space-y-6 rounded-3xl border border-slate/30 bg-white p-6 md:p-10"
+      className="space-y-6 border border-slate/30 bg-white p-6 md:p-10"
     >
       {state.status === "error" && (
-        <div role="alert" className="rounded-xl bg-navy p-4 text-white">
+        <div role="alert" className="bg-navy p-4 text-white">
           Sorry, your message didn&apos;t send. Please try again, or message us on WhatsApp.
         </div>
       )}
@@ -228,7 +228,11 @@ export function ContactForm({ defaultService = "" }: { defaultService?: string }
         <input id={HONEYPOT_FIELD} name={HONEYPOT_FIELD} type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
-      <button type="submit" disabled={pending} className={buttonClasses("primary", "light", "w-full sm:w-auto disabled:opacity-70")}>
+      <button
+        type="submit"
+        disabled={pending}
+        className={buttonClasses("primary", "light", "w-full sm:w-auto disabled:opacity-70")}
+      >
         {pending ? "Sending…" : "Send message"}
       </button>
     </form>
