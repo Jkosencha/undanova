@@ -33,7 +33,7 @@ export function PhoneInHand({ children, className = "" }: { children: ReactNode;
         </div>
 
         {/* Palm and thumb, in front of the phone */}
-        <svg viewBox="0 0 300 460" className="absolute inset-0 h-full w-full drop-shadow-[0_-6px_18px_var(--color-night)]">
+        <svg viewBox="0 0 300 460" className="absolute inset-0 h-full w-full drop-shadow-[0_-3px_8px_var(--color-night)]">
           <defs>
             <linearGradient id={front} x1="0" y1="0" x2="0.4" y2="1">
               <stop offset="0" className="[stop-color:var(--color-lilac)]" />
