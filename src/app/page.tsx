@@ -1,6 +1,7 @@
 import { Button } from "@/components/button";
 import { Card } from "@/components/card";
 import { CTABand } from "@/components/cta-band";
+import { ArrowIcon, CheckIcon } from "@/components/icons";
 import { Section, SectionHeading } from "@/components/section";
 import { TextLink } from "@/components/text-link";
 import { WaveDivider } from "@/components/wave-divider";
@@ -32,23 +33,6 @@ const steps = [
   { title: "Build", text: "We build it, test it on real phones and show you progress as we go." },
   { title: "Launch & support", text: "We put it live, show your team how to use it and keep it running." },
 ];
-
-function CheckIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden focusable={false} className="size-6 shrink-0">
-      <circle cx="12" cy="12" r="12" className="fill-wave" />
-      <path d="M7 12.5l3.2 3.2L17 9" fill="none" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" className="stroke-white" />
-    </svg>
-  );
-}
-
-function ArrowIcon() {
-  return (
-    <svg viewBox="0 0 20 20" aria-hidden focusable={false} className="size-4" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 10h12M11 5l5 5-5 5" />
-    </svg>
-  );
-}
 
 export default function Home() {
   return (
@@ -85,7 +69,7 @@ export default function Home() {
                 <h3 className="text-xl text-navy">{service.title}</h3>
                 <p className="mt-2 flex-1 text-ink/70">{service.summary}</p>
                 <span className="mt-4 inline-flex items-center gap-1 font-medium text-navy">
-                  Learn more <ArrowIcon />
+                  Learn more <ArrowIcon className="size-4" />
                 </span>
               </Card>
             </li>
@@ -99,7 +83,7 @@ export default function Home() {
         <ul className="mt-10 grid gap-8 sm:grid-cols-2">
           {reasons.map((reason) => (
             <li key={reason.title} className="flex gap-4">
-              <CheckIcon />
+              <CheckIcon className="size-6 shrink-0" />
               <div>
                 <h3 className="text-xl text-navy">{reason.title}</h3>
                 <p className="mt-1 text-ink/70">{reason.text}</p>
@@ -114,7 +98,7 @@ export default function Home() {
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <SectionHeading id="work-title" title="Featured work" intro="A few of the projects we're working on." />
           <TextLink href="/work">
-            See all our work <ArrowIcon />
+            See all our work <ArrowIcon className="size-4" />
           </TextLink>
         </div>
         <ul className="mt-10 grid gap-4 md:grid-cols-3">
@@ -132,7 +116,7 @@ export default function Home() {
                 <h3 className="mt-3 text-xl text-navy">{item.title}</h3>
                 <p className="mt-2 flex-1 text-ink/70">{item.summary}</p>
                 <span className="mt-4 inline-flex items-center gap-1 font-medium text-navy">
-                  View project <ArrowIcon />
+                  View project <ArrowIcon className="size-4" />
                 </span>
               </Card>
             </li>
