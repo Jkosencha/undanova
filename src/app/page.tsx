@@ -319,7 +319,7 @@ export default function Home() {
       </section>
 
       {/* 6. CTA band */}
-      <CTABand />
+      <CTABand from="night" />
     </>
   );
 }
