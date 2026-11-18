@@ -222,7 +222,7 @@ export default function ServicesPage() {
                 key={e.title}
                 className={`reveal flex flex-col p-7 md:p-9 ${i === 1 ? "bg-navy text-white" : "bg-white text-ink"}`}
               >
-                <span className={`font-mono text-xs ${i === 1 ? "text-lilac" : "text-plum"}`}>
+                <span className={`font-mono text-xs ${i === 1 ? "text-lilac" : "text-navy/70"}`}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className={`mt-3 text-2xl ${i === 1 ? "text-white" : "text-navy"}`}>{e.title}</h3>

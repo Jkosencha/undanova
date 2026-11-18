@@ -15,7 +15,7 @@ export function FaqList({ faqs, structuredData = false }: FaqListProps) {
           <details key={f.q} className="group" name="faq" open={i === 0}>
             <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-6 py-5 text-left font-heading text-lg font-semibold text-navy marker:hidden md:text-xl [&::-webkit-details-marker]:hidden">
               <span className="flex items-baseline gap-4">
-                <span aria-hidden className="font-mono text-xs font-medium text-plum">
+                <span aria-hidden className="font-mono text-xs font-medium text-navy/70">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 {f.q}

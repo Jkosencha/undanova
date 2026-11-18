@@ -30,7 +30,7 @@ export function LegalPage({
                     href={`#${s.id}`}
                     className="-ml-px flex min-h-10 items-center gap-3 border-l-2 border-transparent pl-4 text-ink/75 hover:border-plum hover:text-navy"
                   >
-                    <span className="font-mono text-xs text-plum">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="font-mono text-xs text-navy/70">{String(i + 1).padStart(2, "0")}</span>
                     {s.title}
                   </a>
                 </li>
@@ -46,7 +46,7 @@ export function LegalPage({
             <div className="mt-10 space-y-12">
               {sections.map((s, i) => (
                 <section key={s.id} id={s.id} aria-labelledby={`${s.id}-title`} className="scroll-mt-28">
-                  <p className="font-mono text-xs text-plum">{String(i + 1).padStart(2, "0")}</p>
+                  <p className="font-mono text-xs text-navy/70">{String(i + 1).padStart(2, "0")}</p>
                   <h2 id={`${s.id}-title`} className="mt-1 text-2xl text-navy md:text-3xl">
                     {s.title}
                   </h2>
