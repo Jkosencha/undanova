@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Glow, HeroWaves } from "@/components/brand-shapes";
+import { PhotoBackground } from "@/components/photo-background";
 import { Button } from "@/components/button";
 import { Container } from "@/components/section";
 
@@ -9,7 +10,8 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <section className="relative isolate flex flex-1 items-center overflow-hidden bg-navy bg-dots py-24 text-white md:py-32">
+    <section className="relative isolate flex flex-1 items-center overflow-hidden bg-navy py-24 text-white md:py-32">
+      <PhotoBackground photo="nairobi" priority />
       <Glow className="-left-32 -top-32 -z-10 size-[30rem]" />
       <Glow className="-bottom-40 right-0 -z-10 size-[30rem]" />
       <HeroWaves className="bottom-8 -z-10 h-48" />

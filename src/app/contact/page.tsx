@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Glow } from "@/components/brand-shapes";
+import { PhotoBackground } from "@/components/photo-background";
 import { Button } from "@/components/button";
 import { ContactForm, ContactFormWithParams } from "@/components/contact-form";
 import { WhatsAppIcon } from "@/components/icons";
@@ -41,8 +42,9 @@ export default function ContactPage() {
 
           <aside
             aria-labelledby="contact-details"
-            className="relative isolate overflow-hidden bg-navy bg-dots p-6 text-white md:p-8 lg:self-start"
+            className="relative isolate overflow-hidden bg-navy p-6 text-white md:p-8 lg:self-start"
           >
+            <PhotoBackground photo="satin" sizes="(min-width: 1024px) 380px, 100vw" />
             <Glow className="-right-24 -top-24 -z-10 size-72" />
             <h2 id="contact-details" className="text-3xl">
               Prefer to chat?

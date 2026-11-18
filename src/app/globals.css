@@ -121,17 +121,6 @@
   );
 }
 
-/* Dot-grid texture: light dots for navy sections, navy dots for light ones. */
-@utility bg-dots {
-  background-image: radial-gradient(color-mix(in srgb, var(--color-white) 14%, transparent) 1px, transparent 1.5px);
-  background-size: 24px 24px;
-}
-
-@utility bg-dots-navy {
-  background-image: radial-gradient(color-mix(in srgb, var(--color-navy) 12%, transparent) 1px, transparent 1.5px);
-  background-size: 24px 24px;
-}
-
 /* Soft plum glow behind key elements on navy. */
 @utility glow-plum {
   background: radial-gradient(closest-side, color-mix(in srgb, var(--color-plum) 55%, transparent), transparent);

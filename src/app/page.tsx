@@ -8,6 +8,7 @@ import { HeroWaves, WaveEdge } from "@/components/brand-shapes";
 import { Button } from "@/components/button";
 import { CTABand } from "@/components/cta-band";
 import { HexTile } from "@/components/hexagon";
+import { PhotoBackground } from "@/components/photo-background";
 import {
   ArrowIcon,
   BoltIcon,
@@ -143,7 +144,7 @@ export default function Home() {
     <>
       {/* 1. Hero: Digital Backbone */}
       <section aria-labelledby="hero-title" className="relative isolate overflow-hidden bg-satin text-white">
-        <div aria-hidden className="absolute inset-0 -z-10 bg-dots opacity-60" />
+        <PhotoBackground photo="nairobi" priority />
         <HeroWaves className="top-[38%] -z-10 h-48 opacity-70" />
         <Container className="pb-36 pt-14 text-center md:pb-48 md:pt-20">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/80">
@@ -283,7 +284,7 @@ export default function Home() {
         aria-labelledby="process-title"
         className="relative isolate overflow-hidden bg-night py-20 text-white md:py-28"
       >
-        <div aria-hidden className="absolute inset-0 -z-10 bg-dots opacity-50" />
+        <PhotoBackground photo="team" />
         <svg
           aria-hidden
           viewBox="0 0 641 197"

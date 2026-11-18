@@ -1,5 +1,6 @@
 import { Glow, HeroWaves } from "@/components/brand-shapes";
 import { Button } from "@/components/button";
+import { PhotoBackground } from "@/components/photo-background";
 import { WhatsAppIcon } from "@/components/icons";
 import { Container } from "@/components/section";
 import { whatsappUrl } from "@/lib/site";
@@ -23,7 +24,8 @@ export function CTABand({
       className={`bg-gradient-to-b to-navy to-50% pt-8 md:pt-12 ${{ paper: "from-paper", white: "from-white", night: "from-night" }[from]} from-50%`}
     >
       <Container>
-        <div className="reveal relative isolate overflow-hidden border border-white/10 bg-navy bg-dots px-6 py-14 text-center text-white md:px-16 md:py-20">
+        <div className="reveal relative isolate overflow-hidden border border-white/10 bg-navy px-6 py-14 text-center text-white md:px-16 md:py-20">
+          <PhotoBackground photo="satin" tint="soft" sizes="(min-width: 1200px) 1152px, 100vw" />
           <Glow className="-left-24 -top-24 -z-10 size-96" />
           <Glow className="-bottom-32 -right-16 -z-10 size-[28rem]" />
           <HeroWaves className="bottom-0 -z-10 h-32 opacity-50" />

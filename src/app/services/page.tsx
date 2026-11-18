@@ -4,6 +4,7 @@
  */
 import type { Metadata } from "next";
 import { HeroWaves } from "@/components/brand-shapes";
+import { PhotoBackground } from "@/components/photo-background";
 import { Button } from "@/components/button";
 import { CTAStrip } from "@/components/cta-strip";
 import { BoltIcon, CheckIcon, RefreshIcon, ServiceIcon, WhatsAppIcon } from "@/components/icons";
@@ -63,7 +64,7 @@ export default function ServicesPage() {
     <>
       {/* 1. Hero: text left, phone in hand right */}
       <section aria-labelledby="services-title" className="relative isolate overflow-hidden bg-satin text-white">
-        <div aria-hidden className="absolute inset-0 -z-10 bg-dots opacity-40" />
+        <PhotoBackground photo="satin" priority />
         <HeroWaves className="bottom-0 -z-10 h-32 opacity-50" />
         <Container className="grid items-end gap-6 pt-14 md:grid-cols-[1.1fr_1fr] md:pt-20">
           <div className="pb-14 md:pb-24">

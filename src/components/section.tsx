@@ -92,7 +92,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={`relative isolate overflow-hidden pt-16 md:pt-24 ${edge ? "pb-28 md:pb-40" : "pb-16 md:pb-24"} ${tones[tone]} ${textured ? "bg-dots" : ""} ${className}`}
+      className={`relative isolate overflow-hidden pt-16 md:pt-24 ${edge ? "pb-28 md:pb-40" : "pb-16 md:pb-24"} ${tones[tone]} ${className}`}
       {...rest}
     >
       {textured && <Glow className="-right-40 top-0 -z-10 size-[34rem]" />}

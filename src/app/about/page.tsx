@@ -15,6 +15,7 @@ import {
   ServiceIcon,
   WhatsAppIcon,
 } from "@/components/icons";
+import { PhotoBackground } from "@/components/photo-background";
 import { Container } from "@/components/section";
 import { TextLink } from "@/components/text-link";
 import { whatsappUrl } from "@/lib/site";
@@ -76,7 +77,7 @@ function StoryCard({
 }) {
   return (
     <article className="reveal flex flex-col overflow-hidden border border-slate/25 bg-white">
-      <div aria-hidden className="relative h-48 overflow-hidden bg-paper bg-dots-navy">
+      <div aria-hidden className="relative h-48 overflow-hidden bg-lilac/40">
         {art}
       </div>
       <div className="flex-1 p-6">
@@ -96,6 +97,7 @@ export default function AboutPage() {
         aria-labelledby="about-title"
         className="relative isolate mx-auto max-w-[1320px] overflow-hidden border border-white/10 bg-satin text-white"
       >
+        <PhotoBackground photo="satin" priority sizes="(min-width: 1320px) 1320px, 100vw" />
         <div aria-hidden className="absolute inset-0 -z-10 bg-lines" />
         <div className="px-5 pb-6 pt-14 text-center md:px-10 md:pb-10 md:pt-20">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/80">About UndaNova</p>

@@ -90,7 +90,7 @@ export function SiteHeader() {
         id="mobile-menu"
         aria-label="Main"
         hidden={!open}
-        className="absolute inset-x-0 top-full h-[calc(100dvh-4rem)] overflow-y-auto bg-navy bg-dots md:hidden"
+        className="absolute inset-x-0 top-full h-[calc(100dvh-4rem)] overflow-y-auto bg-satin md:hidden"
       >
         <Container className="py-6">
           <ul className="flex flex-col">

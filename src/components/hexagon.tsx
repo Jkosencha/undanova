@@ -24,7 +24,6 @@ export function HexTile({ href, title, icon, variant = "blue", className = "" }:
       <span
         className={`relative flex aspect-[1/1.1547] w-full flex-col items-center justify-center gap-3 px-6 text-center text-white transition-transform duration-300 group-hover:scale-[1.04] ${HEX} ${bg}`}
       >
-        <span aria-hidden className={`absolute inset-[2px] -z-0 bg-dots opacity-40 ${HEX}`} />
         <span className="relative inline-flex size-12 items-center justify-center rounded-full border border-white/40 sm:size-14">
           {icon}
         </span>
