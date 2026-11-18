@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Card } from "@/components/card";
 import { ArrowIcon } from "@/components/icons";
 import { PreviewPanel } from "@/components/previews";
 import type { WorkItem, WorkStatus } from "@/content/work";
@@ -8,7 +8,9 @@ export function StatusBadge({ status, tone = "light" }: { status: WorkStatus; to
   if (status !== "in-progress") return null;
   const styles = tone === "dark" ? "border-white/25 bg-white/10 text-white" : "border-navy/20 bg-paper text-navy";
   return (
-    <span className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-medium ${styles}`}>
+    <span
+      className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-medium ${styles}`}
+    >
       <span aria-hidden className="size-1.5 animate-glow rounded-full bg-wave" />
       In progress
     </span>
@@ -28,15 +30,7 @@ export function WorkCard({ item, headingLevel = "h3", tone = "light" }: WorkCard
   const dark = tone === "dark";
   const [cover] = item.images;
   return (
-    <Link
-      href={`/work/${item.slug}`}
-      prefetch={false}
-      className={`group flex w-full flex-col rounded-3xl border p-3 transition-all duration-300 hover:-translate-y-1 ${
-        dark
-          ? "border-white/10 bg-white/[0.04] hover:border-wave/60 hover:bg-white/[0.08]"
-          : "border-slate/25 bg-white hover:border-navy/40"
-      }`}
-    >
+    <Card href={`/work/${item.slug}`} tone={tone} className="flex w-full flex-col p-3">
       {cover ? (
         <Image
           src={cover.src}
@@ -60,6 +54,6 @@ export function WorkCard({ item, headingLevel = "h3", tone = "light" }: WorkCard
           View project <ArrowIcon className="size-4 transition-transform group-hover:translate-x-1" />
         </span>
       </div>
-    </Link>
+    </Card>
   );
 }

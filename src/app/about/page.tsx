@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Glow, HeroWaves, WaveEdge } from "@/components/brand-shapes";
+import { Card } from "@/components/card";
 import { CTABand } from "@/components/cta-band";
 import { BoltIcon, CheckIcon, HeartHandIcon, RefreshIcon } from "@/components/icons";
 import { Toast } from "@/components/mockups";
 import { PageHeader } from "@/components/page-header";
-import { Container, SectionHeading } from "@/components/section";
+import { Container, Section, SectionHeading } from "@/components/section";
 
 export const metadata: Metadata = {
   title: "About",
@@ -14,9 +15,21 @@ export const metadata: Metadata = {
 };
 
 const values = [
-  { title: "Practical over flashy", text: "We build what helps you run your business, not what looks clever.", Icon: CheckIcon },
-  { title: "Built for local realities", text: "M-Pesa, WhatsApp, patchy networks and budget phones are where we start.", Icon: BoltIcon },
-  { title: "Honest timelines", text: "We tell you how long things will really take, and keep you updated.", Icon: HeartHandIcon },
+  {
+    title: "Practical over flashy",
+    text: "We build what helps you run your business, not what looks clever.",
+    Icon: CheckIcon,
+  },
+  {
+    title: "Built for local realities",
+    text: "M-Pesa, WhatsApp, patchy networks and budget phones are where we start.",
+    Icon: BoltIcon,
+  },
+  {
+    title: "Honest timelines",
+    text: "We tell you how long things will really take, and keep you updated.",
+    Icon: HeartHandIcon,
+  },
   { title: "Long-term support", text: "We're still here after launch, keeping things running.", Icon: RefreshIcon },
 ];
 
@@ -68,15 +81,18 @@ export default function AboutPage() {
                 takes to find customers, get paid and keep going.
               </p>
               <p>
-                That&apos;s what UndaNova is for: practical websites, apps and systems that fit how businesses, NGOs
-                and schools in Kenya really work.
+                That&apos;s what UndaNova is for: practical websites, apps and systems that fit how businesses, NGOs and
+                schools in Kenya really work.
               </p>
             </div>
           </div>
         </Container>
       </section>
 
-      <section aria-labelledby="name-title" className="relative isolate overflow-hidden bg-navy bg-dots pb-28 pt-20 text-white md:pb-40 md:pt-28">
+      <section
+        aria-labelledby="name-title"
+        className="relative isolate overflow-hidden bg-navy bg-dots pb-28 pt-20 text-white md:pb-40 md:pt-28"
+      >
         <WaveEdge fill="white" flip className="bottom-auto! top-[-1px] rotate-180" />
         <Glow className="-left-40 top-1/4 -z-10 size-[32rem]" />
         <HeroWaves className="bottom-10 -z-10 h-40 opacity-60" />
@@ -107,15 +123,12 @@ export default function AboutPage() {
         <WaveEdge fill="paper" />
       </section>
 
-      <section aria-labelledby="values-title" className="bg-paper py-16 md:py-24">
-        <Container>
-          <SectionHeading id="values-title" eyebrow="Our values" title="What we believe" />
-          <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {values.map((value, i) => (
-              <li
-                key={value.title}
-                className="reveal group rounded-3xl border border-slate/25 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-navy/40"
-              >
+      <Section aria-labelledby="values-title">
+        <SectionHeading id="values-title" eyebrow="Our values" title="What we believe" />
+        <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {values.map((value, i) => (
+            <li key={value.title} className="reveal flex">
+              <Card className="w-full p-6">
                 <div className="flex items-center justify-between">
                   <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-navy text-white">
                     <value.Icon className="size-6" />
@@ -126,11 +139,11 @@ export default function AboutPage() {
                 </div>
                 <h3 className="mt-6 text-2xl text-navy">{value.title}</h3>
                 <p className="mt-2 text-ink/70">{value.text}</p>
-              </li>
-            ))}
-          </ul>
-        </Container>
-      </section>
+              </Card>
+            </li>
+          ))}
+        </ul>
+      </Section>
 
       <CTABand />
     </>

@@ -1,19 +1,11 @@
-import Link from "next/link";
 import { Eyebrow, Glow, HeroWaves, WaveEdge } from "@/components/brand-shapes";
 import { Button } from "@/components/button";
+import { Card } from "@/components/card";
 import { CTABand } from "@/components/cta-band";
-import {
-  ArrowIcon,
-  BoltIcon,
-  ChatIcon,
-  CheckIcon,
-  HeartHandIcon,
-  RefreshIcon,
-  ServiceIcon,
-} from "@/components/icons";
+import { ArrowIcon, BoltIcon, ChatIcon, CheckIcon, HeartHandIcon, RefreshIcon, ServiceIcon } from "@/components/icons";
 import { BrowserFrame, ChatScreen, CheckoutScreen, DashboardScreen, PhoneFrame, Toast } from "@/components/mockups";
 import { PreviewPanel, previewForService } from "@/components/previews";
-import { Accent, Container, SectionHeading } from "@/components/section";
+import { Accent, Container, Section, SectionHeading } from "@/components/section";
 import { TextLink } from "@/components/text-link";
 import { WorkCard } from "@/components/work-card";
 import { services } from "@/content/services";
@@ -89,8 +81,8 @@ export default function Home() {
               <span className="font-bold text-gradient-wave">what&apos;s next.</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg text-white/80 md:text-xl">
-              UndaNova designs and builds websites, apps and business systems for growing businesses, NGOs and
-              schools — fast, reliable and made for how Kenya works.
+              UndaNova designs and builds websites, apps and business systems for growing businesses, NGOs and schools —
+              fast, reliable and made for how Kenya works.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button href="/contact" tone="dark">
@@ -134,145 +126,130 @@ export default function Home() {
       </section>
 
       {/* 2. What we build: bento grid */}
-      <section aria-labelledby="build-title" className="bg-paper py-16 md:py-24">
-        <Container>
-          <SectionHeading
-            id="build-title"
-            eyebrow="Services"
-            title={
-              <>
-                What we <Accent>build</Accent>
-              </>
-            }
-            intro="Practical software for the way your organisation works."
-          />
-          <ul className="mt-12 grid auto-rows-auto gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
-              <li key={service.slug} className={`reveal flex ${tileLayout[service.slug] ?? ""}`}>
-                <Link
-                  href={`/services#${service.slug}`}
-                  prefetch={false}
-                  className="group flex w-full flex-col rounded-3xl border border-slate/25 bg-white p-3 transition-all duration-300 hover:-translate-y-1 hover:border-navy/40"
-                >
-                  <PreviewPanel
-                    kind={previewForService(service.slug)}
-                    className={service.slug === "ecommerce-mpesa" ? "min-h-56 flex-1" : "h-56"}
-                  />
-                  <div className="flex items-start gap-4 px-3 pb-3 pt-5">
-                    <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl border border-navy/15 text-navy">
-                      <ServiceIcon slug={service.slug} className="size-6" />
-                    </span>
-                    <div className="flex-1">
-                      <h3 className="text-2xl text-navy">{service.title}</h3>
-                      <p className="mt-1 text-ink/70">{service.summary}</p>
-                    </div>
-                    <ArrowIcon className="mt-2 size-5 shrink-0 text-navy transition-transform group-hover:translate-x-1" />
+      <Section aria-labelledby="build-title">
+        <SectionHeading
+          id="build-title"
+          eyebrow="Services"
+          title={
+            <>
+              What we <Accent>build</Accent>
+            </>
+          }
+          intro="Practical software for the way your organisation works."
+        />
+        <ul className="mt-12 grid auto-rows-auto gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => (
+            <li key={service.slug} className={`reveal flex ${tileLayout[service.slug] ?? ""}`}>
+              <Card href={`/services#${service.slug}`} className="flex w-full flex-col p-3">
+                <PreviewPanel
+                  kind={previewForService(service.slug)}
+                  className={service.slug === "ecommerce-mpesa" ? "min-h-56 flex-1" : "h-56"}
+                />
+                <div className="flex items-start gap-4 px-3 pb-3 pt-5">
+                  <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl border border-navy/15 text-navy">
+                    <ServiceIcon slug={service.slug} className="size-6" />
+                  </span>
+                  <div className="flex-1">
+                    <h3 className="text-2xl text-navy">{service.title}</h3>
+                    <p className="mt-1 text-ink/70">{service.summary}</p>
                   </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </Container>
-      </section>
+                  <ArrowIcon className="mt-2 size-5 shrink-0 text-navy transition-transform group-hover:translate-x-1" />
+                </div>
+              </Card>
+            </li>
+          ))}
+        </ul>
+      </Section>
 
       {/* 3. Why UndaNova: phone in the middle, reasons around it */}
-      <section aria-labelledby="why-title" className="relative overflow-hidden bg-white pb-28 pt-16 md:pb-40 md:pt-24">
-        <Container>
-          <SectionHeading
-            id="why-title"
-            eyebrow="Why UndaNova"
-            align="center"
-            title={
-              <>
-                Made for how <Accent>Kenya</Accent> works
-              </>
-            }
-          />
-          <div className="mt-14 grid items-center gap-10 lg:grid-cols-[1fr_auto_1fr] lg:gap-14">
-            <ul className="space-y-10">
-              {reasons.slice(0, 2).map((r) => (
-                <Reason key={r.title} reason={r} align="right" />
-              ))}
-            </ul>
-            <div aria-hidden className="relative mx-auto w-56 sm:w-64">
-              <div className="absolute left-1/2 top-1/2 -z-0 size-80 -translate-x-1/2 sm:size-96 -translate-y-1/2 rounded-full bg-paper" />
-              <div className="absolute left-1/2 top-1/2 size-[17rem] -translate-x-1/2 sm:size-[19rem] -translate-y-1/2 rounded-full border border-dashed border-navy/20" />
-              <PhoneFrame className="relative">
-                <ChatScreen />
-              </PhoneFrame>
-            </div>
-            <ul className="space-y-10">
-              {reasons.slice(2).map((r) => (
-                <Reason key={r.title} reason={r} align="left" />
-              ))}
-            </ul>
-          </div>
-        </Container>
-        <WaveEdge fill="navy" flip />
-      </section>
-
-      {/* 4. Featured work (navy) */}
-      <section aria-labelledby="work-title" className="relative isolate overflow-hidden bg-navy bg-dots pb-28 pt-12 md:pb-40 md:pt-16">
-        <Glow className="-right-40 top-0 -z-10 size-[34rem]" />
-        <Container>
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-            <SectionHeading
-              id="work-title"
-              tone="dark"
-              eyebrow="Our work"
-              title={
-                <>
-                  Featured <Accent tone="dark">projects</Accent>
-                </>
-              }
-              intro="A few of the projects we're working on."
-            />
-            <TextLink href="/work" tone="dark" className="shrink-0">
-              See all our work <ArrowIcon className="size-4" />
-            </TextLink>
-          </div>
-          <ul className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {featuredWork.map((item) => (
-              <li key={item.slug} className="reveal flex">
-                <WorkCard item={item} tone="dark" />
-              </li>
+      <Section tone="white" edge="navy" flipEdge aria-labelledby="why-title">
+        <SectionHeading
+          id="why-title"
+          eyebrow="Why UndaNova"
+          align="center"
+          title={
+            <>
+              Made for how <Accent>Kenya</Accent> works
+            </>
+          }
+        />
+        <div className="mt-14 grid items-center gap-10 lg:grid-cols-[1fr_auto_1fr] lg:gap-14">
+          <ul className="space-y-10">
+            {reasons.slice(0, 2).map((r) => (
+              <Reason key={r.title} reason={r} align="right" />
             ))}
           </ul>
-        </Container>
-        <WaveEdge fill="paper" />
-      </section>
+          <div aria-hidden className="relative mx-auto w-56 sm:w-64">
+            <div className="absolute left-1/2 top-1/2 -z-0 size-80 -translate-x-1/2 sm:size-96 -translate-y-1/2 rounded-full bg-paper" />
+            <div className="absolute left-1/2 top-1/2 size-[17rem] -translate-x-1/2 sm:size-[19rem] -translate-y-1/2 rounded-full border border-dashed border-navy/20" />
+            <PhoneFrame className="relative">
+              <ChatScreen />
+            </PhoneFrame>
+          </div>
+          <ul className="space-y-10">
+            {reasons.slice(2).map((r) => (
+              <Reason key={r.title} reason={r} align="left" />
+            ))}
+          </ul>
+        </div>
+      </Section>
+
+      {/* 4. Featured work (navy) */}
+      <Section tone="navy" textured edge="paper" className="pt-12! md:pt-16!" aria-labelledby="work-title">
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <SectionHeading
+            id="work-title"
+            tone="dark"
+            eyebrow="Our work"
+            title={
+              <>
+                Featured <Accent tone="dark">projects</Accent>
+              </>
+            }
+            intro="A few of the projects we're working on."
+          />
+          <TextLink href="/work" tone="dark" className="shrink-0">
+            See all our work <ArrowIcon className="size-4" />
+          </TextLink>
+        </div>
+        <ul className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {featuredWork.map((item) => (
+            <li key={item.slug} className="reveal flex">
+              <WorkCard item={item} tone="dark" />
+            </li>
+          ))}
+        </ul>
+      </Section>
 
       {/* 5. How we work: numbered steps joined by a line */}
-      <section aria-labelledby="process-title" className="bg-paper py-16 md:py-24">
-        <Container>
-          <SectionHeading
-            id="process-title"
-            eyebrow="How we work"
-            align="center"
-            title="Four clear steps"
-            intro="You always know what's happening, and what comes next."
+      <Section aria-labelledby="process-title">
+        <SectionHeading
+          id="process-title"
+          eyebrow="How we work"
+          align="center"
+          title="Four clear steps"
+          intro="You always know what's happening, and what comes next."
+        />
+        <ol className="relative mt-14 grid gap-10 lg:grid-cols-4 lg:gap-8">
+          {/* Connecting line: vertical on mobile, horizontal on desktop */}
+          <span aria-hidden className="absolute bottom-6 left-7 top-6 w-0.5 bg-navy/15 lg:hidden" />
+          <span
+            aria-hidden
+            className="absolute left-[12.5%] right-[12.5%] top-7 hidden h-0.5 bg-gradient-to-r from-navy via-wave to-navy lg:block"
           />
-          <ol className="relative mt-14 grid gap-10 lg:grid-cols-4 lg:gap-8">
-            {/* Connecting line: vertical on mobile, horizontal on desktop */}
-            <span aria-hidden className="absolute bottom-6 left-7 top-6 w-0.5 bg-navy/15 lg:hidden" />
-            <span
-              aria-hidden
-              className="absolute left-[12.5%] right-[12.5%] top-7 hidden h-0.5 bg-gradient-to-r from-navy via-wave to-navy lg:block"
-            />
-            {steps.map((step, i) => (
-              <li key={step.title} className="reveal relative flex gap-5 lg:flex-col lg:items-center lg:text-center">
-                <span className="relative inline-flex size-14 shrink-0 items-center justify-center rounded-full bg-navy font-heading text-xl font-semibold text-white ring-8 ring-paper">
-                  {i + 1}
-                </span>
-                <div>
-                  <h3 className="text-2xl text-navy">{step.title}</h3>
-                  <p className="mt-1 text-ink/70">{step.text}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </Container>
-      </section>
+          {steps.map((step, i) => (
+            <li key={step.title} className="reveal relative flex gap-5 lg:flex-col lg:items-center lg:text-center">
+              <span className="relative inline-flex size-14 shrink-0 items-center justify-center rounded-full bg-navy font-heading text-xl font-semibold text-white ring-8 ring-paper">
+                {i + 1}
+              </span>
+              <div>
+                <h3 className="text-2xl text-navy">{step.title}</h3>
+                <p className="mt-1 text-ink/70">{step.text}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </Section>
 
       {/* 6. CTA band */}
       <CTABand />
