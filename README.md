@@ -46,6 +46,10 @@ Most changes don't need any new code:
 | Email, WhatsApp number, city, social links, domain | `src/lib/site.ts` |
 | Services and what's included | `src/content/services.ts` |
 | Projects and case studies | `src/content/work.ts`. A new entry gets its own `/work/{slug}` page, card and sitemap entry automatically. |
+| FAQs, engagement models, tech stack, commitments | `src/content/studio.ts` |
+| Ready-made systems (SaaS page) | `src/content/saas.ts` |
+| Availability status ("Taking on new projects") | `availability` in `src/lib/site.ts` (set to `""` to hide) |
+| Privacy policy and terms | `src/app/privacy/page.tsx`, `src/app/terms/page.tsx` (drafts: have a lawyer review) |
 | Case study screenshots | Put images in `public/work/{slug}/` and list them in that project's `images` (the first one is the main image) |
 | Page wording | The page files in `src/app/` (e.g. `src/app/about/page.tsx`) |
 | Brand colours and fonts | `src/app/globals.css` and `src/app/layout.tsx` |
