@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Hanken_Grotesk, IBM_Plex_Mono, Instrument_Serif } from "next/font/google";
+import { OrganizationJsonLd } from "@/components/json-ld";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
@@ -52,6 +53,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           aria-hidden
           className="scroll-progress fixed inset-x-0 top-0 z-50 h-0.5 bg-gradient-to-r from-plum via-lilac to-white"
         />
+        <OrganizationJsonLd />
         <SiteHeader />
         <main id="main" className="flex flex-1 flex-col">
           {children}
