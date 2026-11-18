@@ -33,7 +33,7 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-navy/90 text-white backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-navy/95 text-white">
       <Container className="flex h-16 items-center justify-between gap-4 md:h-20">
         <Link
           href="/"
