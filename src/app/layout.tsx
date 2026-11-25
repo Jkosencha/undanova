@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Hanken_Grotesk, Jost } from "next/font/google";
 import { OrganizationJsonLd } from "@/components/json-ld";
+import { MotionProvider } from "@/components/motion-provider";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
@@ -44,7 +45,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <OrganizationJsonLd />
         <SiteHeader />
         <main id="main" className="flex flex-1 flex-col">
-          {children}
+          <MotionProvider>{children}</MotionProvider>
         </main>
         <SiteFooter />
         <WhatsAppFloat />
