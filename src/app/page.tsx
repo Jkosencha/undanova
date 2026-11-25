@@ -9,6 +9,7 @@ import { Button } from "@/components/button";
 import { CTABand } from "@/components/cta-band";
 import { ArrowIcon, ServiceIcon } from "@/components/icons";
 import { PhotoBackground, photos, photoTone } from "@/components/photo-background";
+import { RiseWords } from "@/components/rise-words";
 import { Container, Section, SectionHeading } from "@/components/section";
 import { services } from "@/content/services";
 import { approach, differentiators } from "@/content/studio";
@@ -34,7 +35,7 @@ export default function Home() {
             {site.name} {site.descriptor}
           </p>
           <h1 id="hero-title" className="caps mx-auto mt-7 max-w-5xl text-4xl leading-snug sm:text-5xl lg:text-7xl">
-            We build what&apos;s next.
+            <RiseWords text="We build what's next." />
           </h1>
           <p className="mx-auto mt-8 max-w-2xl text-lg text-white/85">
             We design and develop digital solutions that help businesses and organizations work smarter, operate better
