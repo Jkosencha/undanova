@@ -112,6 +112,23 @@
   }
 }
 
+/* Data flowing along the system diagram's connectors. Stops on touch devices
+   (battery, budget phones) and under reduced motion; the dashes stay visible. */
+.flow {
+  stroke-dasharray: 6 18;
+  animation: flow 1.8s linear infinite;
+}
+@keyframes flow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+@media (hover: none) {
+  .flow {
+    animation: none;
+  }
+}
+
 /* Back-to-top button appears after scrolling (scroll-driven, no JS). */
 .to-top {
   display: none;
