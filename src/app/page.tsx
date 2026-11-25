@@ -1,21 +1,20 @@
 /**
  * Home: hero, introduction, what we do, why UndaNova, our approach, closing CTA.
- * Minimal and elegant: white and soft grey, spaced caps headings, interface visuals.
+ * Minimal and elegant: white and soft grey, spaced caps headings, photography.
  */
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ApproachSteps } from "@/components/approach-steps";
 import { Button } from "@/components/button";
 import { CTABand } from "@/components/cta-band";
+import { HomeHero } from "@/components/home-hero";
 import { ArrowIcon, ServiceIcon } from "@/components/icons";
 import { ParallaxImage } from "@/components/parallax-image";
-import { PhotoBackground, photos } from "@/components/photo-background";
-import { RiseWords } from "@/components/rise-words";
+import { photos } from "@/components/photo-background";
 import { ServicePreview } from "@/components/service-preview";
 import { Container, Section, SectionHeading } from "@/components/section";
 import { services } from "@/content/services";
 import { approach, differentiators } from "@/content/studio";
-import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: { absolute: "UndaNova Digital Labs | Software development and digital solutions in Kenya" },
@@ -26,33 +25,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      {/* Hero: full-width technology photo with a navy wash */}
-      <section
-        aria-labelledby="hero-title"
-        className="relative isolate flex min-h-[82svh] items-center overflow-hidden bg-navy text-white"
-      >
-        <PhotoBackground photo="posCafe" veil="dark" priority />
-        <Container className="py-28 text-center">
-          <p className="caps-sm text-white/80">
-            {site.name} {site.descriptor}
-          </p>
-          <h1 id="hero-title" className="caps mx-auto mt-7 max-w-5xl text-4xl leading-snug sm:text-5xl lg:text-7xl">
-            <RiseWords text="We build what's next." />
-          </h1>
-          <p className="mx-auto mt-8 max-w-2xl text-lg text-white/85">
-            We design and develop digital solutions that help businesses and organizations work smarter, operate better
-            and move forward with technology.
-          </p>
-          <div className="mt-11 flex flex-col justify-center gap-3 sm:flex-row">
-            <Button href="/contact" tone="dark">
-              Start a Project
-            </Button>
-            <Button href="/services" tone="dark" variant="secondary">
-              Explore Our Services
-            </Button>
-          </div>
-        </Container>
-      </section>
+      <HomeHero />
 
       {/* Introduction */}
       <Section aria-labelledby="intro-title">

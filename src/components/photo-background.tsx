@@ -8,7 +8,6 @@ import metricsScreen from "@/assets/photos/metrics-screen.jpg";
 import nightBalcony from "@/assets/photos/night-balcony.jpg";
 import openOffice from "@/assets/photos/open-office.jpg";
 import pathSunset from "@/assets/photos/path-sunset.jpg";
-import posCafe from "@/assets/photos/pos-cafe.jpg";
 import stickyBoard from "@/assets/photos/sticky-board.jpg";
 import studioDesk from "@/assets/photos/studio-desk.jpg";
 import valleySunset from "@/assets/photos/valley-sunset.jpg";
@@ -17,7 +16,7 @@ import whiteDesk from "@/assets/photos/white-desk.jpg";
 
 /**
  * Photos, in natural colour, with metadata (including location) removed.
- * Headers, hero and calls to action use UndaNova's own photos (screens showing
+ * Page headers and calls to action use UndaNova's own photos (screens showing
  * code, desktop files or personal names are blurred). Body images are free
  * Unsplash photos: studioDesk (Lasse Jensen), whiteDesk (Andrew Neel),
  * websiteImac (Annie Spratt), codeDesk (Rich Tervet), analyticsLaptop
@@ -34,7 +33,6 @@ export const photos = {
   nightBalcony,
   openOffice,
   pathSunset,
-  posCafe,
   stickyBoard,
   studioDesk,
   valleySunset,
