@@ -19,18 +19,18 @@ export function LegalPage({
   return (
     <>
       <PageHeader eyebrow="Legal" title={title} intro={intro} />
-      <section className="bg-paper pb-20 md:pb-28">
+      <section className="bg-white py-16 md:py-24">
         <Container className="grid gap-12 lg:grid-cols-[240px_1fr] lg:gap-16">
           <nav aria-label="On this page" className="lg:sticky lg:top-28 lg:self-start">
-            <p className="font-mono text-xs font-medium uppercase tracking-[0.14em] text-ink/60">On this page</p>
+            <p className="caps-sm text-ink/60">On this page</p>
             <ol className="mt-4 space-y-1 border-l border-navy/15">
               {sections.map((s, i) => (
                 <li key={s.id}>
                   <a
                     href={`#${s.id}`}
-                    className="-ml-px flex min-h-10 items-center gap-3 border-l-2 border-transparent pl-4 text-ink/75 hover:border-plum hover:text-navy"
+                    className="-ml-px flex min-h-10 items-center gap-3 border-l-2 border-transparent pl-4 text-ink/75 hover:border-navy hover:text-navy"
                   >
-                    <span className="font-mono text-xs text-navy/70">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="text-xs font-semibold text-ink/50">{String(i + 1).padStart(2, "0")}</span>
                     {s.title}
                   </a>
                 </li>
@@ -38,7 +38,7 @@ export function LegalPage({
             </ol>
           </nav>
           <div className="max-w-3xl">
-            <p className="border-l-4 border-plum bg-white p-5 text-ink/80">
+            <p className="border-l-2 border-navy bg-paper p-5 text-ink/80">
               {/* TODO: have a Kenyan lawyer review this page before launch. */}
               <strong className="text-navy">Draft.</strong> This page is a plain-language draft and will be reviewed by
               a lawyer before the site launches. Last updated {updated}.
@@ -46,8 +46,8 @@ export function LegalPage({
             <div className="mt-10 space-y-12">
               {sections.map((s, i) => (
                 <section key={s.id} id={s.id} aria-labelledby={`${s.id}-title`} className="scroll-mt-28">
-                  <p className="font-mono text-xs text-navy/70">{String(i + 1).padStart(2, "0")}</p>
-                  <h2 id={`${s.id}-title`} className="mt-1 text-2xl text-navy md:text-3xl">
+                  <p className="text-xs font-semibold tracking-[0.2em] text-ink/50">{String(i + 1).padStart(2, "0")}</p>
+                  <h2 id={`${s.id}-title`} className="caps mt-2 text-xl text-navy">
                     {s.title}
                   </h2>
                   <div className="mt-4 space-y-4 text-lg text-ink/80 [&_li]:ml-5 [&_li]:list-disc [&_ul]:space-y-2">
