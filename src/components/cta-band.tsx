@@ -24,11 +24,11 @@ export function CTABand({
     >
       <PhotoBackground photo="lakeSunset" veil="dark" />
       <Container>
-        <h2 id="cta-title" className="reveal-zoom caps mx-auto max-w-3xl text-2xl md:text-3xl">
+        <h2 id="cta-title" className="reveal caps mx-auto max-w-3xl text-2xl md:text-3xl">
           {title}
         </h2>
-        <p className="reveal mx-auto mt-6 max-w-xl text-white/80">{text}</p>
-        <div className="reveal mt-9 flex flex-col justify-center gap-3 [--i:1] sm:flex-row">
+        <p className="mx-auto mt-6 max-w-xl text-white/80">{text}</p>
+        <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
           <Button href="/contact" tone="dark">
             {label}
           </Button>

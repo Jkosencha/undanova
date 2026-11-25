@@ -117,7 +117,7 @@ export default function ContactPage() {
         <div className="max-w-xl">
           <h2 className="caps text-xl text-navy">Send an inquiry</h2>
           <p className="mt-3 text-ink">Tell us a little about your project and we&apos;ll get back to you by email.</p>
-          <div className="reveal mt-10">
+          <div className="mt-10">
             {/* The URL's ?service= is only known in the browser, so the pre-filled
                 form renders there; the static page ships the same form without it. */}
             <Suspense fallback={<ContactForm />}>

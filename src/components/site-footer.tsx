@@ -26,7 +26,7 @@ export function SiteFooter() {
     // Extra bottom padding on mobile so the floating WhatsApp button doesn't cover content.
     <footer className="overflow-x-clip border-t border-white/15 bg-navy pb-24 pt-16 text-white md:pb-0 md:pt-20">
       <Container>
-        <div className="reveal-stagger grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_0.8fr_1fr]">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_0.8fr_1fr]">
           <div className="sm:col-span-2 lg:col-span-1">
             <Image
               src="/brand/undanova-logo-white.svg"

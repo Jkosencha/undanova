@@ -32,11 +32,14 @@ export function SectionHeading({ id, title, intro, eyebrow, tone = "light", alig
   const center = align === "center";
   return (
     <div className={`max-w-2xl ${center ? "mx-auto text-center" : ""}`}>
-      {eyebrow && <p className={`reveal-drop caps-sm mb-4 ${dark ? "text-white/60" : "text-ink"}`}>{eyebrow}</p>}
-      <h2 id={id} className={`${center ? "reveal" : "reveal-left"} caps text-2xl md:text-3xl ${dark ? "text-white" : "text-navy"}`}>
+      {eyebrow && <p className={`caps-sm mb-4 ${dark ? "text-white/60" : "text-ink"}`}>{eyebrow}</p>}
+      <h2
+        id={id}
+        className={`${center ? "reveal" : "reveal-left"} caps text-2xl md:text-3xl ${dark ? "text-white" : "text-navy"}`}
+      >
         {title}
       </h2>
-      {intro && <p className={`reveal mt-6 ${dark ? "text-white/80" : "text-ink"}`}>{intro}</p>}
+      {intro && <p className={`mt-6 ${dark ? "text-white/80" : "text-ink"}`}>{intro}</p>}
     </div>
   );
 }

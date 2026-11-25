@@ -114,13 +114,13 @@
 }
 
 /*
- * Scroll animations. Elements travel into place as they scroll into view, tied
+ * Scroll animations, kept for headings, photos and project cards (text, lists
+ * and buttons stay still). They travel into place as they scroll into view, tied
  * to the scroll position (scroll back and they reverse). CSS scroll-driven
  * animations: no JavaScript. Transform only, so text never sits half
  * transparent (keeps contrast checks honest) and nothing is ever hidden.
  * Browsers without support, and reduced motion, simply show everything.
  *   .reveal        rises up from below
- *   .reveal-drop   drops down from above
  *   .reveal-left   slides in from the left
  *   .reveal-right  slides in from the right
  *   .reveal-zoom   grows slightly into place
@@ -129,32 +129,26 @@
  */
 @keyframes reveal-rise {
   from {
-    transform: translateY(48px);
-  }
-}
-@keyframes reveal-drop {
-  from {
-    transform: translateY(-40px);
+    transform: translateY(32px);
   }
 }
 @keyframes reveal-left {
   from {
-    transform: translateX(-72px);
+    transform: translateX(-48px);
   }
 }
 @keyframes reveal-right {
   from {
-    transform: translateX(72px);
+    transform: translateX(48px);
   }
 }
 @keyframes reveal-zoom {
   from {
-    transform: scale(0.9);
+    transform: scale(0.94);
   }
 }
 @supports (animation-timeline: view()) {
   .reveal,
-  .reveal-drop,
   .reveal-left,
   .reveal-right,
   .reveal-zoom,
@@ -163,9 +157,6 @@
     animation-timeline: view();
     /* --i (0, 1, 2...) delays an item so a row of them arrives in turn. */
     animation-range: entry calc(var(--i, 0) * 10%) cover calc(25% + var(--i, 0) * 5%);
-  }
-  .reveal-drop {
-    animation-name: reveal-drop;
   }
   .reveal-left {
     animation-name: reveal-left;

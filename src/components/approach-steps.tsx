@@ -22,7 +22,7 @@ export function ApproachSteps({ steps, children }: { steps: Step[]; children: Re
     <div ref={ref} className="relative lg:h-[260vh]">
       <div className="py-18 md:py-28 lg:sticky lg:top-20 lg:flex lg:h-[calc(100svh-5rem)] lg:flex-col lg:justify-center lg:py-0">
         {children}
-        <ol className="reveal-stagger mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        <ol className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {steps.map((step, i) => (
             <li
               key={step.title}

@@ -2,7 +2,6 @@
  * About: UndaNova as a brand and organization (no founder biography or personal story).
  */
 import type { Metadata } from "next";
-import type { CSSProperties } from "react";
 import { CTABand } from "@/components/cta-band";
 import { PageHeader } from "@/components/page-header";
 import { Section, SectionHeading } from "@/components/section";
@@ -26,7 +25,7 @@ export default function AboutPage() {
         <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
           <div>
             <SectionHeading id="who-title" title="Who we are" align="left" />
-            <div className="reveal-left mt-8 space-y-5 text-ink">
+            <div className="mt-8 space-y-5 text-ink">
               <p>
                 UndaNova is a digital solutions studio driven by the belief that technology should be accessible,
                 purposeful and useful.
@@ -57,12 +56,12 @@ export default function AboutPage() {
       {/* Mission and vision */}
       <section aria-label="Mission and vision" className="grid md:grid-cols-2">
         <div className="bg-navy px-5 py-18 text-white sm:px-8 md:py-24 md:pl-[max(2rem,calc((100vw-1200px)/2+2rem))] md:pr-16">
-          <h2 className="reveal-drop caps-sm text-white/70">Our Mission</h2>
-          <p className="reveal-left mt-6 max-w-md font-heading text-xl leading-relaxed md:text-2xl">{mission}</p>
+          <h2 className="caps-sm text-white/70">Our Mission</h2>
+          <p className="mt-6 max-w-md font-heading text-xl leading-relaxed md:text-2xl">{mission}</p>
         </div>
         <div className="bg-paper px-5 py-18 sm:px-8 md:py-24 md:pl-16 md:pr-[max(2rem,calc((100vw-1200px)/2+2rem))]">
-          <h2 className="reveal-drop caps-sm text-ink">Our Vision</h2>
-          <p className="reveal-right mt-6 max-w-md font-heading text-xl leading-relaxed text-navy md:text-2xl">{vision}</p>
+          <h2 className="caps-sm text-ink">Our Vision</h2>
+          <p className="mt-6 max-w-md font-heading text-xl leading-relaxed text-navy md:text-2xl">{vision}</p>
         </div>
       </section>
 
@@ -70,13 +69,10 @@ export default function AboutPage() {
       <Section aria-labelledby="values-title">
         <SectionHeading id="values-title" title="Our Values" />
         <ul className="mt-14 grid gap-px bg-mist sm:grid-cols-2 lg:grid-cols-5">
-          {values.map((v, i) => (
+          {values.map((v) => (
             <li key={v.title} className="bg-white p-8 text-center">
-              {/* The content moves, not the cell, so the dividing lines stay put. */}
-              <div className="reveal" style={{ "--i": i } as CSSProperties}>
-                <h3 className="caps-sm text-navy">{v.title}</h3>
-                <p className="mt-3 text-sm text-ink">{v.text}</p>
-              </div>
+              <h3 className="caps-sm text-navy">{v.title}</h3>
+              <p className="mt-3 text-sm text-ink">{v.text}</p>
             </li>
           ))}
         </ul>
