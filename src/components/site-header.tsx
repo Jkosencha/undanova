@@ -5,12 +5,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { buttonClasses } from "@/components/button";
-import { Container } from "@/components/section";
 import { CloseIcon, MenuIcon, WhatsAppIcon } from "@/components/icons";
+import { Container } from "@/components/section";
 import { nav, site, whatsappUrl } from "@/lib/site";
 
-const activeLink =
-  "aria-[current=page]:text-white aria-[current=page]:underline aria-[current=page]:decoration-plum aria-[current=page]:decoration-2 aria-[current=page]:underline-offset-8";
+// Small, wide-tracked caps with a thin underline on hover and on the current page.
+const linkStyle =
+  "relative py-2 font-heading text-[11px] font-medium uppercase tracking-[0.24em] text-ink/70 transition-colors hover:text-navy " +
+  "after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-navy after:transition-transform after:duration-300 " +
+  "hover:after:scale-x-100 aria-[current=page]:text-navy aria-[current=page]:after:scale-x-100";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -33,8 +36,8 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-navy/95 text-white">
-      <Container className="flex h-16 items-center justify-between gap-4 md:h-20">
+    <header className="sticky top-0 z-40 border-b border-mist bg-white/95">
+      <Container className="flex h-16 items-center justify-between gap-6 md:h-20">
         <Link
           href="/"
           className="inline-flex min-h-11 items-center"
@@ -42,31 +45,27 @@ export function SiteHeader() {
           onClick={() => setOpen(false)}
         >
           <Image
-            src="/brand/undanova-logo-white.svg"
+            src="/brand/undanova-logo-primary.svg"
             alt="UndaNova"
             width={611}
             height={317}
             priority
-            className="h-11 w-auto md:h-14"
+            className="h-10 w-auto md:h-12"
           />
         </Link>
 
         {/* Desktop navigation */}
-        <nav aria-label="Main" className="hidden items-center gap-8 md:flex">
-          <ul className="flex items-center gap-7">
+        <nav aria-label="Main" className="hidden items-center gap-10 md:flex">
+          <ul className="flex items-center gap-8">
             {nav.map((item) => (
               <li key={item.href}>
-                <Link
-                  href={item.href}
-                  aria-current={isActive(item.href) ? "page" : undefined}
-                  className={`bg-[linear-gradient(var(--color-lilac),var(--color-lilac))] bg-[length:0%_2px] bg-bottom-left bg-no-repeat py-2 font-medium text-white/80 transition-[color,background-size] duration-300 hover:bg-[length:100%_2px] hover:text-white ${activeLink}`}
-                >
+                <Link href={item.href} aria-current={isActive(item.href) ? "page" : undefined} className={linkStyle}>
                   {item.label}
                 </Link>
               </li>
             ))}
           </ul>
-          <Link href="/contact" className={buttonClasses("primary", "dark", "", true)}>
+          <Link href="/contact" className={buttonClasses("secondary", "light", "px-5")}>
             Start a project
           </Link>
         </nav>
@@ -75,7 +74,7 @@ export function SiteHeader() {
         <button
           ref={toggleRef}
           type="button"
-          className="inline-flex size-11 items-center justify-center rounded-full text-white hover:bg-white/10 md:hidden"
+          className="inline-flex size-11 items-center justify-center text-navy md:hidden"
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -90,17 +89,17 @@ export function SiteHeader() {
         id="mobile-menu"
         aria-label="Main"
         hidden={!open}
-        className="absolute inset-x-0 top-full h-[calc(100dvh-4rem)] overflow-y-auto bg-satin md:hidden"
+        className="absolute inset-x-0 top-full h-[calc(100dvh-4rem)] overflow-y-auto bg-white md:hidden"
       >
-        <Container className="py-6">
+        <Container className="py-8">
           <ul className="flex flex-col">
             {nav.map((item, i) => (
-              <li key={item.href} className="animate-rise" style={{ animationDelay: `${i * 60}ms` }}>
+              <li key={item.href} className="animate-rise" style={{ animationDelay: `${i * 50}ms` }}>
                 <Link
                   href={item.href}
                   aria-current={isActive(item.href) ? "page" : undefined}
                   onClick={() => setOpen(false)}
-                  className={`flex min-h-16 items-center border-b border-white/10 font-heading text-3xl text-white/85 ${activeLink}`}
+                  className="flex min-h-16 items-center border-b border-mist font-heading text-lg font-light uppercase tracking-[0.3em] text-ink/80 aria-[current=page]:text-navy aria-[current=page]:font-normal"
                 >
                   {item.label}
                 </Link>
@@ -110,25 +109,22 @@ export function SiteHeader() {
           <Link
             href="/contact"
             onClick={() => setOpen(false)}
-            className={buttonClasses("primary", "dark", "mt-8 w-full")}
+            className={buttonClasses("primary", "light", "mt-10 w-full")}
           >
             Start a project
           </Link>
-          <div className="mt-8 grid grid-cols-2 gap-3 border-t border-white/10 pt-6 text-sm">
+          <div className="mt-4 grid grid-cols-2 gap-3">
             <a
               href={whatsappUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex min-h-12 items-center justify-center gap-2 border border-white/20 text-white"
+              className={buttonClasses("secondary", "light", "w-full")}
             >
-              <WhatsAppIcon className="size-5" />
+              <WhatsAppIcon className="size-4" />
               WhatsApp
             </a>
-            <a
-              href={`mailto:${site.email}`}
-              className="flex min-h-12 items-center justify-center border border-white/20 text-white"
-            >
-              Email us
+            <a href={`mailto:${site.email}`} className={buttonClasses("secondary", "light", "w-full")}>
+              Email
             </a>
           </div>
         </Container>
