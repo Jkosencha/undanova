@@ -25,7 +25,7 @@ export default function Home() {
       <section aria-labelledby="hero-title" className="border-b border-mist bg-white">
         <Container className="grid items-center gap-14 py-18 md:py-24 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
           <div className="text-center lg:text-left">
-            <p className="caps-sm text-ink/60">
+            <p className="caps-sm text-ink/70">
               {site.name} {site.descriptor}
             </p>
             <h1 id="hero-title" className="caps mt-6 text-4xl leading-snug text-navy sm:text-5xl lg:text-6xl">

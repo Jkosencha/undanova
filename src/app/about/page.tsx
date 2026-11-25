@@ -51,7 +51,7 @@ export default function AboutPage() {
           <p className="mt-6 max-w-md font-heading text-xl leading-relaxed md:text-2xl">{mission}</p>
         </div>
         <div className="bg-paper px-5 py-18 sm:px-8 md:py-24 md:pl-16 md:pr-[max(2rem,calc((100vw-1200px)/2+2rem))]">
-          <h2 className="caps-sm text-ink/60">Our Vision</h2>
+          <h2 className="caps-sm text-ink/70">Our Vision</h2>
           <p className="mt-6 max-w-md font-heading text-xl leading-relaxed text-navy md:text-2xl">{vision}</p>
         </div>
       </section>

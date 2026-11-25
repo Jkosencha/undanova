@@ -22,7 +22,7 @@ export function LegalPage({
       <section className="bg-white py-16 md:py-24">
         <Container className="grid gap-12 lg:grid-cols-[240px_1fr] lg:gap-16">
           <nav aria-label="On this page" className="lg:sticky lg:top-28 lg:self-start">
-            <p className="caps-sm text-ink/60">On this page</p>
+            <p className="caps-sm text-ink/70">On this page</p>
             <ol className="mt-4 space-y-1 border-l border-navy/15">
               {sections.map((s, i) => (
                 <li key={s.id}>
@@ -30,7 +30,7 @@ export function LegalPage({
                     href={`#${s.id}`}
                     className="-ml-px flex min-h-10 items-center gap-3 border-l-2 border-transparent pl-4 text-ink/75 hover:border-navy hover:text-navy"
                   >
-                    <span className="text-xs font-semibold text-ink/50">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="text-xs font-semibold text-ink/70">{String(i + 1).padStart(2, "0")}</span>
                     {s.title}
                   </a>
                 </li>
@@ -46,7 +46,7 @@ export function LegalPage({
             <div className="mt-10 space-y-12">
               {sections.map((s, i) => (
                 <section key={s.id} id={s.id} aria-labelledby={`${s.id}-title`} className="scroll-mt-28">
-                  <p className="text-xs font-semibold tracking-[0.2em] text-ink/50">{String(i + 1).padStart(2, "0")}</p>
+                  <p className="text-xs font-semibold tracking-[0.2em] text-ink/70">{String(i + 1).padStart(2, "0")}</p>
                   <h2 id={`${s.id}-title`} className="caps mt-2 text-xl text-navy">
                     {s.title}
                   </h2>

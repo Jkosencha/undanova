@@ -16,7 +16,7 @@ import {
 } from "@/lib/contact";
 
 const inputClasses =
-  "block w-full min-h-12 border border-slate bg-white px-4 py-3 text-base text-ink placeholder:text-ink/50 aria-[invalid=true]:border-2 aria-[invalid=true]:border-navy";
+  "block w-full min-h-12 border border-slate bg-white px-4 py-3 text-base text-ink placeholder:text-ink/70 aria-[invalid=true]:border-2 aria-[invalid=true]:border-navy";
 
 const fieldOrder: ContactField[] = ["name", "organisation", "email", "phone", "service", "message"];
 

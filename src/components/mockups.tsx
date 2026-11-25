@@ -86,7 +86,7 @@ export function DashboardScreen({ compact = false }: { compact?: boolean }) {
             ["Reports", "12"],
           ].map(([label, value]) => (
             <div key={label} className="rounded-lg border border-slate/20 p-2">
-              <p className="text-[8px] uppercase tracking-wider text-ink/60">{label}</p>
+              <p className="text-[8px] uppercase tracking-wider text-ink/70">{label}</p>
               <p className="mt-0.5 font-heading text-sm text-navy">{value}</p>
             </div>
           ))}

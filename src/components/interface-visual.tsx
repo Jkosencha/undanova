@@ -10,7 +10,7 @@ function WorkflowCard({ className = "" }: { className?: string }) {
   const nodes = ["Form", "CRM", "Report"];
   return (
     <div className={`border border-mist bg-white p-4 shadow-lg shadow-ink/10 ${className}`}>
-      <p className="caps-sm text-[9px] text-ink/60">Automated workflow</p>
+      <p className="caps-sm text-[9px] text-ink/70">Automated workflow</p>
       <div className="mt-3 flex items-center">
         {nodes.map((n, i) => (
           <div key={n} className="flex items-center">
@@ -32,7 +32,7 @@ function WorkflowCard({ className = "" }: { className?: string }) {
 function StatusCard({ className = "" }: { className?: string }) {
   return (
     <div className={`border border-mist bg-white px-4 py-3 shadow-lg shadow-ink/10 ${className}`}>
-      <p className="caps-sm text-[9px] text-ink/60">Deployment</p>
+      <p className="caps-sm text-[9px] text-ink/70">Deployment</p>
       <p className="mt-1 flex items-center gap-2 text-xs font-semibold text-navy">
         <span className="size-1.5 bg-navy" />
         Live and running

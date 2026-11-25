@@ -34,7 +34,7 @@ export function WorkCard({ item, headingLevel = "h3" }: WorkCardProps) {
       )}
       <div className="flex flex-1 flex-col p-6">
         <div className="flex flex-wrap items-center gap-3">
-          <p className="caps-sm text-[10px] text-ink/60">{item.concept ? "Concept project" : item.category}</p>
+          <p className="caps-sm text-[10px] text-ink/70">{item.concept ? "Concept project" : item.category}</p>
           <StatusBadge status={item.status} />
         </div>
         <Heading className="mt-3 font-heading text-xl font-normal text-navy">{item.title}</Heading>

@@ -10,7 +10,7 @@ export default function NotFound() {
   return (
     <section className="flex flex-1 items-center bg-paper py-28">
       <Container className="text-center">
-        <p className="caps-sm text-ink/60">Error 404</p>
+        <p className="caps-sm text-ink/70">Error 404</p>
         <h1 className="caps mt-6 text-3xl text-navy md:text-5xl">This page wandered off.</h1>
         <span aria-hidden className="mx-auto mt-7 block h-px w-12 bg-navy/40" />
         <p className="mx-auto mt-7 max-w-md text-ink/75">
