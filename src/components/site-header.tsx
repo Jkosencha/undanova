@@ -47,10 +47,10 @@ export function SiteHeader() {
           <Image
             src="/brand/undanova-logo-primary.svg"
             alt="UndaNova"
-            width={611}
-            height={317}
+            width={1028}
+            height={189}
             priority
-            className="h-10 w-auto md:h-12"
+            className="h-7 w-auto md:h-8"
           />
         </Link>
 

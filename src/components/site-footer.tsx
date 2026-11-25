@@ -31,9 +31,9 @@ export function SiteFooter() {
             <Image
               src="/brand/undanova-logo-white.svg"
               alt="UndaNova"
-              width={611}
-              height={317}
-              className="h-14 w-auto"
+              width={1028}
+              height={189}
+              className="h-8 w-auto"
             />
             <p className="caps mt-6 text-sm text-white/90">{site.tagline}</p>
             <p className="mt-3 max-w-xs text-sm text-white/70">{site.description}</p>
