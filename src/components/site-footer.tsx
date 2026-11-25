@@ -1,10 +1,8 @@
 import { cacheLife } from "next/cache";
 import Image from "next/image";
 import Link from "next/link";
-import { HeroWaves } from "@/components/brand-shapes";
-import { Button } from "@/components/button";
-import { Container } from "@/components/section";
 import { InstagramIcon, LinkedInIcon, WhatsAppIcon } from "@/components/icons";
+import { Container } from "@/components/section";
 import { services } from "@/content/services";
 import { nav, site, whatsappUrl } from "@/lib/site";
 
@@ -15,8 +13,8 @@ async function CurrentYear() {
   return new Date().getFullYear();
 }
 
-const heading = "text-sm font-mono font-medium uppercase tracking-[0.14em] text-slate";
-const link = "inline-flex min-h-11 items-center text-white/85 transition-colors hover:text-white";
+const heading = "caps-sm text-white/60";
+const link = "inline-flex min-h-10 items-center text-sm text-white/80 transition-colors hover:text-white";
 
 export function SiteFooter() {
   const socials = [
@@ -26,33 +24,28 @@ export function SiteFooter() {
 
   return (
     // Extra bottom padding on mobile so the floating WhatsApp button doesn't cover content.
-    <footer className="relative isolate overflow-hidden bg-navy pb-24 pt-16 text-white md:pb-10 md:pt-20">
-      <HeroWaves className="top-0 -z-10 h-40 opacity-25" />
+    <footer className="bg-navy pb-24 pt-16 text-white md:pb-0 md:pt-20">
       <Container>
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_0.8fr_1fr]">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_0.8fr_1fr]">
           <div className="sm:col-span-2 lg:col-span-1">
             <Image
               src="/brand/undanova-logo-white.svg"
               alt="UndaNova"
               width={611}
               height={317}
-              className="h-16 w-auto"
+              className="h-14 w-auto"
             />
-            <p className="mt-5 font-heading text-3xl font-semibold">{site.tagline}</p>
-            <p className="mt-2 max-w-sm text-white/75">
+            <p className="caps mt-6 text-sm text-white/90">{site.tagline}</p>
+            <p className="mt-3 max-w-xs text-sm text-white/70">
               Websites, apps and business systems for growing businesses, NGOs and schools.
             </p>
-            <Button href={whatsappUrl()} tone="dark" className="mt-6">
-              <WhatsAppIcon className="size-5" />
-              Chat on WhatsApp
-            </Button>
           </div>
 
           <nav aria-labelledby="footer-services">
             <h2 id="footer-services" className={heading}>
               Services
             </h2>
-            <ul className="mt-3">
+            <ul className="mt-4">
               {services.map((service) => (
                 <li key={service.slug}>
                   <Link href={`/services#${service.slug}`} prefetch={false} className={link}>
@@ -67,7 +60,7 @@ export function SiteFooter() {
             <h2 id="footer-pages" className={heading}>
               Pages
             </h2>
-            <ul className="mt-3">
+            <ul className="mt-4">
               {nav.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} prefetch={false} className={link}>
@@ -80,7 +73,7 @@ export function SiteFooter() {
 
           <div>
             <h2 className={heading}>Get in touch</h2>
-            <ul className="mt-3">
+            <ul className="mt-4">
               <li>
                 <a href={`mailto:${site.email}`} className={link}>
                   {site.email}
@@ -88,14 +81,14 @@ export function SiteFooter() {
               </li>
               <li>
                 <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className={`${link} gap-2`}>
-                  <WhatsAppIcon className="size-5" />
+                  <WhatsAppIcon className="size-4" />
                   WhatsApp
                 </a>
               </li>
-              <li className="flex min-h-11 items-center text-white/85">{site.location}</li>
+              <li className="flex min-h-10 items-center text-sm text-white/80">{site.location}</li>
             </ul>
             {socials.length > 0 && (
-              <ul className="mt-2 flex gap-2">
+              <ul className="mt-3 flex gap-2">
                 {socials.map(({ label, href, Icon }) => (
                   <li key={label}>
                     <a
@@ -103,9 +96,9 @@ export function SiteFooter() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={label}
-                      className="inline-flex size-11 items-center justify-center rounded-full border border-white/20 hover:bg-white/10"
+                      className="inline-flex size-10 items-center justify-center border border-white/25 hover:bg-white hover:text-navy"
                     >
-                      <Icon className="size-5" />
+                      <Icon className="size-4" />
                     </a>
                   </li>
                 ))}
@@ -113,34 +106,28 @@ export function SiteFooter() {
             )}
           </div>
         </div>
+      </Container>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-white/15 pt-6 text-sm text-slate md:flex-row md:items-center md:justify-between">
-          <p>
+      <div className="mt-16 border-t border-white/10 bg-night py-5 text-xs text-white/70">
+        <Container className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <p className="tracking-[0.08em]">
             © <CurrentYear /> UndaNova. Made in Kenya.
           </p>
-          {site.availability && (
-            <p className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.14em] text-white/85">
-              <span aria-hidden className="relative inline-flex size-2">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-lilac opacity-60" />
-                <span className="relative inline-flex size-2 rounded-full bg-lilac" />
-              </span>
-              {site.availability}
-            </p>
-          )}
+          {site.availability && <p className="caps-sm text-[10px] text-white/80">{site.availability}</p>}
           <ul className="flex gap-6">
             <li>
-              <Link href="/privacy" prefetch={false} className="inline-flex min-h-11 items-center hover:text-white">
+              <Link href="/privacy" prefetch={false} className="inline-flex min-h-10 items-center hover:text-white">
                 Privacy
               </Link>
             </li>
             <li>
-              <Link href="/terms" prefetch={false} className="inline-flex min-h-11 items-center hover:text-white">
+              <Link href="/terms" prefetch={false} className="inline-flex min-h-10 items-center hover:text-white">
                 Terms
               </Link>
             </li>
           </ul>
-        </div>
-      </Container>
+        </Container>
+      </div>
     </footer>
   );
 }
