@@ -6,7 +6,7 @@ import { CTABand } from "@/components/cta-band";
 import { PageHeader } from "@/components/page-header";
 import { Section, SectionHeading } from "@/components/section";
 import Image from "next/image";
-import { photos } from "@/components/photo-background";
+import { photos, photoTone } from "@/components/photo-background";
 import { mission, values, vision } from "@/content/studio";
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <PageHeader eyebrow="About UndaNova" title="Building a more connected digital future." photo="network" />
+      <PageHeader eyebrow="About UndaNova" title="Building a more connected digital future." photo="keyboardBacklit" />
 
       {/* Who we are */}
       <Section aria-labelledby="who-title">
@@ -45,14 +45,15 @@ export default function AboutPage() {
             <div aria-hidden className="absolute bottom-0 left-0 right-6 top-6 border border-navy/25" />
             <div className="relative aspect-[4/3] overflow-hidden">
               <Image
-                src={photos.curves}
-                alt="Abstract dark curved lines"
+                src={photos.laptopCode}
+                alt="A laptop showing code"
                 fill
                 sizes="(min-width: 1024px) 520px, 100vw"
                 quality={60}
                 placeholder="blur"
-                className="object-cover"
+                className={photoTone}
               />
+              <div aria-hidden className="absolute inset-0 bg-navy/35" />
             </div>
           </div>
         </div>

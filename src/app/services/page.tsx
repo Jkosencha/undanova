@@ -22,7 +22,7 @@ export default function ServicesPage() {
       <PageHeader
         eyebrow="Services"
         title="Digital solutions for real-world challenges."
-        photo="circuit"
+        photo="keyboardDark"
         intro="Every organization has different needs. Our services are designed to provide flexible technology solutions that address specific challenges, improve efficiency and support digital growth."
       >
         <nav aria-label="Services on this page" className="mt-10">

@@ -1,29 +1,35 @@
 import Image from "next/image";
-import blueprintGrid from "@/assets/photos/blueprint-grid.jpg";
 import circuit from "@/assets/photos/circuit.jpg";
 import codeCloseup from "@/assets/photos/code-closeup.jpg";
 import codeScreens from "@/assets/photos/code-screens.jpg";
-import curves from "@/assets/photos/curves.jpg";
-import lightLines from "@/assets/photos/light-lines.jpg";
-import network from "@/assets/photos/network.jpg";
-import sphere from "@/assets/photos/sphere.jpg";
+import deskLamp from "@/assets/photos/desk-lamp.jpg";
+import keyboardBacklit from "@/assets/photos/keyboard-backlit.jpg";
+import keyboardDark from "@/assets/photos/keyboard-dark.jpg";
+import laptopCode from "@/assets/photos/laptop-code.jpg";
+import laptopKeyboard from "@/assets/photos/laptop-keyboard.jpg";
 
 /**
- * Technology photography (Unsplash, free licence; no people, no offices):
- * sphere: Christian Boragine · codeCloseup: Timothy Cuenat · network: Conny Schneider
- * curves: Hassaan Here · circuit: Yogesh Phuyal · codeScreens: Jakub Żerdzicki
- * lightLines: Declan Sun · blueprintGrid: Claudio Guglieri
+ * Technology photography (Unsplash, free licence; no people, no abstract lines):
+ * circuit: Yogesh Phuyal · codeCloseup: Timothy Cuenat · codeScreens: Jakub Żerdzicki
+ * deskLamp: Clint Patterson · keyboardBacklit: Jepretualang · keyboardDark: Robbin Grimm
+ * laptopCode: AltumCode · laptopKeyboard: Igor Omilaev
+ *
+ * Every photo is shown in black and white (the `grayscale` class) so it takes on the
+ * brand palette from the deep teal-blue wash, instead of its own colours.
  */
 export const photos = {
-  sphere,
-  codeCloseup,
-  network,
-  curves,
   circuit,
+  codeCloseup,
   codeScreens,
-  lightLines,
-  blueprintGrid,
+  deskLamp,
+  keyboardBacklit,
+  keyboardDark,
+  laptopCode,
+  laptopKeyboard,
 };
+
+/** Classes for a brand-toned photo: black and white, so the teal-blue wash colours it. */
+export const photoTone = "object-cover grayscale";
 
 export type PhotoName = keyof typeof photos;
 
@@ -56,7 +62,7 @@ export function PhotoBackground({ photo, veil = "dark", priority = false, sizes 
         quality={60}
         priority={priority}
         placeholder="blur"
-        className="object-cover"
+        className={photoTone}
       />
       {veil !== "none" && <div className={`absolute inset-0 ${veils[veil]}`} />}
     </div>

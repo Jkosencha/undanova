@@ -8,7 +8,7 @@ import Link from "next/link";
 import { Button } from "@/components/button";
 import { CTABand } from "@/components/cta-band";
 import { ArrowIcon, ServiceIcon } from "@/components/icons";
-import { PhotoBackground, photos } from "@/components/photo-background";
+import { PhotoBackground, photos, photoTone } from "@/components/photo-background";
 import { Container, Section, SectionHeading } from "@/components/section";
 import { services } from "@/content/services";
 import { approach, differentiators } from "@/content/studio";
@@ -28,7 +28,7 @@ export default function Home() {
         aria-labelledby="hero-title"
         className="relative isolate flex min-h-[82svh] items-center overflow-hidden bg-navy text-white"
       >
-        <PhotoBackground photo="sphere" veil="medium" priority />
+        <PhotoBackground photo="circuit" veil="dark" priority />
         <Container className="py-28 text-center">
           <p className="caps-sm text-white/80">
             {site.name} {site.descriptor}
@@ -141,8 +141,9 @@ export default function Home() {
                 sizes="(min-width: 1024px) 520px, 100vw"
                 quality={60}
                 placeholder="blur"
-                className="object-cover"
+                className={photoTone}
               />
+              <div aria-hidden className="absolute inset-0 bg-navy/35" />
             </div>
             <span aria-hidden className="absolute -left-3 top-10 size-6 rounded-full bg-steel" />
           </div>
