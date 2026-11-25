@@ -69,41 +69,56 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* What we do */}
+      {/* What we do: sticky intro beside an editorial list of services */}
       <Section tone="paper" aria-labelledby="services-title">
-        <SectionHeading id="services-title" title="What We Do" />
-        <ul className="mt-16 grid gap-px bg-mist sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, i) => (
-            <li key={service.slug} className="reveal flex">
-              <Link
-                href={`/services#${service.slug}`}
-                prefetch={false}
-                className="group relative flex w-full flex-col bg-white p-8 transition-colors duration-500 hover:bg-navy md:p-10"
-              >
-                <div className="flex items-start justify-between">
-                  <ServiceIcon
-                    slug={service.slug}
-                    className="size-8 text-navy transition-colors duration-500 group-hover:text-white"
+        <div className="grid gap-12 lg:grid-cols-[0.85fr_2fr] lg:gap-16">
+          <div className="lg:sticky lg:top-32 lg:self-start">
+            <SectionHeading
+              id="services-title"
+              eyebrow="Services"
+              title="What We Do"
+              intro="Six ways we help organizations build, improve and grow with technology."
+              align="left"
+            />
+            <Button href="/services" variant="secondary" className="mt-10">
+              Explore All Services
+            </Button>
+          </div>
+          <ol className="border-t border-navy/15">
+            {services.map((service, i) => (
+              <li key={service.slug} className="reveal border-b border-navy/15">
+                <Link
+                  href={`/services#${service.slug}`}
+                  prefetch={false}
+                  className="group relative isolate grid grid-cols-[auto_1fr_auto] items-start gap-x-5 gap-y-2 px-2 py-7 sm:gap-x-8 sm:px-6 md:py-8"
+                >
+                  {/* Teal fill that sweeps in from the left on hover */}
+                  <span
+                    aria-hidden
+                    className="absolute inset-0 -z-10 origin-left scale-x-0 bg-navy transition-transform duration-500 ease-out group-hover:scale-x-100 group-focus-visible:scale-x-100"
                   />
-                  <span className="text-xs font-semibold tracking-[0.2em] text-ink transition-colors duration-500 group-hover:text-white/70">
+                  <span className="pt-1 font-heading text-sm text-ink transition-colors duration-500 group-hover:text-white/70">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                </div>
-                <h3 className="caps-sm mt-8 text-navy transition-colors duration-500 group-hover:text-white">
-                  {service.title}
-                </h3>
-                <p className="mt-3 flex-1 text-sm text-ink transition-colors duration-500 group-hover:text-white/80">
-                  {service.summary}
-                </p>
-                <ArrowIcon className="mt-6 size-4 text-steel transition-transform duration-500 group-hover:translate-x-2 group-hover:text-white" />
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <div className="mt-12 text-center">
-          <Button href="/services" variant="secondary">
-            Explore All Services
-          </Button>
+                  <span>
+                    <span className="flex items-center gap-3">
+                      <ServiceIcon
+                        slug={service.slug}
+                        className="size-6 shrink-0 text-navy transition-colors duration-500 group-hover:text-steel"
+                      />
+                      <h3 className="caps text-base text-navy transition-colors duration-500 group-hover:text-white md:text-lg">
+                        {service.title}
+                      </h3>
+                    </span>
+                    <p className="mt-3 max-w-xl text-sm text-ink transition-colors duration-500 group-hover:text-white/85">
+                      {service.summary}
+                    </p>
+                  </span>
+                  <ArrowIcon className="mt-1.5 size-5 text-navy transition-all duration-500 group-hover:translate-x-1 group-hover:text-white" />
+                </Link>
+              </li>
+            ))}
+          </ol>
         </div>
       </Section>
 
