@@ -41,7 +41,6 @@ export default function ContactPage() {
           <h1 id="contact-title" className="caps mt-6 text-3xl leading-snug md:text-4xl">
             Let&apos;s build something meaningful.
           </h1>
-          <span aria-hidden className="mt-7 block size-2.5 rounded-full bg-steel" />
           <p className="mt-7 text-lg text-white/85">
             Have a project in mind, a business challenge to solve or an idea you&apos;d like to bring to life? We&apos;d
             love to hear about it.

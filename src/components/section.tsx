@@ -25,8 +25,7 @@ type SectionHeadingProps = {
 };
 
 /**
- * Section title in wide-tracked caps with a short rule underneath
- * (the minimal reference's signature heading).
+ * Section title in wide-tracked caps, with an optional eyebrow and intro.
  */
 export function SectionHeading({ id, title, intro, eyebrow, tone = "light", align = "center" }: SectionHeadingProps) {
   const dark = tone === "dark";
@@ -37,10 +36,6 @@ export function SectionHeading({ id, title, intro, eyebrow, tone = "light", alig
       <h2 id={id} className={`caps text-2xl md:text-3xl ${dark ? "text-white" : "text-navy"}`}>
         {title}
       </h2>
-      <span
-        aria-hidden
-        className={`mt-6 block h-px w-12 ${dark ? "bg-white/50" : "bg-navy/40"} ${center ? "mx-auto" : ""}`}
-      />
       {intro && <p className={`mt-6 ${dark ? "text-white/80" : "text-ink"}`}>{intro}</p>}
     </div>
   );

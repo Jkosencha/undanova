@@ -5,7 +5,7 @@ type Variant = "primary" | "secondary";
 /** "light" for paper/white sections, "dark" for navy sections. */
 type Tone = "light" | "dark";
 
-// Thin rectangular buttons with small, wide-tracked caps (from the minimal reference).
+// Thin rectangular buttons with small, wide-tracked caps.
 const styles: Record<Tone, Record<Variant, string>> = {
   light: {
     primary: "border border-navy bg-navy text-white hover:bg-white hover:text-navy",

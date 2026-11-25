@@ -55,8 +55,7 @@ function Field({
       )}
       <div className="mt-1">{children}</div>
       {error && (
-        <p id={`${id}-error`} className="mt-2 flex items-start gap-1.5 text-sm font-medium text-navy">
-          <span aria-hidden className="mt-1.5 size-2 shrink-0 rounded-full bg-steel" />
+        <p id={`${id}-error`} className="mt-2 text-sm font-medium text-navy">
           {error}
         </p>
       )}

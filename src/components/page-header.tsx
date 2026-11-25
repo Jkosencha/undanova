@@ -25,7 +25,6 @@ export function PageHeader({ title, intro, eyebrow, children, photo }: PageHeade
         <h1 className={`caps mx-auto max-w-4xl text-3xl leading-snug md:text-5xl ${dark ? "" : "text-navy"}`}>
           {title}
         </h1>
-        <span aria-hidden className="mx-auto mt-7 block size-2.5 rounded-full bg-steel" />
         {intro && (
           <p className={`mx-auto mt-7 max-w-2xl text-lg ${dark ? "text-white/85" : "text-ink"}`}>{intro}</p>
         )}

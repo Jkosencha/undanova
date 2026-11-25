@@ -36,7 +36,6 @@ export default function Home() {
           <h1 id="hero-title" className="caps mx-auto mt-7 max-w-5xl text-4xl leading-snug sm:text-5xl lg:text-7xl">
             We build what&apos;s next.
           </h1>
-          <span aria-hidden className="mx-auto mt-8 block size-2.5 rounded-full bg-steel" />
           <p className="mx-auto mt-8 max-w-2xl text-lg text-white/85">
             We design and develop digital solutions that help businesses and organizations work smarter, operate better
             and move forward with technology.
@@ -146,8 +145,7 @@ export default function Home() {
               ))}
             </ul>
           </div>
-          <div className="relative mx-auto w-full max-w-[520px] pb-6 pr-6">
-            <div aria-hidden className="absolute bottom-0 right-0 top-6 left-6 border border-navy/25" />
+          <div className="mx-auto w-full max-w-[520px]">
             <div className="relative aspect-[4/5] overflow-hidden">
               <Image
                 src={photos.codeSunset}
@@ -159,7 +157,6 @@ export default function Home() {
                 className={photoTone}
               />
             </div>
-            <span aria-hidden className="absolute -left-3 top-10 size-6 rounded-full bg-steel" />
           </div>
         </div>
       </Section>
@@ -167,12 +164,10 @@ export default function Home() {
       {/* Our approach */}
       <Section tone="paper" aria-labelledby="approach-title">
         <SectionHeading id="approach-title" eyebrow="Our approach" title="From idea to implementation." />
-        <ol className="relative mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
-          <span aria-hidden className="absolute left-0 right-0 top-[7px] hidden h-px bg-navy/25 lg:block" />
+        <ol className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
           {approach.map((step, i) => (
-            <li key={step.title} className="reveal relative">
-              <span aria-hidden className="relative block size-3.5 rounded-full bg-steel ring-4 ring-paper" />
-              <span className="mt-8 block font-heading text-4xl font-light text-navy">
+            <li key={step.title} className="reveal">
+              <span className="block font-heading text-4xl font-light text-navy">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="caps-sm mt-4 text-navy">{step.title}</h3>

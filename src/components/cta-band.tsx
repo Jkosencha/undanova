@@ -27,7 +27,6 @@ export function CTABand({
         <h2 id="cta-title" className="caps mx-auto max-w-3xl text-2xl md:text-3xl">
           {title}
         </h2>
-        <span aria-hidden className="mx-auto mt-6 block size-2.5 rounded-full bg-steel" />
         <p className="mx-auto mt-6 max-w-xl text-white/80">{text}</p>
         <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
           <Button href="/contact" tone="dark">

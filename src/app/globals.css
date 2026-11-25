@@ -3,7 +3,7 @@
 /*
  * UndaNova design tokens.
  * Brand palette: deep teal-blue #153A4C, charcoal #494949 and light grey #EFEFEF,
- * on white, with the logo's steel blue (#8FB3C4) for small dots only. Tailwind's default
+ * on white, with the logo's steel blue (#8FB3C4) for small accents only. Tailwind's default
  * palette is cleared so only brand colours exist.
  */
 @theme {
@@ -73,7 +73,7 @@
 }
 
 /*
- * Display caps: the reference's signature, wide-tracked uppercase.
+ * Display caps: wide-tracked uppercase.
  * Source text stays in sentence case (screen readers read it normally);
  * only the look is uppercase.
  */

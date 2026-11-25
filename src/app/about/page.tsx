@@ -41,8 +41,7 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-          <div className="relative mx-auto w-full max-w-[520px] pb-6 pl-6">
-            <div aria-hidden className="absolute bottom-0 left-0 right-6 top-6 border border-navy/25" />
+          <div className="mx-auto w-full max-w-[520px]">
             <div className="relative aspect-[4/3] overflow-hidden">
               <Image
                 src={photos.terraceView}

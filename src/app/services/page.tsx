@@ -71,18 +71,11 @@ export default function ServicesPage() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
-                <span
-                  aria-hidden
-                  className={`absolute -bottom-4 size-20 border border-navy/30 ${flipped ? "-left-4" : "-right-4"} -z-0 hidden lg:block`}
-                />
               </div>
 
               {/* Content */}
               <div className="reveal">
-                <div className="flex items-center gap-3">
-                  <ServiceIcon slug={service.slug} className="size-7 text-navy" />
-                  <span aria-hidden className="h-px w-10 bg-steel" />
-                </div>
+                <ServiceIcon slug={service.slug} className="size-7 text-navy" />
                 <h2 id={`${service.slug}-title`} className="caps mt-6 text-xl leading-relaxed text-navy md:text-2xl">
                   {service.title}
                 </h2>
