@@ -3,12 +3,13 @@
  * Minimal and elegant: white and soft grey, spaced caps headings, interface visuals.
  */
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/button";
 import { CTABand } from "@/components/cta-band";
 import { ArrowIcon, ServiceIcon } from "@/components/icons";
-import Link from "next/link";
+import { PhotoBackground, photos } from "@/components/photo-background";
 import { Container, Section, SectionHeading } from "@/components/section";
-import { LayeredPlanes, SystemDiagram } from "@/components/visuals";
 import { services } from "@/content/services";
 import { approach, differentiators } from "@/content/studio";
 import { site } from "@/lib/site";
@@ -22,29 +23,32 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <section aria-labelledby="hero-title" className="border-b border-mist bg-white">
-        <Container className="grid items-center gap-14 py-18 md:py-24 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
-          <div className="text-center lg:text-left">
-            <p className="caps-sm text-ink/70">
-              {site.name} {site.descriptor}
-            </p>
-            <h1 id="hero-title" className="caps mt-6 text-4xl leading-snug text-navy sm:text-5xl lg:text-6xl">
-              We build what&apos;s next.
-            </h1>
-            <span aria-hidden className="mx-auto mt-8 block h-px w-12 bg-navy/40 lg:mx-0" />
-            <p className="mx-auto mt-8 max-w-xl text-lg text-ink/75 lg:mx-0">
-              We design and develop digital solutions that help businesses and organizations work smarter, operate
-              better and move forward with technology.
-            </p>
-            <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
-              <Button href="/contact">Start a Project</Button>
-              <Button href="/services" variant="secondary">
-                Explore Our Services
-              </Button>
-            </div>
+      {/* Hero: full-width technology photo with a navy wash */}
+      <section
+        aria-labelledby="hero-title"
+        className="relative isolate flex min-h-[82svh] items-center overflow-hidden bg-navy text-white"
+      >
+        <PhotoBackground photo="sphere" veil="medium" priority />
+        <Container className="py-28 text-center">
+          <p className="caps-sm text-white/80">
+            {site.name} {site.descriptor}
+          </p>
+          <h1 id="hero-title" className="caps mx-auto mt-7 max-w-5xl text-4xl leading-snug sm:text-5xl lg:text-7xl">
+            We build what&apos;s next.
+          </h1>
+          <span aria-hidden className="mx-auto mt-8 block size-2.5 rotate-45 bg-plum" />
+          <p className="mx-auto mt-8 max-w-2xl text-lg text-white/85">
+            We design and develop digital solutions that help businesses and organizations work smarter, operate better
+            and move forward with technology.
+          </p>
+          <div className="mt-11 flex flex-col justify-center gap-3 sm:flex-row">
+            <Button href="/contact" tone="dark">
+              Start a Project
+            </Button>
+            <Button href="/services" tone="dark" variant="secondary">
+              Explore Our Services
+            </Button>
           </div>
-          <SystemDiagram className="mx-auto max-w-[560px]" />
         </Container>
       </section>
 
@@ -127,7 +131,21 @@ export default function Home() {
               ))}
             </ul>
           </div>
-          <LayeredPlanes className="mx-auto max-w-[460px]" />
+          <div className="relative mx-auto w-full max-w-[520px] pb-6 pr-6">
+            <div aria-hidden className="absolute bottom-0 right-0 top-6 left-6 border border-navy/25" />
+            <div className="relative aspect-[4/5] overflow-hidden">
+              <Image
+                src={photos.codeCloseup}
+                alt="Close-up of code on a screen"
+                fill
+                sizes="(min-width: 1024px) 520px, 100vw"
+                quality={60}
+                placeholder="blur"
+                className="object-cover"
+              />
+            </div>
+            <span aria-hidden className="absolute -left-3 top-10 size-6 bg-plum" />
+          </div>
         </div>
       </Section>
 
