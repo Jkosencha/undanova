@@ -1,36 +1,25 @@
 import Image from "next/image";
 import { Card } from "@/components/card";
-import { ArrowIcon } from "@/components/icons";
 import { PreviewPanel } from "@/components/previews";
 import type { WorkItem, WorkStatus } from "@/content/work";
 
 export function StatusBadge({ status, tone = "light" }: { status: WorkStatus; tone?: "light" | "dark" }) {
   if (status !== "in-progress") return null;
-  const styles = tone === "dark" ? "border-white/25 bg-white/10 text-white" : "border-navy/20 bg-paper text-navy";
-  return (
-    <span
-      className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-medium ${styles}`}
-    >
-      <span aria-hidden className="size-1.5 animate-glow rounded-full bg-plum" />
-      In progress
-    </span>
-  );
+  const styles = tone === "dark" ? "border-white/40 text-white" : "border-navy/30 text-navy";
+  return <span className={`caps-sm inline-flex border px-2 py-1 text-[10px] ${styles}`}>In progress</span>;
 }
 
 type WorkCardProps = {
   item: WorkItem;
   headingLevel?: "h2" | "h3";
-  /** "dark" for navy sections. */
-  tone?: "light" | "dark";
 };
 
-/** Project card with a preview, linking to its case study. */
-export function WorkCard({ item, headingLevel = "h3", tone = "light" }: WorkCardProps) {
+/** Project card: thumbnail, category, title and summary, linking to the case study. */
+export function WorkCard({ item, headingLevel = "h3" }: WorkCardProps) {
   const Heading = headingLevel;
-  const dark = tone === "dark";
   const [cover] = item.images;
   return (
-    <Card href={`/work/${item.slug}`} tone={tone} className="flex w-full flex-col p-3">
+    <Card href={`/work/${item.slug}`} className="flex w-full flex-col">
       {cover ? (
         <Image
           src={cover.src}
@@ -43,15 +32,15 @@ export function WorkCard({ item, headingLevel = "h3", tone = "light" }: WorkCard
       ) : (
         <PreviewPanel kind={item.preview} className="aspect-[16/10]" />
       )}
-      <div className="flex flex-1 flex-col px-3 pb-3 pt-5">
-        <div className="flex flex-wrap items-center gap-2">
-          <p className={`text-sm font-medium ${dark ? "text-white/70" : "text-ink/70"}`}>{item.category}</p>
-          <StatusBadge status={item.status} tone={tone} />
+      <div className="flex flex-1 flex-col p-6">
+        <div className="flex flex-wrap items-center gap-3">
+          <p className="caps-sm text-[10px] text-ink/60">{item.category}</p>
+          <StatusBadge status={item.status} />
         </div>
-        <Heading className={`mt-2 text-2xl ${dark ? "text-white" : "text-navy"}`}>{item.title}</Heading>
-        <p className={`mt-2 flex-1 ${dark ? "text-white/75" : "text-ink/70"}`}>{item.summary}</p>
-        <span className={`mt-5 inline-flex items-center gap-1.5 font-medium ${dark ? "text-white" : "text-navy"}`}>
-          View project <ArrowIcon className="size-4 transition-transform group-hover:translate-x-1" />
+        <Heading className="mt-3 font-heading text-xl font-normal text-navy">{item.title}</Heading>
+        <p className="mt-2 flex-1 text-sm text-ink/70">{item.summary}</p>
+        <span className="caps-sm mt-6 text-[10px] text-navy underline decoration-navy/30 underline-offset-8 transition-colors group-hover:decoration-navy">
+          View project
         </span>
       </div>
     </Card>

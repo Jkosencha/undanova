@@ -8,7 +8,7 @@ import type { ReactNode } from "react";
 export function PhoneFrame({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
     <div
-      className={`relative aspect-[9/19] rounded-[2.4rem] border border-white/15 bg-navy p-2 shadow-2xl shadow-ink/50 ring-1 ring-ink/20 ${className}`}
+      className={`relative aspect-[9/19] rounded-[2.4rem] border border-navy/10 bg-navy p-2 shadow-xl shadow-ink/15 ${className}`}
     >
       <div className="absolute left-1/2 top-3.5 z-10 h-4 w-20 -translate-x-1/2 rounded-full bg-navy" />
       <div className="relative h-full w-full overflow-hidden rounded-[1.9rem] bg-paper">{children}</div>
@@ -18,9 +18,7 @@ export function PhoneFrame({ children, className = "" }: { children: ReactNode; 
 
 export function BrowserFrame({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
-    <div
-      className={`overflow-hidden rounded-xl border border-white/15 bg-white shadow-2xl shadow-ink/45 ${className}`}
-    >
+    <div className={`overflow-hidden rounded-xl border border-mist bg-white shadow-xl shadow-ink/10 ${className}`}>
       <div className="flex items-center gap-1.5 border-b border-slate/20 bg-paper px-3 py-2">
         <span className="size-2 rounded-full bg-slate/50" />
         <span className="size-2 rounded-full bg-slate/50" />
@@ -157,12 +155,24 @@ export function ChatScreen() {
 }
 
 /** Small floating notification used around the hero devices. */
-export function Toast({ title, text, icon, className = "" }: { title: string; text: string; icon: ReactNode; className?: string }) {
+export function Toast({
+  title,
+  text,
+  icon,
+  className = "",
+}: {
+  title: string;
+  text: string;
+  icon: ReactNode;
+  className?: string;
+}) {
   return (
     <div
-      className={`flex items-center gap-3 rounded-2xl border border-slate/20 bg-white px-4 py-3 text-left shadow-xl shadow-ink/30 ${className}`}
+      className={`flex items-center gap-3 rounded-2xl border border-slate/20 bg-white px-4 py-3 text-left shadow-lg shadow-ink/10 ${className}`}
     >
-      <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-plum text-white">{icon}</span>
+      <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-plum text-white">
+        {icon}
+      </span>
       <span>
         <span className="block text-sm font-semibold text-navy">{title}</span>
         <span className="block text-xs text-ink/70">{text}</span>
