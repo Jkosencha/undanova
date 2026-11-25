@@ -3,7 +3,6 @@ import analyticsLaptop from "@/assets/photos/analytics-laptop.jpg";
 import cafeCode from "@/assets/photos/cafe-code.jpg";
 import codeDesk from "@/assets/photos/code-desk.jpg";
 import codeSunset from "@/assets/photos/code-sunset.jpg";
-import deskLamp from "@/assets/photos/desk-lamp.jpg";
 import lakeSunset from "@/assets/photos/lake-sunset.jpg";
 import metricsScreen from "@/assets/photos/metrics-screen.jpg";
 import openOffice from "@/assets/photos/open-office.jpg";
@@ -12,6 +11,7 @@ import stickyBoard from "@/assets/photos/sticky-board.jpg";
 import studioDesk from "@/assets/photos/studio-desk.jpg";
 import valleySunset from "@/assets/photos/valley-sunset.jpg";
 import websiteImac from "@/assets/photos/website-imac.jpg";
+import whiteMacbook from "@/assets/photos/white-macbook.jpg";
 import whiteDesk from "@/assets/photos/white-desk.jpg";
 
 /**
@@ -21,14 +21,13 @@ import whiteDesk from "@/assets/photos/white-desk.jpg";
  * Unsplash photos: studioDesk (Lasse Jensen), whiteDesk (Andrew Neel),
  * websiteImac (Annie Spratt), codeDesk (Rich Tervet), analyticsLaptop
  * (Luke Chesser), stickyBoard (Paymo), metricsScreen (Stephen Dawson),
- * openOffice (Madeline Liu) and deskLamp (Iewek Gnos, on Contact).
+ * openOffice (Madeline Liu) and whiteMacbook (KOBU Agency, on Contact).
  */
 export const photos = {
   analyticsLaptop,
   cafeCode,
   codeDesk,
   codeSunset,
-  deskLamp,
   lakeSunset,
   metricsScreen,
   openOffice,
@@ -37,6 +36,7 @@ export const photos = {
   studioDesk,
   valleySunset,
   websiteImac,
+  whiteMacbook,
   whiteDesk,
 };
 
@@ -56,6 +56,8 @@ export const serviceImage: Record<string, { photo: PhotoName; alt: string }> = {
 };
 
 const veils = {
+  /** Behind longer text over a bright photo: mostly teal-blue, the photo just a texture. */
+  deep: "bg-gradient-to-b from-navy/80 via-navy/80 to-navy/90",
   /** For white text on top: a deep teal-blue wash, darker at the bottom where text sits. */
   dark: "bg-gradient-to-b from-navy/55 via-navy/60 to-navy/80",
   /** A lighter wash where only large text sits on top. */
