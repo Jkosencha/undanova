@@ -148,8 +148,8 @@ export default function Home() {
           <div className="mx-auto w-full max-w-[520px]">
             <div className="relative aspect-[4/5] overflow-hidden">
               <Image
-                src={photos.codeSunset}
-                alt="A laptop with code beside a window at sunset"
+                src={photos.studioDesk}
+                alt="A tidy wooden desk with a laptop on a stand, a keyboard and a lamp"
                 fill
                 sizes="(min-width: 1024px) 520px, 100vw"
                 quality={60}

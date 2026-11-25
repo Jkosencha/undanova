@@ -20,12 +20,12 @@ export const metadata: Metadata = {
 
 // A photo for each service.
 const serviceImage: Record<string, { photo: PhotoName; alt: string }> = {
-  "web-development": { photo: "cafeCode", alt: "A laptop with code beside a cappuccino in a cafe" },
-  "custom-software": { photo: "codeSunset", alt: "A laptop with code beside a window at sunset" },
-  "business-systems": { photo: "posCafe", alt: "A point-of-sale dashboard on a laptop in a cafe" },
-  "ui-ux-design": { photo: "nightBalcony", alt: "A laptop and notebook on a balcony table at night" },
-  "automation-integrations": { photo: "circuit", alt: "A circuit board" },
-  "digital-transformation": { photo: "pathSunset", alt: "A path leading towards the sunset" },
+  "web-development": { photo: "websiteImac", alt: "A desktop computer showing a website on a wooden desk" },
+  "custom-software": { photo: "codeDesk", alt: "A laptop showing code on a white desk beside a lamp" },
+  "business-systems": { photo: "analyticsLaptop", alt: "A laptop showing an analytics dashboard with charts" },
+  "ui-ux-design": { photo: "stickyBoard", alt: "Sticky notes arranged in columns on a whiteboard" },
+  "automation-integrations": { photo: "metricsScreen", alt: "A screen showing live performance metrics" },
+  "digital-transformation": { photo: "openOffice", alt: "A modern open-plan office with workstations" },
 };
 
 export default function ServicesPage() {
