@@ -1,43 +1,41 @@
 import Image from "next/image";
+import cafeCode from "@/assets/photos/cafe-code.jpg";
 import circuit from "@/assets/photos/circuit.jpg";
-import codeCloseup from "@/assets/photos/code-closeup.jpg";
-import codeScreens from "@/assets/photos/code-screens.jpg";
-import deskLamp from "@/assets/photos/desk-lamp.jpg";
-import keyboardBacklit from "@/assets/photos/keyboard-backlit.jpg";
-import keyboardDark from "@/assets/photos/keyboard-dark.jpg";
-import laptopCode from "@/assets/photos/laptop-code.jpg";
-import laptopKeyboard from "@/assets/photos/laptop-keyboard.jpg";
+import codeSunset from "@/assets/photos/code-sunset.jpg";
+import lakeSunset from "@/assets/photos/lake-sunset.jpg";
+import nightBalcony from "@/assets/photos/night-balcony.jpg";
+import pathSunset from "@/assets/photos/path-sunset.jpg";
+import posCafe from "@/assets/photos/pos-cafe.jpg";
+import terraceView from "@/assets/photos/terrace-view.jpg";
+import valleySunset from "@/assets/photos/valley-sunset.jpg";
 
 /**
- * Technology photography (Unsplash, free licence; no people, no abstract lines):
- * circuit: Yogesh Phuyal · codeCloseup: Timothy Cuenat · codeScreens: Jakub Żerdzicki
- * deskLamp: Clint Patterson · keyboardBacklit: Jepretualang · keyboardDark: Robbin Grimm
- * laptopCode: AltumCode · laptopKeyboard: Igor Omilaev
- *
- * Every photo is shown in black and white (the `grayscale` class) so it takes on the
- * brand palette from the deep teal-blue wash, instead of its own colours.
+ * Photos, in natural colour. All are UndaNova's own, except `circuit`
+ * (Yogesh Phuyal, Unsplash free licence). Screens showing code, desktop files
+ * or personal names are blurred, and metadata (including location) is removed.
  */
 export const photos = {
+  cafeCode,
   circuit,
-  codeCloseup,
-  codeScreens,
-  deskLamp,
-  keyboardBacklit,
-  keyboardDark,
-  laptopCode,
-  laptopKeyboard,
+  codeSunset,
+  lakeSunset,
+  nightBalcony,
+  pathSunset,
+  posCafe,
+  terraceView,
+  valleySunset,
 };
 
-/** Classes for a brand-toned photo: black and white, so the teal-blue wash colours it. */
-export const photoTone = "object-cover grayscale";
+/** Classes for photos shown on their own (natural colour). */
+export const photoTone = "object-cover";
 
 export type PhotoName = keyof typeof photos;
 
 const veils = {
-  /** For white text on top: a deep teal-blue brand wash. */
-  dark: "bg-navy/75",
-  /** A lighter navy wash where only large text sits on top. */
-  medium: "bg-navy/55",
+  /** For white text on top: a deep teal-blue wash, darker at the bottom where text sits. */
+  dark: "bg-gradient-to-b from-navy/55 via-navy/60 to-navy/80",
+  /** A lighter wash where only large text sits on top. */
+  medium: "bg-gradient-to-b from-navy/35 via-navy/45 to-navy/70",
   none: "",
 };
 
