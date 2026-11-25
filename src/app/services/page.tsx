@@ -3,12 +3,12 @@
  * description, business value, what's included and a call to action.
  */
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Button } from "@/components/button";
 import { CTABand } from "@/components/cta-band";
 import { ArrowIcon, CheckIcon, ServiceIcon } from "@/components/icons";
 import { PageHeader } from "@/components/page-header";
-import { type PhotoName, photos, photoTone } from "@/components/photo-background";
+import { ParallaxImage } from "@/components/parallax-image";
+import { type PhotoName, photos } from "@/components/photo-background";
 import { Container } from "@/components/section";
 import { services } from "@/content/services";
 
@@ -53,17 +53,12 @@ export default function ServicesPage() {
               <div className={`reveal relative ${flipped ? "lg:order-2" : ""}`}>
                 <div className="relative aspect-[4/3] overflow-hidden">
                   {image && (
-                    <Image
-                      src={photos[image.photo]}
-                      alt={image.alt}
-                      fill
-                      sizes="(min-width: 1024px) 520px, 100vw"
-                      quality={60}
-                      placeholder="blur"
-                      className={photoTone}
-                    />
+                    <ParallaxImage src={photos[image.photo]} alt={image.alt} sizes="(min-width: 1024px) 520px, 100vw" />
                   )}
-                  <div aria-hidden className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-navy/80 to-transparent" />
+                  <div
+                    aria-hidden
+                    className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-navy/80 to-transparent"
+                  />
                   <span
                     aria-hidden
                     className="absolute bottom-4 left-6 font-heading text-7xl font-extralight text-white/90 md:text-8xl"

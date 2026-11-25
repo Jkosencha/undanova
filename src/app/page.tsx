@@ -3,12 +3,12 @@
  * Minimal and elegant: white and soft grey, spaced caps headings, interface visuals.
  */
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/button";
 import { CTABand } from "@/components/cta-band";
 import { ArrowIcon, ServiceIcon } from "@/components/icons";
-import { PhotoBackground, photos, photoTone } from "@/components/photo-background";
+import { ParallaxImage } from "@/components/parallax-image";
+import { PhotoBackground, photos } from "@/components/photo-background";
 import { RiseWords } from "@/components/rise-words";
 import { Container, Section, SectionHeading } from "@/components/section";
 import { services } from "@/content/services";
@@ -148,14 +148,10 @@ export default function Home() {
           </div>
           <div className="mx-auto w-full max-w-[520px]">
             <div className="relative aspect-[4/5] overflow-hidden">
-              <Image
+              <ParallaxImage
                 src={photos.studioDesk}
                 alt="A tidy wooden desk with a laptop on a stand, a keyboard and a lamp"
-                fill
                 sizes="(min-width: 1024px) 520px, 100vw"
-                quality={60}
-                placeholder="blur"
-                className={photoTone}
               />
             </div>
           </div>

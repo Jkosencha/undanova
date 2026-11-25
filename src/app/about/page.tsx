@@ -5,8 +5,8 @@ import type { Metadata } from "next";
 import { CTABand } from "@/components/cta-band";
 import { PageHeader } from "@/components/page-header";
 import { Section, SectionHeading } from "@/components/section";
-import Image from "next/image";
-import { photos, photoTone } from "@/components/photo-background";
+import { ParallaxImage } from "@/components/parallax-image";
+import { photos } from "@/components/photo-background";
 import { mission, values, vision } from "@/content/studio";
 
 export const metadata: Metadata = {
@@ -43,14 +43,10 @@ export default function AboutPage() {
           </div>
           <div className="mx-auto w-full max-w-[520px]">
             <div className="relative aspect-[4/3] overflow-hidden">
-              <Image
+              <ParallaxImage
                 src={photos.whiteDesk}
                 alt="A bright, minimal workspace with a laptop on a white desk"
-                fill
                 sizes="(min-width: 1024px) 520px, 100vw"
-                quality={60}
-                placeholder="blur"
-                className={photoTone}
               />
             </div>
           </div>
