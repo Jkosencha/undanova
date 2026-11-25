@@ -44,7 +44,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </a>
         <OrganizationJsonLd />
         <SiteHeader />
-        <main id="main" className="flex flex-1 flex-col">
+        <main id="main" className="flex flex-1 flex-col overflow-x-clip">
           <MotionProvider>{children}</MotionProvider>
         </main>
         <SiteFooter />

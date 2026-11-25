@@ -72,7 +72,7 @@ type PhotoBackgroundProps = {
   sizes?: string;
 };
 
-/** Full-bleed photo behind a section. Place inside a `relative isolate overflow-hidden` element. */
+/** Full-bleed photo behind a section. Place inside a `relative isolate overflow-clip` element. */
 export function PhotoBackground({ photo, veil = "dark", priority = false, sizes = "100vw" }: PhotoBackgroundProps) {
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">

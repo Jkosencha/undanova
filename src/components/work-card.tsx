@@ -19,7 +19,7 @@ export function WorkCard({ item, headingLevel = "h3" }: WorkCardProps) {
   const Heading = headingLevel;
   const [cover] = item.images;
   return (
-    <Card href={`/work/${item.slug}`} className="flex w-full flex-col overflow-hidden">
+    <Card href={`/work/${item.slug}`} className="flex w-full flex-col overflow-clip">
       {cover ? (
         <Image
           src={cover.src}

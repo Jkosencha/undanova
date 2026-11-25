@@ -22,9 +22,9 @@ export default function WorkPage() {
       />
       <Section aria-labelledby="selected-title">
         <SectionHeading id="selected-title" title="Selected Work" />
-        <ul className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <ul className="reveal-stagger mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {work.map((item) => (
-            <li key={item.slug} className="reveal flex">
+            <li key={item.slug} className="flex">
               <WorkCard item={item} />
             </li>
           ))}

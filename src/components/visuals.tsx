@@ -8,7 +8,7 @@ export type CoverKind = "website" | "shop" | "dashboard";
 /** Geometric cover art for a project, until real screenshots are added. */
 export function ProjectCover({ kind, className = "" }: { kind: CoverKind; className?: string }) {
   return (
-    <div aria-hidden className={`overflow-hidden bg-paper ${className}`}>
+    <div aria-hidden className={`overflow-clip bg-paper ${className}`}>
       <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" className="h-full w-full">
         {kind === "shop" && (
           // Concentric rings: a marketplace drawing people in

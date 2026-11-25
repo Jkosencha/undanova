@@ -74,12 +74,12 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
             height={675}
             sizes="(min-width: 1200px) 1136px, 100vw"
             priority
-            className="aspect-video w-full border border-mist object-cover"
+            className="reveal-zoom aspect-video w-full border border-mist object-cover"
           />
         ) : (
-          <ProjectCover kind={project.preview} className="h-72 border border-mist sm:h-[28rem]" />
+          <ProjectCover kind={project.preview} className="reveal-zoom h-72 border border-mist sm:h-[28rem]" />
         )}
-        <dl className={`mt-12 grid gap-8 text-center ${facts.length === 3 ? "sm:grid-cols-3" : "sm:grid-cols-2"}`}>
+        <dl className={`reveal-stagger mt-12 grid gap-8 text-center ${facts.length === 3 ? "sm:grid-cols-3" : "sm:grid-cols-2"}`}>
           {facts.map((f) => (
             <div key={f.label} className="border-t border-navy/20 pt-5">
               <dt className="caps-sm text-ink">{f.label}</dt>
@@ -94,9 +94,9 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
         <Container className="max-w-3xl space-y-16 px-0!">
           {story.length > 0 ? (
             story.map((part) => (
-              <div key={part.id} className="reveal text-center">
+              <div key={part.id} className="text-center">
                 <SectionHeading id={part.id} title={part.title} />
-                <p className="mx-auto mt-6 max-w-2xl text-lg text-ink">{part.text}</p>
+                <p className="reveal mx-auto mt-6 max-w-2xl text-lg text-ink">{part.text}</p>
               </div>
             ))
           ) : (
@@ -107,7 +107,7 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
           {project.stack.length > 0 && (
             <div className="text-center">
               <SectionHeading id="stack" title="Technologies used" />
-              <ul className="mt-6 flex flex-wrap justify-center gap-2">
+              <ul className="reveal-stagger mt-6 flex flex-wrap justify-center gap-2">
                 {project.stack.map((tech) => (
                   <li key={tech} className="caps-sm border border-navy/25 px-3 py-2 text-[10px] text-navy">
                     {tech}
@@ -121,7 +121,7 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
 
       {gallery.length > 0 && (
         <Section aria-label="Screenshots">
-          <ul className="grid gap-6 md:grid-cols-2">
+          <ul className="reveal-stagger grid gap-6 md:grid-cols-2">
             {gallery.map((image) => (
               <li key={image.src}>
                 <Image

@@ -113,19 +113,83 @@
   animation: page-rise 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
-/* Sections rise gently as they scroll into view, in browsers that support
-   scroll-driven animations (no JavaScript). Elsewhere they simply show. */
+/*
+ * Scroll animations. Elements travel into place as they scroll into view, tied
+ * to the scroll position (scroll back and they reverse). CSS scroll-driven
+ * animations: no JavaScript. Transform only, so text never sits half
+ * transparent (keeps contrast checks honest) and nothing is ever hidden.
+ * Browsers without support, and reduced motion, simply show everything.
+ *   .reveal        rises up from below
+ *   .reveal-drop   drops down from above
+ *   .reveal-left   slides in from the left
+ *   .reveal-right  slides in from the right
+ *   .reveal-zoom   grows slightly into place
+ *   .reveal-stagger  on a list: each child rises in, one after another
+ * Set --i (0, 1, 2...) on an element to delay it, like a list item.
+ */
 @keyframes reveal-rise {
   from {
-    transform: translateY(28px);
+    transform: translateY(48px);
+  }
+}
+@keyframes reveal-drop {
+  from {
+    transform: translateY(-40px);
+  }
+}
+@keyframes reveal-left {
+  from {
+    transform: translateX(-72px);
+  }
+}
+@keyframes reveal-right {
+  from {
+    transform: translateX(72px);
+  }
+}
+@keyframes reveal-zoom {
+  from {
+    transform: scale(0.9);
   }
 }
 @supports (animation-timeline: view()) {
-  .reveal {
-    /* Transform only: text never sits half-transparent (keeps contrast checks honest). */
+  .reveal,
+  .reveal-drop,
+  .reveal-left,
+  .reveal-right,
+  .reveal-zoom,
+  .reveal-stagger > * {
     animation: reveal-rise linear both;
     animation-timeline: view();
-    animation-range: entry 0% entry 35%;
+    /* --i (0, 1, 2...) delays an item so a row of them arrives in turn. */
+    animation-range: entry calc(var(--i, 0) * 10%) cover calc(25% + var(--i, 0) * 5%);
+  }
+  .reveal-drop {
+    animation-name: reveal-drop;
+  }
+  .reveal-left {
+    animation-name: reveal-left;
+  }
+  .reveal-right {
+    animation-name: reveal-right;
+  }
+  .reveal-zoom {
+    animation-name: reveal-zoom;
+  }
+  .reveal-stagger > :nth-child(2) {
+    --i: 1;
+  }
+  .reveal-stagger > :nth-child(3) {
+    --i: 2;
+  }
+  .reveal-stagger > :nth-child(4) {
+    --i: 3;
+  }
+  .reveal-stagger > :nth-child(5) {
+    --i: 4;
+  }
+  .reveal-stagger > :nth-child(n + 6) {
+    --i: 5;
   }
 }
 

@@ -31,7 +31,7 @@ export default function Home() {
       <Section aria-labelledby="intro-title">
         <div className="mx-auto max-w-3xl text-center">
           <SectionHeading id="intro-title" title="Technology built around real-world needs." />
-          <div className="mt-8 space-y-5 text-lg text-ink">
+          <div className="reveal mt-8 space-y-5 text-lg text-ink">
             <p>
               At UndaNova, we believe technology should do more than look impressive. It should solve problems, simplify
               processes and create meaningful opportunities.
@@ -55,14 +55,14 @@ export default function Home() {
               intro="Six ways we help organizations build, improve and grow with technology."
               align="left"
             />
-            <Button href="/services" variant="secondary" className="mt-10">
+            <Button href="/services" variant="secondary" className="reveal-left mt-10">
               Explore All Services
             </Button>
           </div>
           <ServicePreview>
             <ol className="border-t border-navy/15">
               {services.map((service, i) => (
-                <li key={service.slug} data-service={service.slug} className="reveal border-b border-navy/15">
+                <li key={service.slug} data-service={service.slug} className="reveal-right border-b border-navy/15">
                   <Link
                     href={`/services#${service.slug}`}
                     prefetch={false}
@@ -109,21 +109,21 @@ export default function Home() {
               title="Practical innovation. Meaningful impact."
               align="left"
             />
-            <p className="mt-6 text-ink">
+            <p className="reveal-left mt-6 text-ink">
               Technology should create value, not unnecessary complexity. UndaNova approaches every project with a focus
               on understanding the problem, identifying the right solution and delivering technology that serves a clear
               purpose.
             </p>
             <ul className="mt-8 divide-y divide-mist border-y border-mist">
               {differentiators.map((d) => (
-                <li key={d.title} className="reveal py-5">
+                <li key={d.title} className="reveal-left py-5">
                   <h3 className="font-heading text-lg text-navy">{d.title}</h3>
                   <p className="mt-1 text-sm text-ink">{d.text}</p>
                 </li>
               ))}
             </ul>
           </div>
-          <div className="mx-auto w-full max-w-[520px]">
+          <div className="reveal-right mx-auto w-full max-w-[520px]">
             <div className="relative aspect-[4/5] overflow-clip">
               <ParallaxImage
                 src={photos.studioDesk}

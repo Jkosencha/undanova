@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <section className="relative isolate flex flex-1 items-center overflow-hidden bg-navy py-28 text-white">
+    <section className="relative isolate flex flex-1 items-center overflow-clip bg-navy py-28 text-white">
       <PhotoBackground photo="pathSunset" veil="dark" priority />
       <Container className="text-center">
         <p className="caps-sm text-white/80">Error 404</p>

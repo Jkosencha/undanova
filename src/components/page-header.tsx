@@ -17,7 +17,7 @@ export function PageHeader({ title, intro, eyebrow, children, photo }: PageHeade
   const dark = Boolean(photo);
   return (
     <div
-      className={`relative isolate overflow-hidden ${dark ? "bg-navy text-white" : "border-b border-mist bg-paper"}`}
+      className={`relative isolate overflow-clip ${dark ? "bg-navy text-white" : "border-b border-mist bg-paper"}`}
     >
       {photo && <PhotoBackground photo={photo} priority />}
       <Container className="py-24 text-center md:py-32">

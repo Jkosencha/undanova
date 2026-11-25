@@ -40,7 +40,7 @@ export default function ServicesPage() {
           >
             <Container className="grid items-center gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
               {/* Photo with a large number */}
-              <div className={`reveal relative ${flipped ? "lg:order-2" : ""}`}>
+              <div className={`relative ${flipped ? "reveal-right lg:order-2" : "reveal-left"}`}>
                 <div className="relative aspect-[4/3] overflow-clip">
                   {image && (
                     <ParallaxImage src={photos[image.photo]} alt={image.alt} sizes="(min-width: 1024px) 520px, 100vw" />
@@ -59,20 +59,23 @@ export default function ServicesPage() {
               </div>
 
               {/* Content */}
-              <div className="reveal">
-                <ServiceIcon slug={service.slug} className="size-7 text-navy" />
-                <h2 id={`${service.slug}-title`} className="caps mt-6 text-xl leading-relaxed text-navy md:text-2xl">
+              <div>
+                <ServiceIcon slug={service.slug} className="reveal-zoom size-7 text-navy" />
+                <h2
+                  id={`${service.slug}-title`}
+                  className={`${flipped ? "reveal-left" : "reveal-right"} caps mt-6 text-xl leading-relaxed text-navy md:text-2xl`}
+                >
                   {service.title}
                 </h2>
-                <p className="mt-5 text-lg text-ink">{service.description}</p>
+                <p className="reveal mt-5 text-lg text-ink">{service.description}</p>
 
-                <div className="mt-8 bg-navy px-6 py-5 text-white">
+                <div className="reveal-zoom mt-8 bg-navy px-6 py-5 text-white">
                   <p className="caps-sm text-[10px] text-white/70">Business value</p>
                   <p className="mt-2 font-heading text-lg leading-snug">{service.value}</p>
                 </div>
 
                 <h3 className="caps-sm mt-8 text-ink">What&apos;s included</h3>
-                <ul className="mt-4 grid gap-x-8 gap-y-3 sm:grid-cols-2">
+                <ul className="reveal-stagger mt-4 grid gap-x-8 gap-y-3 sm:grid-cols-2">
                   {service.included.map((item) => (
                     <li key={item} className="flex gap-3 text-ink">
                       <CheckIcon className="mt-1 size-4 shrink-0 text-navy" />
@@ -81,7 +84,7 @@ export default function ServicesPage() {
                   ))}
                 </ul>
 
-                <Button href={`/contact?service=${service.slug}`} className="mt-10">
+                <Button href={`/contact?service=${service.slug}`} className="reveal mt-10">
                   Discuss your project
                   <ArrowIcon className="size-3.5" />
                 </Button>

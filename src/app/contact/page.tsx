@@ -34,7 +34,7 @@ export default function ContactPage() {
   return (
     <section aria-labelledby="contact-title" className="grid lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[0.95fr_1.05fr]">
       {/* Left: heading, guidance and details */}
-      <div className="relative isolate overflow-hidden bg-navy px-5 py-20 text-white sm:px-8 md:py-24 lg:pl-[max(2rem,calc((100vw-1200px)/2+2rem))] lg:pr-16">
+      <div className="relative isolate overflow-clip bg-navy px-5 py-20 text-white sm:px-8 md:py-24 lg:pl-[max(2rem,calc((100vw-1200px)/2+2rem))] lg:pr-16">
         <PhotoBackground photo="nightBalcony" veil="dark" priority sizes="(min-width: 1024px) 48vw, 100vw" />
         <div className="max-w-md">
           <p className="caps-sm text-white/80">Contact</p>
@@ -117,7 +117,7 @@ export default function ContactPage() {
         <div className="max-w-xl">
           <h2 className="caps text-xl text-navy">Send an inquiry</h2>
           <p className="mt-3 text-ink">Tell us a little about your project and we&apos;ll get back to you by email.</p>
-          <div className="mt-10">
+          <div className="reveal mt-10">
             {/* The URL's ?service= is only known in the browser, so the pre-filled
                 form renders there; the static page ships the same form without it. */}
             <Suspense fallback={<ContactForm />}>
