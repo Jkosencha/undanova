@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Button } from "@/components/button";
-import { PhotoBackground } from "@/components/photo-background";
 import { Container } from "@/components/section";
 
 export const metadata: Metadata = {
@@ -9,8 +8,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <section className="relative isolate flex flex-1 items-center overflow-hidden py-28">
-      <PhotoBackground photo="whiteRoom" veil="light" priority />
+    <section className="flex flex-1 items-center bg-paper py-28">
       <Container className="text-center">
         <p className="caps-sm text-ink/60">Error 404</p>
         <h1 className="caps mt-6 text-3xl text-navy md:text-5xl">This page wandered off.</h1>
