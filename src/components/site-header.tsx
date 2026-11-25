@@ -55,7 +55,7 @@ export function SiteHeader() {
         </Link>
 
         {/* Desktop navigation */}
-        <nav aria-label="Main" className="hidden items-center gap-10 md:flex">
+        <nav aria-label="Main" className="hidden items-center gap-10 lg:flex">
           <ul className="flex items-center gap-8">
             {nav.map((item) => (
               <li key={item.href}>
@@ -74,7 +74,7 @@ export function SiteHeader() {
         <button
           ref={toggleRef}
           type="button"
-          className="inline-flex size-11 items-center justify-center text-navy md:hidden"
+          className="inline-flex size-11 items-center justify-center text-navy lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -89,7 +89,7 @@ export function SiteHeader() {
         id="mobile-menu"
         aria-label="Main"
         hidden={!open}
-        className="absolute inset-x-0 top-full h-[calc(100dvh-4rem)] overflow-y-auto bg-white md:hidden"
+        className="absolute inset-x-0 top-full h-[calc(100dvh-4rem)] overflow-y-auto bg-white md:h-[calc(100dvh-5rem)] lg:hidden"
       >
         <Container className="py-8">
           <ul className="flex flex-col">
