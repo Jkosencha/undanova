@@ -26,7 +26,7 @@ export async function generateMetadata(props: PageProps<"/work/[slug]">): Promis
 }
 
 // Which service a project's kind maps to, for the pre-filled contact form.
-const serviceFor = { shop: "ecommerce-mpesa", dashboard: "ngo-school-systems", website: "business-websites" } as const;
+const serviceFor = { shop: "web-development", dashboard: "business-systems", website: "web-development" } as const;
 
 export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
   const { slug } = await props.params;
@@ -34,16 +34,17 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
   if (!project) notFound();
 
   const [hero, ...gallery] = project.images;
+  // Only verified details are shown: empty fields are left out.
   const facts = [
     { label: "Client", value: project.client },
-    { label: "Service", value: project.category },
+    { label: "Category", value: project.category },
     { label: "Status", value: project.status === "live" ? "Live" : "In progress" },
-  ];
+  ].filter((f) => f.value);
   const story = [
-    { id: "problem", title: "The problem", text: project.problem },
-    { id: "solution", title: "What we built", text: project.solution },
+    { id: "problem", title: "Problem addressed", text: project.problem },
+    { id: "solution", title: "Solution delivered", text: project.solution },
     { id: "result", title: "The result", text: project.results },
-  ];
+  ].filter((s) => s.text);
   const more = work.filter((item) => item.slug !== project.slug).slice(0, 2);
 
   return (
@@ -53,7 +54,7 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
         intro={project.summary}
         eyebrow={
           <span className="inline-flex flex-wrap items-center justify-center gap-3">
-            {project.category}
+            {project.concept ? "Concept project" : project.category}
             <StatusBadge status={project.status} />
           </span>
         }
@@ -63,7 +64,7 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
         </Button>
       </PageHeader>
 
-      {/* Main image (or illustration until screenshots arrive) and facts */}
+      {/* Main image (or an illustration until screenshots are added) and key facts */}
       <Section aria-label="Project overview">
         {hero ? (
           <Image
@@ -76,10 +77,9 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
             className="aspect-video w-full border border-mist object-cover"
           />
         ) : (
-          // TODO: replace with a screenshot once Jennifer sends one.
           <PreviewPanel kind={project.preview} className="h-72 border border-mist sm:h-[28rem]" />
         )}
-        <dl className="mt-12 grid gap-8 text-center sm:grid-cols-3">
+        <dl className={`mt-12 grid gap-8 text-center ${facts.length === 3 ? "sm:grid-cols-3" : "sm:grid-cols-2"}`}>
           {facts.map((f) => (
             <div key={f.label} className="border-t border-navy/20 pt-5">
               <dt className="caps-sm text-ink/60">{f.label}</dt>
@@ -89,18 +89,24 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
         </dl>
       </Section>
 
-      {/* The story */}
+      {/* The story, once verified details are available */}
       <Section tone="paper" aria-label="Case study">
         <Container className="max-w-3xl space-y-16 px-0!">
-          {story.map((part) => (
-            <div key={part.id} className="reveal text-center">
-              <SectionHeading id={part.id} title={part.title} />
-              <p className="mx-auto mt-6 max-w-2xl text-lg text-ink/80">{part.text}</p>
-            </div>
-          ))}
+          {story.length > 0 ? (
+            story.map((part) => (
+              <div key={part.id} className="reveal text-center">
+                <SectionHeading id={part.id} title={part.title} />
+                <p className="mx-auto mt-6 max-w-2xl text-lg text-ink/80">{part.text}</p>
+              </div>
+            ))
+          ) : (
+            <p className="text-center text-lg text-ink/75">
+              This project is in progress. A full write-up will follow once it&apos;s complete.
+            </p>
+          )}
           {project.stack.length > 0 && (
             <div className="text-center">
-              <SectionHeading id="stack" title="Built with" />
+              <SectionHeading id="stack" title="Technologies used" />
               <ul className="mt-6 flex flex-wrap justify-center gap-2">
                 {project.stack.map((tech) => (
                   <li key={tech} className="caps-sm border border-navy/25 px-3 py-2 text-[10px] text-navy">
@@ -134,7 +140,7 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
 
       {more.length > 0 && (
         <Section aria-labelledby="more-title">
-          <SectionHeading id="more-title" title="More projects" />
+          <SectionHeading id="more-title" title="More work" />
           <ul className="mt-14 grid gap-6 md:grid-cols-2">
             {more.map((item) => (
               <li key={item.slug} className="flex">
@@ -143,12 +149,12 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
             ))}
           </ul>
           <div className="mt-10 text-center">
-            <TextLink href="/work">All our work</TextLink>
+            <TextLink href="/work">All projects</TextLink>
           </div>
         </Section>
       )}
 
-      <CTABand title="Have a project like this? Let's talk." />
+      <CTABand />
     </>
   );
 }

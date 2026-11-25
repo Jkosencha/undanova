@@ -1,6 +1,7 @@
 /**
- * UndaNova projects. Used by the home page (featured work) and the Work pages.
- * TODO: case study details and screenshots for each project, from Jennifer.
+ * Selected work. Only real, verified projects go here: no invented clients,
+ * outcomes or statistics. Leave a field empty ("" or []) until it's confirmed;
+ * empty fields are simply not shown on the site.
  */
 export type WorkStatus = "live" | "in-progress";
 
@@ -12,15 +13,20 @@ export type WorkImage = {
 export type WorkItem = {
   slug: string;
   title: string;
+  /** Client name, if the client is happy to be named. */
   client: string;
   category: string;
+  /** Short description for cards. */
   summary: string;
   problem: string;
   solution: string;
   results: string;
+  /** Technologies used, where verified. */
   stack: string[];
   images: WorkImage[];
   status: WorkStatus;
+  /** Set true for a clearly labelled concept or demonstration project. */
+  concept?: boolean;
   /** Illustration shown until real screenshots are added. */
   preview: "website" | "shop" | "dashboard";
 };
@@ -30,13 +36,12 @@ export const work: WorkItem[] = [
     slug: "nula-leer",
     title: "Nula Leer online store",
     client: "Nula Leer",
-    category: "E-commerce with M-Pesa",
-    // TODO: one-sentence summary from Jennifer.
-    summary: "An online store where customers can browse, order and pay with M-Pesa.",
-    problem: "TODO: the problem the client had.",
-    solution: "TODO: what UndaNova built.",
-    results: "TODO: the result so far.",
-    stack: [], // TODO: tech stack
+    category: "Web Development · E-commerce",
+    summary: "An online store where customers can browse products, order and pay.",
+    problem: "", // TODO: the problem addressed (verified)
+    solution: "", // TODO: the solution delivered (verified)
+    results: "", // TODO: results, once there are real ones
+    stack: [], // TODO: technologies used
     images: [], // TODO: screenshots
     status: "in-progress",
     preview: "shop",
@@ -44,15 +49,14 @@ export const work: WorkItem[] = [
   {
     slug: "ngo-management-system",
     title: "NGO management system",
-    client: "TODO: NGO name",
-    category: "NGO systems",
-    // TODO: one-sentence summary from Jennifer.
-    summary: "One system for an NGO to manage its records, people and reports.",
-    problem: "TODO: the problem the client had.",
-    solution: "TODO: what UndaNova built.",
-    results: "TODO: the result so far.",
-    stack: [], // TODO: tech stack
-    images: [], // TODO: screenshots
+    client: "", // TODO: NGO name, if they're happy to be named
+    category: "Business Systems",
+    summary: "A management system for an NGO's records, people and reports.",
+    problem: "",
+    solution: "",
+    results: "",
+    stack: [],
+    images: [],
     status: "in-progress",
     preview: "dashboard",
   },
@@ -60,17 +64,14 @@ export const work: WorkItem[] = [
     slug: "anika",
     title: "ANIKA",
     client: "ANIKA",
-    category: "Website & dashboard",
-    // TODO: summary from Jennifer.
+    category: "Web Development",
     summary: "A website and dashboard for ANIKA.",
-    problem: "TODO: the problem the client had.",
-    solution: "TODO: what UndaNova built.",
-    results: "TODO: the result so far.",
-    stack: [], // TODO: tech stack
-    images: [], // TODO: screenshots
+    problem: "",
+    solution: "",
+    results: "",
+    stack: [],
+    images: [],
     status: "in-progress", // TODO: confirm whether ANIKA is live or in progress.
     preview: "website",
   },
 ];
-
-export const featuredWork = work.slice(0, 3);
