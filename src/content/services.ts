@@ -1,80 +1,119 @@
 /**
- * The services UndaNova offers. The home page uses `title` and `summary`;
- * the Services page shows everything.
+ * UndaNova's services. The home page shows `title` and `summary`; the Services
+ * page shows everything. Add a new service here and it appears everywhere
+ * (home, services page, footer, contact form).
  */
 export type Service = {
   slug: string;
   title: string;
+  /** One sentence for the home page overview. */
   summary: string;
-  /** Who the service is for, in one or two sentences. */
-  audience: string;
+  /** Short description for the Services page. */
+  description: string;
+  /** The business value, in plain terms. */
+  value: string;
   included: string[];
 };
 
 export const services: Service[] = [
   {
-    slug: "business-websites",
-    title: "Business websites",
-    summary: "A fast, professional site that brings you customers.",
-    audience:
-      "For shops, clinics, consultants and service businesses that need to look professional online and make it easy for customers to get in touch.",
+    slug: "web-development",
+    title: "Web Development",
+    summary:
+      "Professional, responsive websites and web platforms designed to strengthen digital presence and support business growth.",
+    description:
+      "From a first business website to a full web platform, we design and build fast, responsive sites that work on every screen.",
+    value: "A credible online presence that brings in enquiries and is simple to keep up to date.",
     included: [
-      "Up to about 6 pages",
-      "Mobile-first design that works on any phone",
-      "Contact form and WhatsApp button",
-      "Google Maps so customers can find you",
-      "Basic SEO so you show up on Google",
-      "Hosting set up for you",
+      "Business and corporate websites",
+      "Landing pages",
+      "E-commerce websites",
+      "Web portals",
+      "Content-driven websites",
+      "Website maintenance and optimization",
     ],
   },
   {
-    slug: "ngo-school-systems",
-    title: "NGO & school systems",
-    summary: "Manage donors, beneficiaries, students and reports in one place.",
-    audience:
-      "For NGOs and schools still running on spreadsheets and paper, who need their records in one safe place and reports without the late nights.",
+    slug: "custom-software",
+    title: "Custom Software Development",
+    summary:
+      "Tailored applications and software solutions built around specific business requirements, workflows and operational challenges.",
+    description:
+      "When off-the-shelf tools don't fit, we build software around the way your organization actually works.",
+    value: "Software that fits your processes, instead of processes bent to fit the software.",
     included: [
-      "Custom dashboards that show what matters at a glance",
-      "User roles, so admins and staff see the right things",
-      "Records management for donors, beneficiaries or students",
-      "Reports exported to PDF and CSV",
-      "SMS notifications",
+      "Custom web applications",
+      "Internal business applications",
+      "SaaS product development",
+      "Client and member portals",
+      "Workflow-based applications",
+      "API development",
     ],
   },
   {
-    slug: "ecommerce-mpesa",
-    title: "E-commerce with M-Pesa",
-    summary: "Sell online and get paid straight to M-Pesa.",
-    audience:
-      "For businesses selling on WhatsApp or Instagram that want a proper online shop, with orders and payments handled for them.",
+    slug: "business-systems",
+    title: "Business Systems & Management Platforms",
+    summary:
+      "Digital systems that help organizations manage customers, inventory, operations, records and internal processes.",
+    description:
+      "Systems that bring customers, stock, bookings and records into one place, with the reports you need to run things well.",
+    value: "Less time on spreadsheets and paperwork, and a clearer view of how the organization is doing.",
     included: [
-      "Product catalogue",
-      "Shopping cart and orders",
-      "M-Pesa checkout: customers get a payment prompt on their phone (STK Push)",
-      "Order notifications for you and your customers",
-      "Admin dashboard to manage products and orders",
+      "Customer relationship management (CRM)",
+      "Inventory management systems",
+      "Administrative dashboards",
+      "Booking and reservation systems",
+      "Business management platforms",
+      "Reporting and data management systems",
     ],
   },
   {
-    slug: "support-maintenance",
-    title: "Support & maintenance",
-    summary: "We keep your site secure, updated and running.",
-    audience:
-      "For anyone with a website or system already live, whether we built it or not, who wants someone reliable looking after it.",
+    slug: "ui-ux-design",
+    title: "UI/UX Design",
+    summary:
+      "User-centered interface and experience design focused on usability, accessibility and intuitive digital experiences.",
+    description:
+      "We design interfaces people understand at a glance, tested and refined before a line of production code is written.",
+    value: "Products that are easier to use, so more people finish what they came to do.",
     included: [
-      "Monthly plans",
-      "Software updates",
-      "Regular backups",
-      "Security checks",
-      "Small changes and content updates",
-      "Uptime monitoring, so we know if your site goes down",
+      "User interface design",
+      "User experience research",
+      "Wireframing and prototyping",
+      "Responsive interface design",
+      "Design systems",
+      "Usability improvements",
+    ],
+  },
+  {
+    slug: "automation-integrations",
+    title: "Automation & Integrations",
+    summary:
+      "Connecting digital tools, automating repetitive tasks and streamlining workflows through intelligent integrations.",
+    description: "We connect the tools you already use and take repetitive work off your team's plate.",
+    value: "Fewer manual steps, fewer errors and more time for the work that matters.",
+    included: [
+      "Workflow automation",
+      "API integrations",
+      "WhatsApp integrations",
+      "Third-party software integrations",
+      "Data synchronization",
+      "Process optimization",
+    ],
+  },
+  {
+    slug: "digital-transformation",
+    title: "Digital Transformation Consulting",
+    summary:
+      "Helping organizations identify opportunities to improve their operations and adopt appropriate digital technologies.",
+    description:
+      "We look at how your organization works today and help you decide where technology will make the biggest difference.",
+    value: "A clear, realistic plan for going digital, with priorities that match your budget and goals.",
+    included: [
+      "Digital strategy",
+      "Technology consultation",
+      "Business process assessment",
+      "Digitization of manual processes",
+      "Technology adoption planning",
     ],
   },
 ];
-
-/** Not offered yet; shown as a short note on the Services page and in the contact form. */
-export const comingSoon = {
-  slug: "mobile-apps",
-  title: "Mobile apps",
-  note: "Coming soon. Ask us about your app idea.",
-};

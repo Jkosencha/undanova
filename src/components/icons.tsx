@@ -110,43 +110,53 @@ const line = {
 /** Line icon for each service, keyed by the service slug. */
 export function ServiceIcon({ slug, ...props }: IconProps & { slug: string }) {
   const paths: Record<string, ReactNode> = {
-    "business-websites": (
+    // Web Development: a browser window
+    "web-development": (
       <>
-        <rect x="3" y="4" width="18" height="14" rx="2" />
-        <path d="M3 8h18M8 21h8M12 18v3" />
+        <rect x="3" y="4" width="18" height="16" rx="1.5" />
+        <path d="M3 8.5h18M6 6.3h.01M8.5 6.3h.01" />
       </>
     ),
-    "ngo-school-systems": (
+    // Custom Software: code brackets
+    "custom-software": <path d="M8.5 7 3.5 12l5 5M15.5 7l5 5-5 5M13.5 4.5l-3 15" />,
+    // Business Systems: a dashboard grid
+    "business-systems": (
       <>
-        <circle cx="9" cy="8" r="3" />
-        <path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" />
-        <circle cx="17.5" cy="9.5" r="2.5" />
-        <path d="M16 14.2c.5-.1 1-.2 1.5-.2 2.5 0 4.5 2 4.5 4.5" />
+        <rect x="3" y="3" width="7.5" height="9" rx="1" />
+        <rect x="13.5" y="3" width="7.5" height="5" rx="1" />
+        <rect x="13.5" y="11" width="7.5" height="10" rx="1" />
+        <rect x="3" y="15" width="7.5" height="6" rx="1" />
       </>
     ),
-    "ecommerce-mpesa": (
+    // UI/UX Design: a pen nib over a layout
+    "ui-ux-design": (
       <>
-        <path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6.2" />
-        <circle cx="10" cy="20" r="1.2" />
-        <circle cx="17" cy="20" r="1.2" />
+        <path d="M12 3.5 5 10l3.5 10.5h7L19 10z" />
+        <circle cx="12" cy="11.5" r="1.8" />
+        <path d="M12 3.5v6.2M8.5 20.5h7" />
       </>
     ),
-    "support-maintenance": (
+    // Automation & Integrations: connected nodes
+    "automation-integrations": (
       <>
-        <path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z" />
-        <path d="M8.5 12l2.5 2.5 4.5-5" />
+        <circle cx="5.5" cy="6" r="2.5" />
+        <circle cx="18.5" cy="6" r="2.5" />
+        <circle cx="12" cy="18" r="2.5" />
+        <path d="M8 6h8M7 8.2l3.7 7.4M17 8.2l-3.7 7.4" />
       </>
     ),
-    "mobile-apps": (
+    // Digital Transformation: a rising path with an arrow
+    "digital-transformation": (
       <>
-        <rect x="7" y="2.5" width="10" height="19" rx="2.5" />
-        <path d="M11 18.5h2" />
+        <path d="M3 19.5h18" />
+        <path d="M4.5 16 9.5 11l3.5 3 6.5-7" />
+        <path d="M15 7h4.5v4.5" />
       </>
     ),
   };
   return (
     <svg viewBox="0 0 24 24" {...line} {...base} {...props}>
-      {paths[slug] ?? paths["business-websites"]}
+      {paths[slug] ?? paths["web-development"]}
     </svg>
   );
 }
