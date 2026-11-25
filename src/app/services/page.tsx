@@ -56,7 +56,7 @@ export default function ServicesPage() {
           <Container className="grid gap-12 lg:grid-cols-2 lg:gap-20">
             <div className="reveal">
               <ServiceIcon slug={service.slug} className="size-8 text-navy" />
-              <h2 id={`${service.slug}-title`} className="caps mt-6 text-2xl text-navy md:text-3xl">
+              <h2 id={`${service.slug}-title`} className="caps mt-6 text-xl text-navy md:text-2xl">
                 {service.title}
               </h2>
               <span aria-hidden className="mt-6 block h-px w-12 bg-navy/40" />
