@@ -3,7 +3,7 @@ import { LegalPage } from "@/components/legal-page";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Privacy policy",
+  title: "Privacy Policy",
   description: "How UndaNova collects, uses and protects your personal data.",
 };
 
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <LegalPage
-      title="Privacy policy"
+      title="Privacy Policy"
       intro="What we collect when you contact us, why, and how we keep it safe."
       updated="18 November 2026"
       sections={[
@@ -36,11 +36,9 @@ export default function PrivacyPage() {
             <>
               <p>When you use our contact form, we collect:</p>
               <ul>
-                <li>your name and your email address or phone number</li>
-                <li>
-                  your organisation, the service you&apos;re interested in and your budget range, if you give them
-                </li>
-                <li>your message</li>
+                <li>your name and email address</li>
+                <li>your business or organization and phone number, if you give them</li>
+                <li>the service you&apos;re interested in and your project description</li>
               </ul>
               <p>We don&apos;t use advertising trackers, and we don&apos;t sell your data.</p>
             </>
@@ -51,7 +49,7 @@ export default function PrivacyPage() {
           title: "How we use it",
           body: (
             <p>
-              Only to reply to your enquiry, prepare a quote and, if we work together, deliver your project. We
+              Only to respond to your inquiry, prepare a proposal and, if we work together, deliver your project. We
               won&apos;t add you to a mailing list without asking.
             </p>
           ),
@@ -75,7 +73,7 @@ export default function PrivacyPage() {
           title: "How long we keep it",
           body: (
             <p>
-              We keep enquiries for up to 12 months, or for as long as we&apos;re working together, then delete them.
+              We keep inquiries for up to 12 months, or for as long as we&apos;re working together, then delete them.
             </p>
           ),
         },

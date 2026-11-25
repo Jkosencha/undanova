@@ -2,30 +2,19 @@
  * Contact form fields and validation, shared by the form (browser) and the
  * server action so both check exactly the same rules.
  */
-import { saasProducts } from "@/content/saas";
-import { comingSoon, services } from "@/content/services";
+import { services } from "@/content/services";
 
 export const serviceOptions = [
   ...services.map((s) => ({ value: s.slug, label: s.title })),
-  { value: comingSoon.slug, label: comingSoon.title },
-  ...saasProducts.map((p) => ({ value: p.slug, label: `${p.title} (ready-made)` })),
-  { value: "other", label: "Something else / not sure" },
-];
-
-export const budgetOptions = [
-  { value: "under-50k", label: "Under KES 50k" },
-  { value: "50k-150k", label: "KES 50k–150k" },
-  { value: "150k-500k", label: "KES 150k–500k" },
-  { value: "500k-plus", label: "KES 500k+" },
-  { value: "not-sure", label: "Not sure" },
+  { value: "other", label: "Something else / not sure yet" },
 ];
 
 export type ContactValues = {
   name: string;
-  contact: string;
   organisation: string;
+  email: string;
+  phone: string;
   service: string;
-  budget: string;
   message: string;
 };
 
@@ -54,10 +43,10 @@ export function readContactForm(formData: FormData): ContactValues {
   };
   return {
     name: get("name"),
-    contact: get("contact"),
     organisation: get("organisation"),
+    email: get("email"),
+    phone: get("phone"),
     service: get("service"),
-    budget: get("budget"),
     message: get("message"),
   };
 }
@@ -68,19 +57,18 @@ export function validateContact(values: ContactValues): ContactErrors {
   if (values.name.length < 2) errors.name = "Please enter your name.";
   else if (values.name.length > 100) errors.name = "Please keep your name under 100 characters.";
 
-  if (!values.contact) errors.contact = "Please enter an email address or phone number.";
-  else if (!isEmail(values.contact) && !isPhone(values.contact))
-    errors.contact = "That doesn't look like an email address or phone number.";
-
   if (values.organisation.length > 150) errors.organisation = "Please keep this under 150 characters.";
+
+  if (!values.email) errors.email = "Please enter your email address.";
+  else if (!isEmail(values.email) || values.email.length > 150)
+    errors.email = "That doesn't look like an email address.";
+
+  if (values.phone && !isPhone(values.phone)) errors.phone = "That doesn't look like a phone number.";
 
   if (!serviceOptions.some((o) => o.value === values.service)) errors.service = "Please choose a service.";
 
-  if (values.budget && !budgetOptions.some((o) => o.value === values.budget))
-    errors.budget = "Please choose a budget range.";
-
   if (values.message.length < 10) errors.message = "Please tell us a little more (at least 10 characters).";
-  else if (values.message.length > 5000) errors.message = "Please keep your message under 5,000 characters.";
+  else if (values.message.length > 5000) errors.message = "Please keep your description under 5,000 characters.";
 
   return errors;
 }

@@ -7,7 +7,6 @@ import { type ContactState, sendContactMessage } from "@/app/contact/actions";
 import { buttonClasses } from "@/components/button";
 import { TextLink } from "@/components/text-link";
 import {
-  budgetOptions,
   type ContactErrors,
   type ContactField,
   HONEYPOT_FIELD,
@@ -17,9 +16,9 @@ import {
 } from "@/lib/contact";
 
 const inputClasses =
-  "block w-full min-h-12 rounded-xl border border-slate bg-white px-4 py-3 text-base text-ink placeholder:text-ink/50 aria-[invalid=true]:border-2 aria-[invalid=true]:border-navy";
+  "block w-full min-h-12 border border-slate bg-white px-4 py-3 text-base text-ink placeholder:text-ink/50 aria-[invalid=true]:border-2 aria-[invalid=true]:border-navy";
 
-const fieldOrder: ContactField[] = ["name", "contact", "organisation", "service", "budget", "message"];
+const fieldOrder: ContactField[] = ["name", "organisation", "email", "phone", "service", "message"];
 
 function Field({
   id,
@@ -101,10 +100,12 @@ export function ContactForm({ defaultService = "" }: { defaultService?: string }
   if (state.status === "success") {
     return (
       <div role="status" className="border border-mist bg-white p-6 md:p-10">
-        <h2 className="text-2xl text-navy">Thank you{state.name ? `, ${state.name.split(" ")[0]}` : ""}.</h2>
-        <p className="mt-2 text-lg">We&apos;ve got your message and we&apos;ll reply within 24 hours.</p>
-        <TextLink href="/work" className="mt-4">
-          While you wait, see our work
+        <h2 className="caps text-xl text-navy">Thank you{state.name ? `, ${state.name.split(" ")[0]}` : ""}.</h2>
+        <p className="mt-4 text-lg">
+          Your inquiry has been sent. We&apos;ll review it and get back to you by email soon.
+        </p>
+        <TextLink href="/work" className="mt-6">
+          Meanwhile, see our work
         </TextLink>
       </div>
     );
@@ -120,7 +121,7 @@ export function ContactForm({ defaultService = "" }: { defaultService?: string }
     >
       {state.status === "error" && (
         <div role="alert" className="bg-navy p-4 text-white">
-          Sorry, your message didn&apos;t send. Please try again, or message us on WhatsApp.
+          Sorry, your inquiry didn&apos;t send. Please try again, or email us directly.
         </div>
       )}
 
@@ -139,22 +140,7 @@ export function ContactForm({ defaultService = "" }: { defaultService?: string }
         />
       </Field>
 
-      <Field id="contact" label="Email or phone" error={errors.contact} hint="So we can get back to you.">
-        <input
-          id="contact"
-          name="contact"
-          type="text"
-          autoComplete="email"
-          required
-          maxLength={150}
-          defaultValue={values?.contact}
-          aria-invalid={!!errors.contact}
-          aria-describedby={describedBy("contact", errors.contact, true)}
-          className={inputClasses}
-        />
-      </Field>
-
-      <Field id="organisation" label="Organisation" optional error={errors.organisation}>
+      <Field id="organisation" label="Business or organization" optional error={errors.organisation}>
         <input
           id="organisation"
           name="organisation"
@@ -169,52 +155,70 @@ export function ContactForm({ defaultService = "" }: { defaultService?: string }
       </Field>
 
       <div className="grid gap-6 sm:grid-cols-2">
-        <Field id="service" label="Service" error={errors.service}>
-          <select
-            id="service"
-            name="service"
+        <Field id="email" label="Email address" error={errors.email}>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            inputMode="email"
             required
-            defaultValue={values?.service ?? defaultService}
-            aria-invalid={!!errors.service}
-            aria-describedby={describedBy("service", errors.service)}
+            maxLength={150}
+            defaultValue={values?.email}
+            aria-invalid={!!errors.email}
+            aria-describedby={describedBy("email", errors.email)}
             className={inputClasses}
-          >
-            <option value="" disabled>
-              Choose a service
-            </option>
-            {serviceOptions.map((o) => (
-              <option key={o.value} value={o.value}>
-                {o.label}
-              </option>
-            ))}
-          </select>
+          />
         </Field>
 
-        <Field id="budget" label="Budget range" optional error={errors.budget}>
-          <select
-            id="budget"
-            name="budget"
-            defaultValue={values?.budget ?? ""}
-            aria-invalid={!!errors.budget}
-            aria-describedby={describedBy("budget", errors.budget)}
+        <Field id="phone" label="Phone number" optional error={errors.phone}>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            autoComplete="tel"
+            inputMode="tel"
+            maxLength={30}
+            defaultValue={values?.phone}
+            aria-invalid={!!errors.phone}
+            aria-describedby={describedBy("phone", errors.phone)}
             className={inputClasses}
-          >
-            <option value="">Choose a range</option>
-            {budgetOptions.map((o) => (
-              <option key={o.value} value={o.value}>
-                {o.label}
-              </option>
-            ))}
-          </select>
+          />
         </Field>
       </div>
 
-      <Field id="message" label="Message" error={errors.message} hint="What do you need, and by when?">
+      <Field id="service" label="Service of interest" error={errors.service}>
+        <select
+          id="service"
+          name="service"
+          required
+          defaultValue={values?.service ?? defaultService}
+          aria-invalid={!!errors.service}
+          aria-describedby={describedBy("service", errors.service)}
+          className={inputClasses}
+        >
+          <option value="" disabled>
+            Choose a service
+          </option>
+          {serviceOptions.map((o) => (
+            <option key={o.value} value={o.value}>
+              {o.label}
+            </option>
+          ))}
+        </select>
+      </Field>
+
+      <Field
+        id="message"
+        label="Project description"
+        error={errors.message}
+        hint="What would you like to build or solve? Any timeline is helpful too."
+      >
         <textarea
           id="message"
           name="message"
           required
-          rows={5}
+          rows={6}
           maxLength={5000}
           defaultValue={values?.message}
           aria-invalid={!!errors.message}
@@ -230,8 +234,11 @@ export function ContactForm({ defaultService = "" }: { defaultService?: string }
       </div>
 
       <p className="text-sm text-ink/70">
-        We only use your details to reply to you. See our{" "}
-        <Link href="/privacy" className="font-medium text-navy underline decoration-plum underline-offset-2">
+        We only use your details to respond to your inquiry. See our{" "}
+        <Link
+          href="/privacy"
+          className="text-navy underline decoration-navy/30 underline-offset-2 hover:decoration-navy"
+        >
           privacy policy
         </Link>
         .
@@ -242,7 +249,7 @@ export function ContactForm({ defaultService = "" }: { defaultService?: string }
         disabled={pending}
         className={buttonClasses("primary", "light", "w-full sm:w-auto disabled:opacity-70")}
       >
-        {pending ? "Sending…" : "Send message"}
+        {pending ? "Sending…" : "Send Inquiry"}
       </button>
     </form>
   );

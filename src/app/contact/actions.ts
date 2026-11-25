@@ -1,7 +1,6 @@
 "use server";
 
 import {
-  budgetOptions,
   type ContactErrors,
   type ContactValues,
   HONEYPOT_FIELD,
@@ -24,10 +23,12 @@ const labelFor = (options: { value: string; label: string }[], value: string) =>
 function formatEmail(v: ContactValues) {
   return [
     `Name: ${v.name}`,
-    `Email or phone: ${v.contact}`,
-    `Organisation: ${v.organisation || "Not given"}`,
-    `Service: ${labelFor(serviceOptions, v.service)}`,
-    `Budget: ${v.budget ? labelFor(budgetOptions, v.budget) : "Not given"}`,
+    `Organization: ${v.organisation || "Not given"}`,
+    `Email: ${v.email}`,
+    `Phone: ${v.phone || "Not given"}`,
+    `Service of interest: ${labelFor(serviceOptions, v.service)}`,
+    "",
+    "Project description:",
     "",
     v.message,
   ].join("\n");
@@ -64,8 +65,8 @@ export async function sendContactMessage(_prev: ContactState, formData: FormData
       body: JSON.stringify({
         from: process.env.CONTACT_FROM_EMAIL || "UndaNova website <onboarding@resend.dev>",
         to: [process.env.CONTACT_TO_EMAIL || site.email],
-        reply_to: isEmail(values.contact) ? values.contact : undefined,
-        subject: `New enquiry from ${values.name}${values.organisation ? ` (${values.organisation})` : ""}`,
+        reply_to: isEmail(values.email) ? values.email : undefined,
+        subject: `New inquiry from ${values.name}${values.organisation ? ` (${values.organisation})` : ""}`,
         text: formatEmail(values),
       }),
     });
