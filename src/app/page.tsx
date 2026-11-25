@@ -4,6 +4,7 @@
  */
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ApproachSteps } from "@/components/approach-steps";
 import { Button } from "@/components/button";
 import { CTABand } from "@/components/cta-band";
 import { ArrowIcon, ServiceIcon } from "@/components/icons";
@@ -158,21 +159,14 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Our approach */}
-      <Section tone="paper" aria-labelledby="approach-title">
-        <SectionHeading id="approach-title" eyebrow="Our approach" title="From idea to implementation." />
-        <ol className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
-          {approach.map((step, i) => (
-            <li key={step.title} className="reveal">
-              <span className="block font-heading text-4xl font-light text-navy">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className="caps-sm mt-4 text-navy">{step.title}</h3>
-              <p className="mt-3 text-sm text-ink">{step.text}</p>
-            </li>
-          ))}
-        </ol>
-      </Section>
+      {/* Our approach: holds in place on large screens while each step lights up */}
+      <section aria-labelledby="approach-title" className="bg-paper text-ink">
+        <Container>
+          <ApproachSteps steps={approach}>
+            <SectionHeading id="approach-title" eyebrow="Our approach" title="From idea to implementation." />
+          </ApproachSteps>
+        </Container>
+      </section>
 
       {/* Closing CTA */}
       <CTABand
