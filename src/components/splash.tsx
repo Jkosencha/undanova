@@ -1,7 +1,7 @@
 /**
  * Splash screen, played on every full load of the site: the "U." mark on
- * teal-blue (the U fills up, the dot drops in), a short hold, then the whole
- * screen lifts away (about 3.5s). Moving between pages doesn't reload the
+ * teal-blue (the U fills up, the dot drops in), a brief hold, then the whole
+ * screen lifts away (about 1.65s). Moving between pages doesn't reload the
  * layout, so it doesn't replay then. Pure CSS (see "Splash" in globals.css),
  * so it clears itself even without JavaScript; off under reduced motion.
  * Decorative: hidden from screen readers and never blocks clicks.

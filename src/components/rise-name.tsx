@@ -8,8 +8,8 @@
 import * as m from "motion/react-m";
 import { useState } from "react";
 
-// The splash lifts at about 2.6s and is clear by 3.5s.
-const AFTER_SPLASH = 3;
+// The splash lifts at about 1.05s and is clear by 1.65s.
+const AFTER_SPLASH = 1.25;
 
 export function RiseName({ text }: { text: string }) {
   // Read once in the browser; only the timing depends on it, not the markup.
