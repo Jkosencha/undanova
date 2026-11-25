@@ -33,6 +33,27 @@ export type WorkItem = {
 
 export const work: WorkItem[] = [
   {
+    slug: "savannah-minimart-pos",
+    title: "Savannah Minimart POS",
+    client: "Savannah Minimart",
+    category: "Business Systems · Point of Sale",
+    // Described only from what the system shows (see the dashboard screenshot).
+    summary:
+      "A point-of-sale and inventory system for a minimart: cash and M-Pesa sales, stock alerts, revenue tracking and sales reports.",
+    problem: "", // TODO: the problem addressed (verified)
+    solution: "", // TODO: the solution delivered (verified)
+    results: "", // TODO: results, once there are real ones
+    stack: [], // TODO: technologies used
+    images: [
+      {
+        src: "/work/savannah-minimart/dashboard.jpg",
+        alt: "The Savannah Minimart POS dashboard showing today's revenue, M-Pesa sales, low-stock alerts and sales by category",
+      },
+    ],
+    status: "in-progress", // TODO: confirm whether it's live
+    preview: "dashboard",
+  },
+  {
     slug: "nula-leer",
     title: "Nula Leer online store",
     client: "Nula Leer",
