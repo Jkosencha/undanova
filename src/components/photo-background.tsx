@@ -23,6 +23,8 @@ export type PhotoName = keyof typeof photos;
 const veils = {
   /** For dark text on top: a soft white wash. */
   light: "bg-white/45",
+  /** Behind page titles: a strong white wash so busy photos stay quiet. */
+  soft: "bg-white/75",
   /** For white text on top: an Imperial Blue wash. */
   dark: "bg-navy/70",
   none: "",

@@ -16,7 +16,7 @@ type PageHeaderProps = {
 export function PageHeader({ title, intro, eyebrow, children, photo }: PageHeaderProps) {
   return (
     <div className={`relative isolate overflow-hidden border-b border-mist ${photo ? "" : "bg-paper"}`}>
-      {photo && <PhotoBackground photo={photo} veil="light" priority />}
+      {photo && <PhotoBackground photo={photo} veil="soft" priority />}
       <Container className="py-20 text-center md:py-28">
         {eyebrow && <div className="caps-sm mb-5 text-ink/60">{eyebrow}</div>}
         <h1 className="caps mx-auto max-w-4xl text-3xl text-navy md:text-5xl">{title}</h1>
