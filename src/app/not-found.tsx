@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { Glow, HeroWaves } from "@/components/brand-shapes";
-import { PhotoBackground } from "@/components/photo-background";
 import { Button } from "@/components/button";
+import { PhotoBackground } from "@/components/photo-background";
 import { Container } from "@/components/section";
 
 export const metadata: Metadata = {
@@ -10,24 +9,18 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <section className="relative isolate flex flex-1 items-center overflow-hidden bg-navy py-24 text-white md:py-32">
-      <PhotoBackground photo="nairobi" priority />
-      <Glow className="-left-32 -top-32 -z-10 size-[30rem]" />
-      <Glow className="-bottom-40 right-0 -z-10 size-[30rem]" />
-      <HeroWaves className="bottom-8 -z-10 h-48" />
-      <Container>
-        <p aria-hidden className="font-heading text-[120px] font-bold leading-none text-gradient-plum md:text-[180px]">
-          404
-        </p>
-        <h1 className="mt-4 text-[44px] leading-[1.05] md:text-[64px]">This page wandered off.</h1>
-        <p className="mt-4 max-w-xl text-lg text-white/80">
+    <section className="relative isolate flex flex-1 items-center overflow-hidden py-28">
+      <PhotoBackground photo="whiteRoom" veil="light" priority />
+      <Container className="text-center">
+        <p className="caps-sm text-ink/60">Error 404</p>
+        <h1 className="caps mt-6 text-3xl text-navy md:text-5xl">This page wandered off.</h1>
+        <span aria-hidden className="mx-auto mt-7 block h-px w-12 bg-navy/40" />
+        <p className="mx-auto mt-7 max-w-md text-ink/75">
           The link may be old, or the address may have a typo. Try one of these instead.
         </p>
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <Button href="/" tone="dark">
-            Go to the home page
-          </Button>
-          <Button href="/contact" tone="dark" variant="secondary">
+        <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
+          <Button href="/">Go to the home page</Button>
+          <Button href="/contact" variant="secondary">
             Contact us
           </Button>
         </div>
