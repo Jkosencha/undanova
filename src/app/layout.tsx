@@ -15,7 +15,7 @@ const body = Hanken_Grotesk({ variable: "--font-body", subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "UndaNova | We build what's next",
+    default: "UndaNova Digital Labs | We build what's next",
     template: "%s | UndaNova",
   },
   description: site.description,
