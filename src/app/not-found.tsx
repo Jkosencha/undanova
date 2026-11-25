@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <section className="relative isolate flex flex-1 items-center overflow-hidden bg-navy py-28 text-white">
-      <PhotoBackground photo="circuit" veil="dark" priority />
+      <PhotoBackground photo="pathSunset" veil="dark" priority />
       <Container className="text-center">
         <p className="caps-sm text-white/80">Error 404</p>
         <h1 className="caps mt-6 text-3xl md:text-5xl">This page wandered off.</h1>

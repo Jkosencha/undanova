@@ -28,7 +28,7 @@ export default function Home() {
         aria-labelledby="hero-title"
         className="relative isolate flex min-h-[82svh] items-center overflow-hidden bg-navy text-white"
       >
-        <PhotoBackground photo="circuit" veil="dark" priority />
+        <PhotoBackground photo="posCafe" veil="dark" priority />
         <Container className="py-28 text-center">
           <p className="caps-sm text-white/80">
             {site.name} {site.descriptor}
@@ -150,15 +150,14 @@ export default function Home() {
             <div aria-hidden className="absolute bottom-0 right-0 top-6 left-6 border border-navy/25" />
             <div className="relative aspect-[4/5] overflow-hidden">
               <Image
-                src={photos.codeCloseup}
-                alt="Close-up of code on a screen"
+                src={photos.codeSunset}
+                alt="A laptop with code beside a window at sunset"
                 fill
                 sizes="(min-width: 1024px) 520px, 100vw"
                 quality={60}
                 placeholder="blur"
                 className={photoTone}
               />
-              <div aria-hidden className="absolute inset-0 bg-navy/35" />
             </div>
             <span aria-hidden className="absolute -left-3 top-10 size-6 rounded-full bg-steel" />
           </div>

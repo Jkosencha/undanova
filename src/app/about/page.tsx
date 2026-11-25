@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <PageHeader eyebrow="About UndaNova" title="Building a more connected digital future." photo="keyboardBacklit" />
+      <PageHeader eyebrow="About UndaNova" title="Building a more connected digital future." photo="valleySunset" />
 
       {/* Who we are */}
       <Section aria-labelledby="who-title">
@@ -45,15 +45,14 @@ export default function AboutPage() {
             <div aria-hidden className="absolute bottom-0 left-0 right-6 top-6 border border-navy/25" />
             <div className="relative aspect-[4/3] overflow-hidden">
               <Image
-                src={photos.laptopCode}
-                alt="A laptop showing code"
+                src={photos.terraceView}
+                alt="A wide view over a valley and lake from a terrace"
                 fill
                 sizes="(min-width: 1024px) 520px, 100vw"
                 quality={60}
                 placeholder="blur"
                 className={photoTone}
               />
-              <div aria-hidden className="absolute inset-0 bg-navy/35" />
             </div>
           </div>
         </div>

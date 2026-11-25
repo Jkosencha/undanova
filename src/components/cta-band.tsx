@@ -22,7 +22,7 @@ export function CTABand({
       aria-labelledby="cta-title"
       className="relative isolate overflow-hidden bg-navy py-24 text-center text-white md:py-32"
     >
-      <PhotoBackground photo="laptopKeyboard" veil="dark" />
+      <PhotoBackground photo="lakeSunset" veil="dark" />
       <Container>
         <h2 id="cta-title" className="caps mx-auto max-w-3xl text-2xl md:text-3xl">
           {title}

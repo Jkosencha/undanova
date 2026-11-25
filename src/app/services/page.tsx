@@ -18,14 +18,14 @@ export const metadata: Metadata = {
     "Web development, custom software development, business management systems, UI/UX design, automation and digital transformation services in Kenya.",
 };
 
-// A toned technology photo for each service.
+// A photo for each service.
 const serviceImage: Record<string, { photo: PhotoName; alt: string }> = {
-  "web-development": { photo: "laptopCode", alt: "A laptop showing code" },
-  "custom-software": { photo: "codeCloseup", alt: "Close-up of code on a screen" },
-  "business-systems": { photo: "codeScreens", alt: "Code on computer screens" },
-  "ui-ux-design": { photo: "laptopKeyboard", alt: "A laptop keyboard from above" },
+  "web-development": { photo: "cafeCode", alt: "A laptop with code beside a cappuccino in a cafe" },
+  "custom-software": { photo: "codeSunset", alt: "A laptop with code beside a window at sunset" },
+  "business-systems": { photo: "posCafe", alt: "A point-of-sale dashboard on a laptop in a cafe" },
+  "ui-ux-design": { photo: "nightBalcony", alt: "A laptop and notebook on a balcony table at night" },
   "automation-integrations": { photo: "circuit", alt: "A circuit board" },
-  "digital-transformation": { photo: "deskLamp", alt: "A desk with a lamp and a laptop" },
+  "digital-transformation": { photo: "pathSunset", alt: "A path leading towards the sunset" },
 };
 
 export default function ServicesPage() {
@@ -34,7 +34,7 @@ export default function ServicesPage() {
       <PageHeader
         eyebrow="Services"
         title="Digital solutions for real-world challenges."
-        photo="keyboardDark"
+        photo="cafeCode"
         intro="Every organization has different needs. Our services are designed to provide flexible technology solutions that address specific challenges, improve efficiency and support digital growth."
       />
 
@@ -82,7 +82,7 @@ export default function ServicesPage() {
                       className={photoTone}
                     />
                   )}
-                  <div aria-hidden className="absolute inset-0 bg-navy/45" />
+                  <div aria-hidden className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-navy/80 to-transparent" />
                   <span
                     aria-hidden
                     className="absolute bottom-4 left-6 font-heading text-7xl font-extralight text-white/90 md:text-8xl"

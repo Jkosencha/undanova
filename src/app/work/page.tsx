@@ -17,7 +17,7 @@ export default function WorkPage() {
       <PageHeader
         eyebrow="Our Work"
         title="Solutions in action."
-        photo="codeScreens"
+        photo="codeSunset"
         intro="Explore selected projects, digital experiences and solutions that demonstrate how technology can address practical challenges."
       />
       <Section aria-labelledby="selected-title">
