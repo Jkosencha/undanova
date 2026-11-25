@@ -35,13 +35,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    // suppressHydrationWarning: the splash's script may add a class to <html> before React loads.
-    <html
-      lang="en"
-      className={`${display.variable} ${body.variable} h-full antialiased`}
-      data-scroll-behavior="smooth"
-      suppressHydrationWarning
-    >
+    <html lang="en" className={`${display.variable} ${body.variable} h-full antialiased`} data-scroll-behavior="smooth">
       <body className="flex min-h-full flex-col">
         <Splash />
         <a
