@@ -225,6 +225,59 @@
   }
 }
 
+/* Splash (components/splash.tsx): the wordmark wipes in, the dot pops, the
+   tagline rises, then the screen lifts away and is gone (about 2.3s). */
+.splash {
+  pointer-events: none;
+  animation: splash-lift 0.8s cubic-bezier(0.7, 0, 0.2, 1) 1.5s forwards;
+}
+.splash-mark {
+  clip-path: inset(0 100% 0 0);
+  animation: splash-wipe 0.8s cubic-bezier(0.6, 0, 0.2, 1) 0.15s forwards;
+}
+.splash-dot {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0);
+  animation: splash-pop 0.45s cubic-bezier(0.3, 1.6, 0.5, 1) 0.85s forwards;
+}
+.splash-tag {
+  clip-path: inset(0 0 100% 0);
+  transform: translateY(12px);
+  animation: splash-tag 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) 0.8s forwards;
+}
+@keyframes splash-wipe {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes splash-pop {
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes splash-tag {
+  to {
+    clip-path: inset(0 0 0 0);
+    transform: none;
+  }
+}
+@keyframes splash-lift {
+  to {
+    transform: translateY(-100%);
+    visibility: hidden;
+  }
+}
+/* Seen already this visit, or reduced motion: no splash at all. */
+.splash-seen .splash {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .splash {
+    display: none;
+  }
+}
+
 /* Back-to-top button appears after scrolling (scroll-driven, no JS). */
 .to-top {
   display: none;

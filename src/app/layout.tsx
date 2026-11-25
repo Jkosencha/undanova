@@ -4,6 +4,7 @@ import { OrganizationJsonLd } from "@/components/json-ld";
 import { MotionProvider } from "@/components/motion-provider";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { Splash } from "@/components/splash";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -34,8 +35,15 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} h-full antialiased`}>
+    // suppressHydrationWarning: the splash's script may add a class to <html> before React loads.
+    <html
+      lang="en"
+      className={`${display.variable} ${body.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
       <body className="flex min-h-full flex-col">
+        <Splash />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-navy focus:px-4 focus:py-2 focus:text-white"
