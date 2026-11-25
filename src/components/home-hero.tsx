@@ -19,8 +19,11 @@ import { site } from "@/lib/site";
 export function HomeHero() {
   return (
     <section aria-labelledby="hero-title" className="bg-navy text-white">
-      <div className="relative isolate h-[min(66.75vw,calc(100svh-5rem))] overflow-clip">
-        <div className="absolute inset-x-0 top-[55%] aspect-[2000/1335] -translate-y-[55%] [container-type:inline-size]">
+      {/* Phones: a tall crop centred on the laptop (the frame fills the height and
+          is cropped at the sides). Wider screens: the whole width, cropped top
+          and bottom when the window is short. */}
+      <div className="relative isolate h-[min(120vw,calc(100svh-4rem))] overflow-clip sm:h-[min(66.75vw,calc(100svh-5rem))]">
+        <div className="absolute inset-y-0 left-1/2 aspect-[2000/1335] -translate-x-1/2 [container-type:inline-size] sm:inset-x-0 sm:inset-y-auto sm:top-[55%] sm:translate-x-0 sm:-translate-y-[55%]">
           <Image
             src={heroLaptop}
             alt=""
@@ -35,7 +38,7 @@ export function HomeHero() {
           {/* The name: its lower part passes behind the laptop's lid (top edge at 46.7%). */}
           <h1
             id="hero-title"
-            className="absolute inset-x-0 bottom-[45.5%] text-center font-heading text-[19cqw] font-normal leading-[0.8] tracking-[-0.03em]"
+            className="absolute inset-x-0 bottom-[45.5%] text-center font-heading text-[min(19cqw,19.5vw)] font-normal leading-[0.8] tracking-[-0.03em]"
           >
             <RiseName text={site.name} />
             <span className="sr-only"> {site.descriptor}</span>
