@@ -6,6 +6,8 @@
 export type Service = {
   slug: string;
   title: string;
+  /** Short name for tight spaces (the Services page menu). */
+  shortTitle: string;
   /** One sentence for the home page overview. */
   summary: string;
   /** Short description for the Services page. */
@@ -19,6 +21,7 @@ export const services: Service[] = [
   {
     slug: "web-development",
     title: "Web Development",
+    shortTitle: "Web Development",
     summary:
       "Professional, responsive websites and web platforms designed to strengthen digital presence and support business growth.",
     description:
@@ -36,6 +39,7 @@ export const services: Service[] = [
   {
     slug: "custom-software",
     title: "Custom Software Development",
+    shortTitle: "Custom Software",
     summary:
       "Tailored applications and software solutions built around specific business requirements, workflows and operational challenges.",
     description:
@@ -53,6 +57,7 @@ export const services: Service[] = [
   {
     slug: "business-systems",
     title: "Business Systems & Management Platforms",
+    shortTitle: "Business Systems",
     summary:
       "Digital systems that help organizations manage customers, inventory, operations, records and internal processes.",
     description:
@@ -70,6 +75,7 @@ export const services: Service[] = [
   {
     slug: "ui-ux-design",
     title: "UI/UX Design",
+    shortTitle: "UI/UX Design",
     summary:
       "User-centered interface and experience design focused on usability, accessibility and intuitive digital experiences.",
     description:
@@ -87,6 +93,7 @@ export const services: Service[] = [
   {
     slug: "automation-integrations",
     title: "Automation & Integrations",
+    shortTitle: "Automation",
     summary:
       "Connecting digital tools, automating repetitive tasks and streamlining workflows through intelligent integrations.",
     description: "We connect the tools you already use and take repetitive work off your team's plate.",
@@ -103,6 +110,7 @@ export const services: Service[] = [
   {
     slug: "digital-transformation",
     title: "Digital Transformation Consulting",
+    shortTitle: "Digital Transformation",
     summary:
       "Helping organizations identify opportunities to improve their operations and adopt appropriate digital technologies.",
     description:
