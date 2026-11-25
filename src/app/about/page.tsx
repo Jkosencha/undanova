@@ -42,7 +42,7 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="mx-auto w-full max-w-[520px]">
-            <div className="relative aspect-[4/3] overflow-hidden">
+            <div className="relative aspect-[4/3] overflow-clip">
               <ParallaxImage
                 src={photos.whiteDesk}
                 alt="A bright, minimal workspace with a laptop on a white desk"

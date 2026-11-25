@@ -41,7 +41,7 @@ export default function ServicesPage() {
             <Container className="grid items-center gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
               {/* Photo with a large number */}
               <div className={`reveal relative ${flipped ? "lg:order-2" : ""}`}>
-                <div className="relative aspect-[4/3] overflow-hidden">
+                <div className="relative aspect-[4/3] overflow-clip">
                   {image && (
                     <ParallaxImage src={photos[image.photo]} alt={image.alt} sizes="(min-width: 1024px) 520px, 100vw" />
                   )}

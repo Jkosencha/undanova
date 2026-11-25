@@ -129,6 +129,38 @@
   }
 }
 
+/* Photos (components/parallax-image.tsx): drift gently across the scroll and
+   settle from a slight zoom as they enter. Both follow the photo's own
+   view timeline. */
+@keyframes parallax-drift {
+  from {
+    transform: translateY(-5%);
+  }
+  to {
+    transform: translateY(5%);
+  }
+}
+@keyframes parallax-settle {
+  from {
+    transform: scale(1.1);
+  }
+}
+@supports (animation-timeline: view()) {
+  .parallax {
+    view-timeline: --photo block;
+  }
+  .parallax-drift {
+    animation: parallax-drift linear both;
+    animation-timeline: --photo;
+    animation-range: cover;
+  }
+  .parallax-settle {
+    animation: parallax-settle linear both;
+    animation-timeline: --photo;
+    animation-range: entry 0% cover 45%;
+  }
+}
+
 /* Back-to-top button appears after scrolling (scroll-driven, no JS). */
 .to-top {
   display: none;

@@ -151,7 +151,7 @@ export default function Home() {
             </ul>
           </div>
           <div className="mx-auto w-full max-w-[520px]">
-            <div className="relative aspect-[4/5] overflow-hidden">
+            <div className="relative aspect-[4/5] overflow-clip">
               <ParallaxImage
                 src={photos.studioDesk}
                 alt="A tidy wooden desk with a laptop on a stand, a keyboard and a lamp"
