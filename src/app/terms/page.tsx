@@ -3,7 +3,7 @@ import { LegalPage } from "@/components/legal-page";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Terms of use",
+  title: "Terms of Service",
   description: "The terms for using the UndaNova website.",
 };
 
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <LegalPage
-      title="Terms of use"
+      title="Terms of Service"
       intro="The simple rules for using this website."
       updated="18 November 2026"
       sections={[
