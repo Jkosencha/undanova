@@ -63,7 +63,7 @@ export default function TermsPage() {
           body: (
             <p>
               Email{" "}
-              <a className="text-navy underline decoration-plum" href={`mailto:${site.email}`}>
+              <a className="text-navy underline decoration-steel" href={`mailto:${site.email}`}>
                 {site.email}
               </a>{" "}
               and we&apos;ll be happy to help.

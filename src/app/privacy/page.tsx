@@ -22,7 +22,7 @@ export default function PrivacyPage() {
             <p>
               {site.legalName} is a software studio in {site.location}. We are responsible for the personal data you
               share through this website, under Kenya&apos;s Data Protection Act, 2019. You can reach us at{" "}
-              <a className="text-navy underline decoration-plum" href={`mailto:${site.email}`}>
+              <a className="text-navy underline decoration-steel" href={`mailto:${site.email}`}>
                 {site.email}
               </a>
               .
