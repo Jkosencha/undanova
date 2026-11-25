@@ -102,11 +102,17 @@
   animation: page-rise 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
-/* Sections fade up as they scroll into view, in browsers that support
+/* Sections rise gently as they scroll into view, in browsers that support
    scroll-driven animations (no JavaScript). Elsewhere they simply show. */
+@keyframes reveal-rise {
+  from {
+    transform: translateY(28px);
+  }
+}
 @supports (animation-timeline: view()) {
   .reveal {
-    animation: rise linear both;
+    /* Transform only: text never sits half-transparent (keeps contrast checks honest). */
+    animation: reveal-rise linear both;
     animation-timeline: view();
     animation-range: entry 0% entry 35%;
   }
