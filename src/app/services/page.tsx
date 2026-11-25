@@ -38,25 +38,6 @@ export default function ServicesPage() {
         intro="Every organization has different needs. Our services are designed to provide flexible technology solutions that address specific challenges, improve efficiency and support digital growth."
       />
 
-      {/* Service index: a quick way to jump to each service */}
-      <nav aria-label="Services on this page" className="sticky top-16 z-30 border-b border-mist bg-white/95 md:top-20">
-        <Container>
-          <ul className="flex gap-6 overflow-x-auto py-1 [scrollbar-width:none] md:justify-center md:gap-8">
-            {services.map((service, i) => (
-              <li key={service.slug} className="shrink-0">
-                <a
-                  href={`#${service.slug}`}
-                  className="caps-sm inline-flex min-h-12 items-center gap-2 text-[10px] text-ink transition-colors hover:text-navy"
-                >
-                  <span className="text-navy">{String(i + 1).padStart(2, "0")}</span>
-                  {service.shortTitle}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </Container>
-      </nav>
-
       {services.map((service, i) => {
         const flipped = i % 2 === 1;
         const image = serviceImage[service.slug];
@@ -65,7 +46,7 @@ export default function ServicesPage() {
             key={service.slug}
             id={service.slug}
             aria-labelledby={`${service.slug}-title`}
-            className={`scroll-mt-32 py-18 md:py-28 ${flipped ? "bg-paper" : "bg-white"}`}
+            className={`scroll-mt-20 py-18 md:py-28 ${flipped ? "bg-paper" : "bg-white"}`}
           >
             <Container className="grid items-center gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
               {/* Photo with a large number */}
