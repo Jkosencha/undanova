@@ -21,13 +21,13 @@ export function PageHeader({ title, intro, eyebrow, children, photo }: PageHeade
     >
       {photo && <PhotoBackground photo={photo} priority />}
       <Container className="py-24 text-center md:py-32">
-        {eyebrow && <div className={`caps-sm mb-5 ${dark ? "text-white/80" : "text-ink/70"}`}>{eyebrow}</div>}
+        {eyebrow && <div className={`caps-sm mb-5 ${dark ? "text-white/80" : "text-ink"}`}>{eyebrow}</div>}
         <h1 className={`caps mx-auto max-w-4xl text-3xl leading-snug md:text-5xl ${dark ? "" : "text-navy"}`}>
           {title}
         </h1>
         <span aria-hidden className="mx-auto mt-7 block size-2.5 rounded-full bg-steel" />
         {intro && (
-          <p className={`mx-auto mt-7 max-w-2xl text-lg ${dark ? "text-white/85" : "text-ink/75"}`}>{intro}</p>
+          <p className={`mx-auto mt-7 max-w-2xl text-lg ${dark ? "text-white/85" : "text-ink"}`}>{intro}</p>
         )}
         {children}
       </Container>

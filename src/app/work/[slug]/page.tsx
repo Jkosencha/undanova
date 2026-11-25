@@ -82,7 +82,7 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
         <dl className={`mt-12 grid gap-8 text-center ${facts.length === 3 ? "sm:grid-cols-3" : "sm:grid-cols-2"}`}>
           {facts.map((f) => (
             <div key={f.label} className="border-t border-navy/20 pt-5">
-              <dt className="caps-sm text-ink/70">{f.label}</dt>
+              <dt className="caps-sm text-ink">{f.label}</dt>
               <dd className="mt-2 font-heading text-lg text-navy">{f.value}</dd>
             </div>
           ))}
@@ -96,11 +96,11 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
             story.map((part) => (
               <div key={part.id} className="reveal text-center">
                 <SectionHeading id={part.id} title={part.title} />
-                <p className="mx-auto mt-6 max-w-2xl text-lg text-ink/80">{part.text}</p>
+                <p className="mx-auto mt-6 max-w-2xl text-lg text-ink">{part.text}</p>
               </div>
             ))
           ) : (
-            <p className="text-center text-lg text-ink/75">
+            <p className="text-center text-lg text-ink">
               This project is in progress. A full write-up will follow once it&apos;s complete.
             </p>
           )}

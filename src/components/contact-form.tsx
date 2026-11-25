@@ -16,7 +16,7 @@ import {
 } from "@/lib/contact";
 
 const inputClasses =
-  "block w-full min-h-12 border border-slate bg-white px-4 py-3 text-base text-ink placeholder:text-ink/70 aria-[invalid=true]:border-2 aria-[invalid=true]:border-navy";
+  "block w-full min-h-12 border border-slate bg-white px-4 py-3 text-base text-ink placeholder:text-ink aria-[invalid=true]:border-2 aria-[invalid=true]:border-navy";
 
 const fieldOrder: ContactField[] = ["name", "organisation", "email", "phone", "service", "message"];
 
@@ -39,10 +39,10 @@ function Field({
     <div>
       <label htmlFor={id} className="block font-medium text-navy">
         {label}
-        {optional && <span className="font-normal text-ink/70"> (optional)</span>}
+        {optional && <span className="font-normal text-ink"> (optional)</span>}
       </label>
       {hint && (
-        <p id={`${id}-hint`} className="mt-1 text-sm text-ink/70">
+        <p id={`${id}-hint`} className="mt-1 text-sm text-ink">
           {hint}
         </p>
       )}
@@ -233,7 +233,7 @@ export function ContactForm({ defaultService = "" }: { defaultService?: string }
         <input id={HONEYPOT_FIELD} name={HONEYPOT_FIELD} type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
-      <p className="text-sm text-ink/70">
+      <p className="text-sm text-ink">
         We only use your details to respond to your inquiry. See our{" "}
         <Link
           href="/privacy"

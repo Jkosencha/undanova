@@ -52,7 +52,7 @@ export default function ServicesPage() {
             <div className="reveal">
               <div className="flex items-center gap-4">
                 <ServiceIcon slug={service.slug} className="size-8 text-navy" />
-                <span aria-hidden className="text-xs font-semibold tracking-[0.2em] text-ink/70">
+                <span aria-hidden className="text-xs font-semibold tracking-[0.2em] text-ink">
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>
@@ -60,9 +60,9 @@ export default function ServicesPage() {
                 {service.title}
               </h2>
               <span aria-hidden className="mt-6 block h-px w-12 bg-navy/40" />
-              <p className="mt-6 text-ink/80">{service.description}</p>
-              <p className="mt-5 border-l-2 border-navy pl-4 text-ink/80">
-                <span className="caps-sm block text-[10px] text-ink/70">Business value</span>
+              <p className="mt-6 text-ink">{service.description}</p>
+              <p className="mt-5 border-l-2 border-navy pl-4 text-ink">
+                <span className="caps-sm block text-[10px] text-ink">Business value</span>
                 <span className="mt-1 block font-heading text-lg text-navy">{service.value}</span>
               </p>
               <Button href={`/contact?service=${service.slug}`} className="mt-8">
@@ -70,12 +70,12 @@ export default function ServicesPage() {
               </Button>
             </div>
             <div className="reveal">
-              <h3 className="caps-sm text-ink/70">What&apos;s included</h3>
+              <h3 className="caps-sm text-ink">What&apos;s included</h3>
               <ul className="mt-4 divide-y divide-mist border-y border-mist">
                 {service.included.map((item) => (
                   <li key={item} className="flex gap-4 py-4">
                     <span aria-hidden className="mt-3 h-px w-4 shrink-0 bg-navy/50" />
-                    <span className="text-ink/85">{item}</span>
+                    <span className="text-ink">{item}</span>
                   </li>
                 ))}
               </ul>

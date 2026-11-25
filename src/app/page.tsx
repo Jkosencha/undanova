@@ -56,7 +56,7 @@ export default function Home() {
       <Section aria-labelledby="intro-title">
         <div className="mx-auto max-w-3xl text-center">
           <SectionHeading id="intro-title" title="Technology built around real-world needs." />
-          <div className="mt-8 space-y-5 text-lg text-ink/75">
+          <div className="mt-8 space-y-5 text-lg text-ink">
             <p>
               At UndaNova, we believe technology should do more than look impressive. It should solve problems, simplify
               processes and create meaningful opportunities.
@@ -85,14 +85,14 @@ export default function Home() {
                     slug={service.slug}
                     className="size-8 text-navy transition-colors duration-500 group-hover:text-white"
                   />
-                  <span className="text-xs font-semibold tracking-[0.2em] text-ink/70 transition-colors duration-500 group-hover:text-white/70">
+                  <span className="text-xs font-semibold tracking-[0.2em] text-ink transition-colors duration-500 group-hover:text-white/70">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
                 <h3 className="caps-sm mt-8 text-navy transition-colors duration-500 group-hover:text-white">
                   {service.title}
                 </h3>
-                <p className="mt-3 flex-1 text-sm text-ink/70 transition-colors duration-500 group-hover:text-white/80">
+                <p className="mt-3 flex-1 text-sm text-ink transition-colors duration-500 group-hover:text-white/80">
                   {service.summary}
                 </p>
                 <ArrowIcon className="mt-6 size-4 text-steel transition-transform duration-500 group-hover:translate-x-2 group-hover:text-white" />
@@ -117,7 +117,7 @@ export default function Home() {
               title="Practical innovation. Meaningful impact."
               align="left"
             />
-            <p className="mt-6 text-ink/75">
+            <p className="mt-6 text-ink">
               Technology should create value, not unnecessary complexity. UndaNova approaches every project with a focus
               on understanding the problem, identifying the right solution and delivering technology that serves a clear
               purpose.
@@ -126,7 +126,7 @@ export default function Home() {
               {differentiators.map((d) => (
                 <li key={d.title} className="reveal py-5">
                   <h3 className="font-heading text-lg text-navy">{d.title}</h3>
-                  <p className="mt-1 text-sm text-ink/70">{d.text}</p>
+                  <p className="mt-1 text-sm text-ink">{d.text}</p>
                 </li>
               ))}
             </ul>
@@ -161,7 +161,7 @@ export default function Home() {
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="caps-sm mt-4 text-navy">{step.title}</h3>
-              <p className="mt-3 text-sm text-ink/75">{step.text}</p>
+              <p className="mt-3 text-sm text-ink">{step.text}</p>
             </li>
           ))}
         </ol>

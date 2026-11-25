@@ -2,8 +2,8 @@
 
 /*
  * UndaNova design tokens.
- * Minimal and calm: mostly white and soft grey, with the logo's deep teal-blue
- * for text, buttons and the footer, and its steel blue for small accents. Tailwind's default
+ * Brand palette: deep teal-blue #153A4C, charcoal #494949 and light grey #EFEFEF,
+ * on white, with the logo's steel blue (#8FB3C4) for small dots only. Tailwind's default
  * palette is cleared so only brand colours exist.
  */
 @theme {
@@ -17,13 +17,14 @@
   --color-steel: #8fb3c4;
   /* Pale steel tint */
   --color-frost: #dce8ee;
-  /* Soft grey for alternating sections */
-  --color-paper: #f4f5f6;
-  /* Light grey for borders and quiet bands */
-  --color-mist: #e3e6e8;
-  --color-ink: #1a1f24;
+  /* Light grey (#EFEFEF) for alternating sections */
+  --color-paper: #efefef;
+  /* Hairline borders */
+  --color-mist: #dedede;
+  /* Charcoal (#494949): body text */
+  --color-ink: #494949;
   /* Muted grey for captions on dark */
-  --color-slate: #8b949a;
+  --color-slate: #8a8a8a;
   --color-white: #ffffff;
 
   --animate-rise: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;

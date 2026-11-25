@@ -25,7 +25,7 @@ export default function AboutPage() {
         <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
           <div>
             <SectionHeading id="who-title" title="Who we are" align="left" />
-            <div className="mt-8 space-y-5 text-ink/80">
+            <div className="mt-8 space-y-5 text-ink">
               <p>
                 UndaNova is a digital solutions studio driven by the belief that technology should be accessible,
                 purposeful and useful.
@@ -65,7 +65,7 @@ export default function AboutPage() {
           <p className="mt-6 max-w-md font-heading text-xl leading-relaxed md:text-2xl">{mission}</p>
         </div>
         <div className="bg-paper px-5 py-18 sm:px-8 md:py-24 md:pl-16 md:pr-[max(2rem,calc((100vw-1200px)/2+2rem))]">
-          <h2 className="caps-sm text-ink/70">Our Vision</h2>
+          <h2 className="caps-sm text-ink">Our Vision</h2>
           <p className="mt-6 max-w-md font-heading text-xl leading-relaxed text-navy md:text-2xl">{vision}</p>
         </div>
       </section>
@@ -77,7 +77,7 @@ export default function AboutPage() {
           {values.map((v) => (
             <li key={v.title} className="reveal bg-white p-8 text-center">
               <h3 className="caps-sm text-navy">{v.title}</h3>
-              <p className="mt-3 text-sm text-ink/70">{v.text}</p>
+              <p className="mt-3 text-sm text-ink">{v.text}</p>
             </li>
           ))}
         </ul>

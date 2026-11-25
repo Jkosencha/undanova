@@ -33,7 +33,7 @@ export function SectionHeading({ id, title, intro, eyebrow, tone = "light", alig
   const center = align === "center";
   return (
     <div className={`max-w-2xl ${center ? "mx-auto text-center" : ""}`}>
-      {eyebrow && <p className={`caps-sm mb-4 ${dark ? "text-white/60" : "text-ink/70"}`}>{eyebrow}</p>}
+      {eyebrow && <p className={`caps-sm mb-4 ${dark ? "text-white/60" : "text-ink"}`}>{eyebrow}</p>}
       <h2 id={id} className={`caps text-2xl md:text-3xl ${dark ? "text-white" : "text-navy"}`}>
         {title}
       </h2>
@@ -41,7 +41,7 @@ export function SectionHeading({ id, title, intro, eyebrow, tone = "light", alig
         aria-hidden
         className={`mt-6 block h-px w-12 ${dark ? "bg-white/50" : "bg-navy/40"} ${center ? "mx-auto" : ""}`}
       />
-      {intro && <p className={`mt-6 ${dark ? "text-white/80" : "text-ink/70"}`}>{intro}</p>}
+      {intro && <p className={`mt-6 ${dark ? "text-white/80" : "text-ink"}`}>{intro}</p>}
     </div>
   );
 }

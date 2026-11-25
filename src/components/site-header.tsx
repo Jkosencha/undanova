@@ -11,7 +11,7 @@ import { hasWhatsapp, nav, site, whatsappUrl } from "@/lib/site";
 
 // Small, wide-tracked caps with a thin underline on hover and on the current page.
 const linkStyle =
-  "relative py-2 font-heading text-[11px] font-medium uppercase tracking-[0.24em] text-ink/70 transition-colors hover:text-navy " +
+  "relative py-2 font-heading text-[11px] font-medium uppercase tracking-[0.24em] text-ink transition-colors hover:text-navy " +
   "after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-navy after:transition-transform after:duration-300 " +
   "hover:after:scale-x-100 aria-[current=page]:text-navy aria-[current=page]:after:scale-x-100";
 
@@ -99,7 +99,7 @@ export function SiteHeader() {
                   href={item.href}
                   aria-current={isActive(item.href) ? "page" : undefined}
                   onClick={() => setOpen(false)}
-                  className="flex min-h-16 items-center border-b border-mist font-heading text-lg font-light uppercase tracking-[0.3em] text-ink/80 aria-[current=page]:text-navy aria-[current=page]:font-normal"
+                  className="flex min-h-16 items-center border-b border-mist font-heading text-lg font-light uppercase tracking-[0.3em] text-ink aria-[current=page]:text-navy aria-[current=page]:font-normal"
                 >
                   {item.label}
                 </Link>
