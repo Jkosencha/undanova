@@ -1,36 +1,44 @@
 import Image from "next/image";
-import nairobiNight from "@/assets/photos/nairobi-night.jpg";
-import satin from "@/assets/photos/satin.jpg";
-import teamLaptop from "@/assets/photos/team-laptop.jpg";
+import deskMinimal from "@/assets/photos/desk-minimal.jpg";
+import deskWhite from "@/assets/photos/desk-white.jpg";
+import nairobiDay from "@/assets/photos/nairobi-day.jpg";
+import whiteRoom from "@/assets/photos/white-room.jpg";
 
 /**
- * Full-bleed photo behind a section, with a navy tint so white text stays readable.
- * Photos are from Unsplash (free licence); credits are in README.md.
- * Place inside a `relative isolate overflow-hidden` element.
+ * Photos (Unsplash, free licence):
+ * - whiteRoom: Pawel Czerwinski
+ * - deskMinimal: Dhony Koswara
+ * - deskWhite: Ihor Dvoretskyi
+ * - nairobiDay: imsogabriel stock
  */
-const photos = {
-  nairobi: nairobiNight,
-  satin,
-  team: teamLaptop,
+export const photos = {
+  whiteRoom,
+  deskMinimal,
+  deskWhite,
+  nairobiDay,
 };
 
-const tints = {
-  /** Strong: for headings and body text on top. */
-  strong: "bg-gradient-to-b from-navy/85 via-navy/75 to-night/90",
-  /** Lighter: for areas with only large text. */
-  soft: "bg-gradient-to-br from-navy/70 via-navy/45 to-night/80",
+export type PhotoName = keyof typeof photos;
+
+const veils = {
+  /** For dark text on top: a soft white wash. */
+  light: "bg-white/45",
+  /** For white text on top: an Imperial Blue wash. */
+  dark: "bg-navy/70",
+  none: "",
 };
 
 type PhotoBackgroundProps = {
-  photo: keyof typeof photos;
-  tint?: keyof typeof tints;
+  photo: PhotoName;
+  veil?: keyof typeof veils;
   /** Set on the first photo of a page so it loads straight away. */
   priority?: boolean;
   /** How wide the photo shows, for picking the right file size. */
   sizes?: string;
 };
 
-export function PhotoBackground({ photo, tint = "strong", priority = false, sizes = "100vw" }: PhotoBackgroundProps) {
+/** Full-bleed photo behind a section. Place inside a `relative isolate overflow-hidden` element. */
+export function PhotoBackground({ photo, veil = "light", priority = false, sizes = "100vw" }: PhotoBackgroundProps) {
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
       <Image
@@ -43,9 +51,7 @@ export function PhotoBackground({ photo, tint = "strong", priority = false, size
         placeholder="blur"
         className="object-cover"
       />
-      <div className={`absolute inset-0 ${tints[tint]}`} />
-      {/* A touch of Dusty Plum, as in the mood board */}
-      <div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_15%_10%,color-mix(in_srgb,var(--color-plum)_35%,transparent),transparent_70%)]" />
+      {veil !== "none" && <div className={`absolute inset-0 ${veils[veil]}`} />}
     </div>
   );
 }
