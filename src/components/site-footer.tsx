@@ -4,7 +4,7 @@ import Link from "next/link";
 import { InstagramIcon, LinkedInIcon, WhatsAppIcon } from "@/components/icons";
 import { Container } from "@/components/section";
 import { services } from "@/content/services";
-import { nav, site, whatsappUrl } from "@/lib/site";
+import { hasWhatsapp, nav, site, whatsappUrl } from "@/lib/site";
 
 // Cached and refreshed daily, so the © year stays current without making pages dynamic.
 async function CurrentYear() {
@@ -36,9 +36,7 @@ export function SiteFooter() {
               className="h-14 w-auto"
             />
             <p className="caps mt-6 text-sm text-white/90">{site.tagline}</p>
-            <p className="mt-3 max-w-xs text-sm text-white/70">
-              Websites, apps and business systems for growing businesses, NGOs and schools.
-            </p>
+            <p className="mt-3 max-w-xs text-sm text-white/70">{site.description}</p>
           </div>
 
           <nav aria-labelledby="footer-services">
@@ -79,12 +77,14 @@ export function SiteFooter() {
                   {site.email}
                 </a>
               </li>
-              <li>
-                <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className={`${link} gap-2`}>
-                  <WhatsAppIcon className="size-4" />
-                  WhatsApp
-                </a>
-              </li>
+              {hasWhatsapp && (
+                <li>
+                  <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className={`${link} gap-2`}>
+                    <WhatsAppIcon className="size-4" />
+                    WhatsApp
+                  </a>
+                </li>
+              )}
               <li className="flex min-h-10 items-center text-sm text-white/80">{site.location}</li>
             </ul>
             {socials.length > 0 && (
@@ -111,18 +111,17 @@ export function SiteFooter() {
       <div className="mt-16 border-t border-white/10 bg-night py-5 text-xs text-white/70">
         <Container className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <p className="tracking-[0.08em]">
-            © <CurrentYear /> UndaNova. Made in Kenya.
+            © <CurrentYear /> UndaNova. All rights reserved.
           </p>
-          {site.availability && <p className="caps-sm text-[10px] text-white/80">{site.availability}</p>}
           <ul className="flex gap-6">
             <li>
               <Link href="/privacy" prefetch={false} className="inline-flex min-h-10 items-center hover:text-white">
-                Privacy
+                Privacy Policy
               </Link>
             </li>
             <li>
               <Link href="/terms" prefetch={false} className="inline-flex min-h-10 items-center hover:text-white">
-                Terms
+                Terms of Service
               </Link>
             </li>
           </ul>

@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { buttonClasses } from "@/components/button";
 import { CloseIcon, MenuIcon, WhatsAppIcon } from "@/components/icons";
 import { Container } from "@/components/section";
-import { nav, site, whatsappUrl } from "@/lib/site";
+import { hasWhatsapp, nav, site, whatsappUrl } from "@/lib/site";
 
 // Small, wide-tracked caps with a thin underline on hover and on the current page.
 const linkStyle =
@@ -66,7 +66,7 @@ export function SiteHeader() {
             ))}
           </ul>
           <Link href="/contact" className={buttonClasses("secondary", "light", "px-5")}>
-            Start a project
+            Start a Project
           </Link>
         </nav>
 
@@ -111,20 +111,22 @@ export function SiteHeader() {
             onClick={() => setOpen(false)}
             className={buttonClasses("primary", "light", "mt-10 w-full")}
           >
-            Start a project
+            Start a Project
           </Link>
-          <div className="mt-4 grid grid-cols-2 gap-3">
-            <a
-              href={whatsappUrl()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={buttonClasses("secondary", "light", "w-full")}
-            >
-              <WhatsAppIcon className="size-4" />
-              WhatsApp
-            </a>
+          <div className={`mt-4 grid gap-3 ${hasWhatsapp ? "grid-cols-2" : ""}`}>
+            {hasWhatsapp && (
+              <a
+                href={whatsappUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={buttonClasses("secondary", "light", "w-full")}
+              >
+                <WhatsAppIcon className="size-4" />
+                WhatsApp
+              </a>
+            )}
             <a href={`mailto:${site.email}`} className={buttonClasses("secondary", "light", "w-full")}>
-              Email
+              Email us
             </a>
           </div>
         </Container>
