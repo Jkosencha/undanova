@@ -1,5 +1,6 @@
 import { Button } from "@/components/button";
 import { WhatsAppIcon } from "@/components/icons";
+import { PhotoBackground } from "@/components/photo-background";
 import { Container } from "@/components/section";
 import { hasWhatsapp, whatsappUrl } from "@/lib/site";
 
@@ -10,7 +11,7 @@ type CTABandProps = {
   label?: string;
 };
 
-/** Closing call to action on a navy band with a faint grid: spaced caps title and a clear next step. */
+/** Closing call to action over a blueprint-grid photo: spaced caps title and a clear next step. */
 export function CTABand({
   title = "Have an idea worth building?",
   text = "Let's turn your business challenges and ideas into practical digital solutions.",
@@ -19,8 +20,9 @@ export function CTABand({
   return (
     <section
       aria-labelledby="cta-title"
-      className="bg-navy bg-[linear-gradient(color-mix(in_srgb,var(--color-white)_6%,transparent)_1px,transparent_1px),linear-gradient(90deg,color-mix(in_srgb,var(--color-white)_6%,transparent)_1px,transparent_1px)] bg-[size:48px_48px] py-20 text-center text-white md:py-28"
+      className="relative isolate overflow-hidden bg-navy py-24 text-center text-white md:py-32"
     >
+      <PhotoBackground photo="blueprintGrid" veil="medium" />
       <Container>
         <h2 id="cta-title" className="caps mx-auto max-w-3xl text-2xl md:text-3xl">
           {title}

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Button } from "@/components/button";
+import { PhotoBackground } from "@/components/photo-background";
 import { Container } from "@/components/section";
 
 export const metadata: Metadata = {
@@ -8,17 +9,20 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <section className="flex flex-1 items-center bg-paper py-28">
+    <section className="relative isolate flex flex-1 items-center overflow-hidden bg-navy py-28 text-white">
+      <PhotoBackground photo="sphere" veil="medium" priority />
       <Container className="text-center">
-        <p className="caps-sm text-ink/70">Error 404</p>
-        <h1 className="caps mt-6 text-3xl text-navy md:text-5xl">This page wandered off.</h1>
-        <span aria-hidden className="mx-auto mt-7 block h-px w-12 bg-navy/40" />
-        <p className="mx-auto mt-7 max-w-md text-ink/75">
+        <p className="caps-sm text-white/80">Error 404</p>
+        <h1 className="caps mt-6 text-3xl md:text-5xl">This page wandered off.</h1>
+        <span aria-hidden className="mx-auto mt-7 block size-2.5 rotate-45 bg-plum" />
+        <p className="mx-auto mt-7 max-w-md text-white/85">
           The link may be old, or the address may have a typo. Try one of these instead.
         </p>
         <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
-          <Button href="/">Go to the home page</Button>
-          <Button href="/contact" variant="secondary">
+          <Button href="/" tone="dark">
+            Go to the home page
+          </Button>
+          <Button href="/contact" tone="dark" variant="secondary">
             Contact us
           </Button>
         </div>
