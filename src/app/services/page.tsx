@@ -8,7 +8,7 @@ import { CTABand } from "@/components/cta-band";
 import { ArrowIcon, CheckIcon, ServiceIcon } from "@/components/icons";
 import { PageHeader } from "@/components/page-header";
 import { ParallaxImage } from "@/components/parallax-image";
-import { type PhotoName, photos } from "@/components/photo-background";
+import { photos, serviceImage } from "@/components/photo-background";
 import { Container } from "@/components/section";
 import { services } from "@/content/services";
 
@@ -16,16 +16,6 @@ export const metadata: Metadata = {
   title: "Services",
   description:
     "Web development, custom software development, business management systems, UI/UX design, automation and digital transformation services in Kenya.",
-};
-
-// A photo for each service.
-const serviceImage: Record<string, { photo: PhotoName; alt: string }> = {
-  "web-development": { photo: "websiteImac", alt: "A desktop computer showing a website on a wooden desk" },
-  "custom-software": { photo: "codeDesk", alt: "A laptop showing code on a white desk beside a lamp" },
-  "business-systems": { photo: "analyticsLaptop", alt: "A laptop showing an analytics dashboard with charts" },
-  "ui-ux-design": { photo: "stickyBoard", alt: "Sticky notes arranged in columns on a whiteboard" },
-  "automation-integrations": { photo: "metricsScreen", alt: "A screen showing live performance metrics" },
-  "digital-transformation": { photo: "openOffice", alt: "A modern open-plan office with workstations" },
 };
 
 export default function ServicesPage() {

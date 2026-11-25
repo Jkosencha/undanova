@@ -47,6 +47,16 @@ export const photoTone = "object-cover";
 
 export type PhotoName = keyof typeof photos;
 
+/** A photo for each service, keyed by the service slug (Services page and the Home preview). */
+export const serviceImage: Record<string, { photo: PhotoName; alt: string }> = {
+  "web-development": { photo: "websiteImac", alt: "A desktop computer showing a website on a wooden desk" },
+  "custom-software": { photo: "codeDesk", alt: "A laptop showing code on a white desk beside a lamp" },
+  "business-systems": { photo: "analyticsLaptop", alt: "A laptop showing an analytics dashboard with charts" },
+  "ui-ux-design": { photo: "stickyBoard", alt: "Sticky notes arranged in columns on a whiteboard" },
+  "automation-integrations": { photo: "metricsScreen", alt: "A screen showing live performance metrics" },
+  "digital-transformation": { photo: "openOffice", alt: "A modern open-plan office with workstations" },
+};
+
 const veils = {
   /** For white text on top: a deep teal-blue wash, darker at the bottom where text sits. */
   dark: "bg-gradient-to-b from-navy/55 via-navy/60 to-navy/80",

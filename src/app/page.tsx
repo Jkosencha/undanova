@@ -11,6 +11,7 @@ import { ArrowIcon, ServiceIcon } from "@/components/icons";
 import { ParallaxImage } from "@/components/parallax-image";
 import { PhotoBackground, photos } from "@/components/photo-background";
 import { RiseWords } from "@/components/rise-words";
+import { ServicePreview } from "@/components/service-preview";
 import { Container, Section, SectionHeading } from "@/components/section";
 import { services } from "@/content/services";
 import { approach, differentiators } from "@/content/studio";
@@ -85,41 +86,43 @@ export default function Home() {
               Explore All Services
             </Button>
           </div>
-          <ol className="border-t border-navy/15">
-            {services.map((service, i) => (
-              <li key={service.slug} className="reveal border-b border-navy/15">
-                <Link
-                  href={`/services#${service.slug}`}
-                  prefetch={false}
-                  className="group relative isolate grid grid-cols-[auto_1fr_auto] items-start gap-x-5 gap-y-2 px-2 py-7 sm:gap-x-8 sm:px-6 md:py-8"
-                >
-                  {/* Teal fill that sweeps in from the left on hover */}
-                  <span
-                    aria-hidden
-                    className="absolute inset-0 -z-10 origin-left scale-x-0 bg-navy transition-transform duration-500 ease-out group-hover:scale-x-100 group-focus-visible:scale-x-100"
-                  />
-                  <span className="pt-1 font-heading text-sm text-ink transition-colors duration-500 group-hover:text-white/70">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span>
-                    <span className="flex items-center gap-3">
-                      <ServiceIcon
-                        slug={service.slug}
-                        className="size-6 shrink-0 text-navy transition-colors duration-500 group-hover:text-steel"
-                      />
-                      <h3 className="caps text-base text-navy transition-colors duration-500 group-hover:text-white md:text-lg">
-                        {service.title}
-                      </h3>
+          <ServicePreview>
+            <ol className="border-t border-navy/15">
+              {services.map((service, i) => (
+                <li key={service.slug} data-service={service.slug} className="reveal border-b border-navy/15">
+                  <Link
+                    href={`/services#${service.slug}`}
+                    prefetch={false}
+                    className="group relative isolate grid grid-cols-[auto_1fr_auto] items-start gap-x-5 gap-y-2 px-2 py-7 sm:gap-x-8 sm:px-6 md:py-8"
+                  >
+                    {/* Teal fill that sweeps in from the left on hover */}
+                    <span
+                      aria-hidden
+                      className="absolute inset-0 -z-10 origin-left scale-x-0 bg-navy transition-transform duration-500 ease-out group-hover:scale-x-100 group-focus-visible:scale-x-100"
+                    />
+                    <span className="pt-1 font-heading text-sm text-ink transition-colors duration-500 group-hover:text-white/70">
+                      {String(i + 1).padStart(2, "0")}
                     </span>
-                    <p className="mt-3 max-w-xl text-sm text-ink transition-colors duration-500 group-hover:text-white/85">
-                      {service.summary}
-                    </p>
-                  </span>
-                  <ArrowIcon className="mt-1.5 size-5 text-navy transition-all duration-500 group-hover:translate-x-1 group-hover:text-white" />
-                </Link>
-              </li>
-            ))}
-          </ol>
+                    <span>
+                      <span className="flex items-center gap-3">
+                        <ServiceIcon
+                          slug={service.slug}
+                          className="size-6 shrink-0 text-navy transition-colors duration-500 group-hover:text-steel"
+                        />
+                        <h3 className="caps text-base text-navy transition-colors duration-500 group-hover:text-white md:text-lg">
+                          {service.title}
+                        </h3>
+                      </span>
+                      <p className="mt-3 max-w-xl text-sm text-ink transition-colors duration-500 group-hover:text-white/85">
+                        {service.summary}
+                      </p>
+                    </span>
+                    <ArrowIcon className="mt-1.5 size-5 text-navy transition-all duration-500 group-hover:translate-x-1 group-hover:text-white" />
+                  </Link>
+                </li>
+              ))}
+            </ol>
+          </ServicePreview>
         </div>
       </Section>
 
