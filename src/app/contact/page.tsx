@@ -26,6 +26,7 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="Contact"
         title="Let's build something meaningful."
+        photo="lightLines"
         intro="Have a project in mind, a business challenge to solve or an idea you'd like to bring to life? We'd love to hear about it."
       />
       <section aria-label="Contact form and details" className="bg-white py-18 md:py-24">

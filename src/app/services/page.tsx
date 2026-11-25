@@ -22,6 +22,7 @@ export default function ServicesPage() {
       <PageHeader
         eyebrow="Services"
         title="Digital solutions for real-world challenges."
+        photo="circuit"
         intro="Every organization has different needs. Our services are designed to provide flexible technology solutions that address specific challenges, improve efficiency and support digital growth."
       >
         <nav aria-label="Services on this page" className="mt-10">
@@ -30,7 +31,7 @@ export default function ServicesPage() {
               <li key={service.slug}>
                 <a
                   href={`#${service.slug}`}
-                  className="caps-sm inline-flex min-h-11 items-center text-[10px] text-navy underline decoration-navy/30 underline-offset-8 hover:decoration-navy"
+                  className="caps-sm inline-flex min-h-11 items-center text-[10px] text-white underline decoration-white/40 underline-offset-8 hover:decoration-white"
                 >
                   {service.title}
                 </a>

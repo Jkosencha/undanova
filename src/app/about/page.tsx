@@ -5,7 +5,8 @@ import type { Metadata } from "next";
 import { CTABand } from "@/components/cta-band";
 import { PageHeader } from "@/components/page-header";
 import { Section, SectionHeading } from "@/components/section";
-import { SystemDiagram } from "@/components/visuals";
+import Image from "next/image";
+import { photos } from "@/components/photo-background";
 import { mission, values, vision } from "@/content/studio";
 
 export const metadata: Metadata = {
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <PageHeader eyebrow="About UndaNova" title="Building a more connected digital future." />
+      <PageHeader eyebrow="About UndaNova" title="Building a more connected digital future." photo="network" />
 
       {/* Who we are */}
       <Section aria-labelledby="who-title">
@@ -40,7 +41,20 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-          <SystemDiagram className="mx-auto max-w-[540px]" />
+          <div className="relative mx-auto w-full max-w-[520px] pb-6 pl-6">
+            <div aria-hidden className="absolute bottom-0 left-0 right-6 top-6 border border-navy/25" />
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <Image
+                src={photos.curves}
+                alt="Abstract dark curved lines"
+                fill
+                sizes="(min-width: 1024px) 520px, 100vw"
+                quality={60}
+                placeholder="blur"
+                className="object-cover"
+              />
+            </div>
+          </div>
         </div>
       </Section>
 
