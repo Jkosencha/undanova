@@ -2,27 +2,28 @@
 
 /*
  * UndaNova design tokens.
- * Minimal and calm: mostly white and soft grey, with Imperial Blue for text,
- * buttons and the footer, and a touch of Dusty Plum. Tailwind's default
+ * Minimal and calm: mostly white and soft grey, with the logo's deep teal-blue
+ * for text, buttons and the footer, and its steel blue for small accents. Tailwind's default
  * palette is cleared so only brand colours exist.
  */
 @theme {
   --color-*: initial;
-  /* Imperial Blue (Pantone 2768 C): headings, buttons, footer */
-  --color-navy: #001d51;
-  /* Darkest blue, for the footer's bottom bar */
-  --color-night: #000b24;
-  /* Dusty Plum: small accents (focus rings, rules, highlights) */
-  --color-plum: #906e84;
-  /* Soft lilac tint, used sparingly */
-  --color-lilac: #d8c6d2;
+  /* Brand deep teal-blue, from the logo (#153A4C): headings, buttons, footer.
+     The token keeps the name "navy" so class names stay short and stable. */
+  --color-navy: #153a4c;
+  /* Darkest tone, for the footer's bottom bar */
+  --color-night: #0b2430;
+  /* Steel blue, the logo's dot (#8FB3C4): small accents only (low contrast on white) */
+  --color-steel: #8fb3c4;
+  /* Pale steel tint */
+  --color-frost: #dce8ee;
   /* Soft grey for alternating sections */
-  --color-paper: #f4f4f5;
-  /* Mid grey for borders and quiet bands */
-  --color-mist: #e4e4e7;
-  --color-ink: #1a1d24;
-  /* Muted grey for captions and secondary text on dark */
-  --color-slate: #8b8f98;
+  --color-paper: #f4f5f6;
+  /* Light grey for borders and quiet bands */
+  --color-mist: #e3e6e8;
+  --color-ink: #1a1f24;
+  /* Muted grey for captions on dark */
+  --color-slate: #8b949a;
   --color-white: #ffffff;
 
   --animate-rise: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
@@ -65,7 +66,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-plum);
+    outline: 2px solid var(--color-steel);
     outline-offset: 3px;
   }
 }

@@ -36,7 +36,7 @@ export default function Home() {
           <h1 id="hero-title" className="caps mx-auto mt-7 max-w-5xl text-4xl leading-snug sm:text-5xl lg:text-7xl">
             We build what&apos;s next.
           </h1>
-          <span aria-hidden className="mx-auto mt-8 block size-2.5 rotate-45 bg-plum" />
+          <span aria-hidden className="mx-auto mt-8 block size-2.5 rounded-full bg-steel" />
           <p className="mx-auto mt-8 max-w-2xl text-lg text-white/85">
             We design and develop digital solutions that help businesses and organizations work smarter, operate better
             and move forward with technology.
@@ -95,7 +95,7 @@ export default function Home() {
                 <p className="mt-3 flex-1 text-sm text-ink/70 transition-colors duration-500 group-hover:text-white/80">
                   {service.summary}
                 </p>
-                <ArrowIcon className="mt-6 size-4 text-plum transition-transform duration-500 group-hover:translate-x-2 group-hover:text-white" />
+                <ArrowIcon className="mt-6 size-4 text-steel transition-transform duration-500 group-hover:translate-x-2 group-hover:text-white" />
               </Link>
             </li>
           ))}
@@ -144,7 +144,7 @@ export default function Home() {
                 className="object-cover"
               />
             </div>
-            <span aria-hidden className="absolute -left-3 top-10 size-6 bg-plum" />
+            <span aria-hidden className="absolute -left-3 top-10 size-6 rounded-full bg-steel" />
           </div>
         </div>
       </Section>
@@ -156,7 +156,7 @@ export default function Home() {
           <span aria-hidden className="absolute left-0 right-0 top-[7px] hidden h-px bg-navy/25 lg:block" />
           {approach.map((step, i) => (
             <li key={step.title} className="reveal relative">
-              <span aria-hidden className="relative block size-3.5 rotate-45 bg-plum ring-4 ring-paper" />
+              <span aria-hidden className="relative block size-3.5 rounded-full bg-steel ring-4 ring-paper" />
               <span className="mt-8 block font-heading text-4xl font-light text-navy">
                 {String(i + 1).padStart(2, "0")}
               </span>

@@ -28,7 +28,7 @@ export const photos = {
 export type PhotoName = keyof typeof photos;
 
 const veils = {
-  /** For white text on top: an Imperial Blue wash. */
+  /** For white text on top: a deep teal-blue brand wash. */
   dark: "bg-navy/75",
   /** A lighter navy wash where only large text sits on top. */
   medium: "bg-navy/55",

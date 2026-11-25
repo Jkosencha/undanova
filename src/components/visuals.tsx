@@ -19,11 +19,11 @@ export function ProjectCover({ kind, className = "" }: { kind: CoverKind; classN
                 cx="250"
                 cy="125"
                 r={r}
-                className={`stroke-navy/40 ${i === 3 ? "fill-navy" : i === 1 ? "fill-lilac/50" : "fill-none"}`}
+                className={`stroke-navy/40 ${i === 3 ? "fill-navy" : i === 1 ? "fill-frost/50" : "fill-none"}`}
               />
             ))}
             <circle cx="250" cy="125" r="110" className="fill-none stroke-navy" strokeWidth="1.5" />
-            <rect x="60" y="60" width="70" height="70" className="fill-plum" />
+            <rect x="60" y="60" width="70" height="70" className="fill-steel" />
             <rect x="75" y="140" width="40" height="40" className="fill-none stroke-navy" strokeWidth="1.5" />
           </g>
         )}
@@ -37,7 +37,7 @@ export function ProjectCover({ kind, className = "" }: { kind: CoverKind; classN
                 y={200 - h}
                 width="26"
                 height={h}
-                className={i === 5 ? "fill-plum" : i % 2 ? "fill-navy" : "fill-navy/70"}
+                className={i === 5 ? "fill-steel" : i % 2 ? "fill-navy" : "fill-navy/70"}
               />
             ))}
             <path d="M40 200H370" className="stroke-navy" strokeWidth="1.5" />
@@ -64,7 +64,7 @@ export function ProjectCover({ kind, className = "" }: { kind: CoverKind; classN
                   y={50 + row * 52}
                   width="30"
                   height="40"
-                  className={filled ? (i === 13 ? "fill-plum" : "fill-navy") : "fill-none stroke-navy/30"}
+                  className={filled ? (i === 13 ? "fill-steel" : "fill-navy") : "fill-none stroke-navy/30"}
                   strokeWidth="1"
                 />
               );

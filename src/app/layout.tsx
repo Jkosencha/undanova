@@ -27,8 +27,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  // Imperial Blue (#001D51). Meta tags can't read CSS variables, so this is the one hex outside the theme.
-  themeColor: "#001D51",
+  // Brand deep teal-blue (#153A4C). Meta tags can't read CSS variables, so this is the one hex outside the theme.
+  themeColor: "#153A4C",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
