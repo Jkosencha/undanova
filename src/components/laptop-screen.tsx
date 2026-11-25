@@ -106,22 +106,8 @@ export function LaptopScreen() {
           transform: transform ?? undefined,
           visibility: transform ? "visible" : "hidden",
         }}
-        className="absolute left-0 top-0 flex flex-col px-[88px] pb-[84px] pt-[56px] text-white"
+        className="absolute left-0 top-0 flex flex-col px-[96px] py-[80px] text-white"
       >
-        {/* A simple site bar, as decoration (the real navigation is in the header) */}
-        <div aria-hidden className="flex items-center justify-between border-b-2 border-white/15 pb-7">
-          <span className="font-heading text-[30px] tracking-tight">
-            Unda<span className="font-semibold">Nova</span>
-            <span className="text-steel">.</span>
-          </span>
-          <span className="caps-sm flex gap-10 text-[15px] text-white/70">
-            <span>About</span>
-            <span>Services</span>
-            <span>Our Work</span>
-            <span>Contact</span>
-          </span>
-        </div>
-
         {/* The message and actions */}
         <div className="flex flex-1 flex-col justify-center">
           <p className="caps-sm text-[19px] text-white/80">
