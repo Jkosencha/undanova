@@ -15,8 +15,15 @@ import {
   validateContact,
 } from "@/lib/contact";
 
+// Underlined fields: a clear 1px charcoal line (3:1+ contrast), turning into a 2px
+// teal-blue line on focus or when there's an error.
 const inputClasses =
-  "block w-full min-h-12 border border-slate bg-white px-4 py-3 text-base text-ink placeholder:text-ink aria-[invalid=true]:border-2 aria-[invalid=true]:border-navy";
+  "block w-full min-h-12 border-0 border-b border-ink/70 bg-transparent px-0 py-3 text-base text-ink transition-colors " +
+  "focus:border-b-2 focus:border-navy focus:outline-none " +
+  "aria-[invalid=true]:border-b-2 aria-[invalid=true]:border-navy";
+
+// Native select with a custom chevron (see `select-chevron` in globals.css).
+const selectClasses = `${inputClasses} select-chevron cursor-pointer pr-8`;
 
 const fieldOrder: ContactField[] = ["name", "organisation", "email", "phone", "service", "message"];
 
@@ -37,16 +44,16 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="block font-medium text-navy">
+      <label htmlFor={id} className="caps-sm block text-[10px] text-navy">
         {label}
-        {optional && <span className="font-normal text-ink"> (optional)</span>}
+        {optional && <span className="ml-1 font-normal normal-case tracking-normal text-ink"> (optional)</span>}
       </label>
       {hint && (
         <p id={`${id}-hint`} className="mt-1 text-sm text-ink">
           {hint}
         </p>
       )}
-      <div className="mt-2">{children}</div>
+      <div className="mt-1">{children}</div>
       {error && (
         <p id={`${id}-error`} className="mt-2 flex items-start gap-1.5 text-sm font-medium text-navy">
           <span aria-hidden className="mt-1.5 size-2 shrink-0 rounded-full bg-steel" />
@@ -99,7 +106,7 @@ export function ContactForm({ defaultService = "" }: { defaultService?: string }
 
   if (state.status === "success") {
     return (
-      <div role="status" className="border border-mist bg-white p-6 md:p-10">
+      <div role="status" className="border-l-2 border-navy bg-paper p-8 md:p-10">
         <h2 className="caps text-xl text-navy">Thank you{state.name ? `, ${state.name.split(" ")[0]}` : ""}.</h2>
         <p className="mt-4 text-lg">
           Your inquiry has been sent. We&apos;ll review it and get back to you by email soon.
@@ -112,13 +119,7 @@ export function ContactForm({ defaultService = "" }: { defaultService?: string }
   }
 
   return (
-    <form
-      ref={formRef}
-      action={formAction}
-      onSubmit={onSubmit}
-      noValidate
-      className="space-y-6 border border-mist bg-white p-6 md:p-10"
-    >
+    <form ref={formRef} action={formAction} onSubmit={onSubmit} noValidate className="space-y-8">
       {state.status === "error" && (
         <div role="alert" className="bg-navy p-4 text-white">
           Sorry, your inquiry didn&apos;t send. Please try again, or email us directly.
@@ -195,7 +196,7 @@ export function ContactForm({ defaultService = "" }: { defaultService?: string }
           defaultValue={values?.service ?? defaultService}
           aria-invalid={!!errors.service}
           aria-describedby={describedBy("service", errors.service)}
-          className={inputClasses}
+          className={selectClasses}
         >
           <option value="" disabled>
             Choose a service
