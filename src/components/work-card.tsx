@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Card } from "@/components/card";
-import { PreviewPanel } from "@/components/previews";
+import { ProjectCover } from "@/components/visuals";
 import type { WorkItem, WorkStatus } from "@/content/work";
 
 export function StatusBadge({ status, tone = "light" }: { status: WorkStatus; tone?: "light" | "dark" }) {
@@ -19,7 +19,7 @@ export function WorkCard({ item, headingLevel = "h3" }: WorkCardProps) {
   const Heading = headingLevel;
   const [cover] = item.images;
   return (
-    <Card href={`/work/${item.slug}`} className="flex w-full flex-col">
+    <Card href={`/work/${item.slug}`} className="flex w-full flex-col overflow-hidden">
       {cover ? (
         <Image
           src={cover.src}
@@ -30,7 +30,7 @@ export function WorkCard({ item, headingLevel = "h3" }: WorkCardProps) {
           className="aspect-[16/10] w-full object-cover"
         />
       ) : (
-        <PreviewPanel kind={item.preview} className="aspect-[16/10]" />
+        <ProjectCover kind={item.preview} className="aspect-[16/10] transition-transform duration-700 group-hover:scale-[1.03]" />
       )}
       <div className="flex flex-1 flex-col p-6">
         <div className="flex flex-wrap items-center gap-3">

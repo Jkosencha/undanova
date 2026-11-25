@@ -4,9 +4,9 @@ import { notFound } from "next/navigation";
 import { Button } from "@/components/button";
 import { CTABand } from "@/components/cta-band";
 import { PageHeader } from "@/components/page-header";
-import { PreviewPanel } from "@/components/previews";
 import { Container, Section, SectionHeading } from "@/components/section";
 import { TextLink } from "@/components/text-link";
+import { ProjectCover } from "@/components/visuals";
 import { StatusBadge, WorkCard } from "@/components/work-card";
 import { work } from "@/content/work";
 
@@ -77,7 +77,7 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
             className="aspect-video w-full border border-mist object-cover"
           />
         ) : (
-          <PreviewPanel kind={project.preview} className="h-72 border border-mist sm:h-[28rem]" />
+          <ProjectCover kind={project.preview} className="h-72 border border-mist sm:h-[28rem]" />
         )}
         <dl className={`mt-12 grid gap-8 text-center ${facts.length === 3 ? "sm:grid-cols-3" : "sm:grid-cols-2"}`}>
           {facts.map((f) => (
