@@ -1,36 +1,38 @@
 /**
  * Site-wide details. Change contact info here and it updates everywhere.
+ * Only verified, official details go here (see the content guidelines).
  */
 export const site = {
   name: "UndaNova",
+  descriptor: "Digital Labs",
   tagline: "We build what's next.",
   description:
-    "UndaNova designs and builds websites, apps and business systems for growing businesses, NGOs and schools in Kenya.",
-  // TODO: confirm domain (undanova.com or undanova.co.ke).
+    "UndaNova is a digital solutions studio designing and building practical software, digital platforms and technology solutions for businesses and organizations.",
+  // TODO: confirm the domain (undanova.com or undanova.co.ke).
   url: "https://undanova.com",
-  // TODO: Jennifer's business email address.
+  // TODO: replace with the verified official UndaNova email address.
   email: "hello@undanova.com",
-  // TODO: WhatsApp number in international format, digits only (e.g. 2547XXXXXXXX).
-  whatsappNumber: "254700000000",
-  // TODO: city, e.g. "Nairobi, Kenya".
+  // Official WhatsApp/phone number in international format, digits only (e.g. 2547XXXXXXXX).
+  // Leave empty until an official business number is available: WhatsApp buttons stay hidden until then.
+  whatsappNumber: "",
   location: "Kenya",
-  responseTime: "We reply within 24 hours",
-  // TODO: keep this current (e.g. "Booking projects from February 2027"), or set to "" to hide it.
-  availability: "Taking on new projects",
-  // TODO: registered business name and number, once registered.
+  // TODO: registered business name, once registered.
   legalName: "UndaNova",
-  // TODO: social media links. Icons are hidden until a link is filled in.
+  // Verified official profiles only. Icons are hidden until a link is filled in.
   social: {
     linkedin: "",
     instagram: "",
   },
 } as const;
 
+/** True once an official WhatsApp number is set. */
+export const hasWhatsapp = site.whatsappNumber.length > 0;
+
 export const nav = [
-  { label: "Services", href: "/services" },
-  { label: "Work", href: "/work" },
-  { label: "SaaS", href: "/saas" },
+  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Our Work", href: "/work" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
