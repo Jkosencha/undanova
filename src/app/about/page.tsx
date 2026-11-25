@@ -3,9 +3,9 @@
  */
 import type { Metadata } from "next";
 import { CTABand } from "@/components/cta-band";
-import { InterfaceVisual } from "@/components/interface-visual";
 import { PageHeader } from "@/components/page-header";
 import { Section, SectionHeading } from "@/components/section";
+import { SystemDiagram } from "@/components/visuals";
 import { mission, values, vision } from "@/content/studio";
 
 export const metadata: Metadata = {
@@ -40,7 +40,7 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-          <InterfaceVisual />
+          <SystemDiagram className="mx-auto max-w-[540px]" />
         </div>
       </Section>
 
