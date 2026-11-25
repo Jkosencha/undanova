@@ -35,7 +35,15 @@ export function InstagramIcon(props: IconProps) {
 
 export function MenuIcon(props: IconProps) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" {...base} {...props}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      {...base}
+      {...props}
+    >
       <path d="M4 7h16M4 12h16M4 17h16" />
     </svg>
   );
@@ -43,7 +51,15 @@ export function MenuIcon(props: IconProps) {
 
 export function CloseIcon(props: IconProps) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" {...base} {...props}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      {...base}
+      {...props}
+    >
       <path d="M6 6l12 12M18 6 6 18" />
     </svg>
   );
@@ -51,7 +67,16 @@ export function CloseIcon(props: IconProps) {
 
 export function ArrowIcon(props: IconProps) {
   return (
-    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...base} {...props}>
+    <svg
+      viewBox="0 0 20 20"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...base}
+      {...props}
+    >
       <path d="M4 10h12M11 5l5 5-5 5" />
     </svg>
   );
@@ -62,12 +87,25 @@ export function CheckIcon(props: IconProps) {
   return (
     <svg viewBox="0 0 24 24" {...base} {...props}>
       <circle cx="12" cy="12" r="12" className="fill-plum" />
-      <path d="M7 12.5l3.2 3.2L17 9" fill="none" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" className="stroke-white" />
+      <path
+        d="M7 12.5l3.2 3.2L17 9"
+        fill="none"
+        strokeWidth={2.2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="stroke-white"
+      />
     </svg>
   );
 }
 
-const line = { fill: "none", stroke: "currentColor", strokeWidth: 1.75, strokeLinecap: "round", strokeLinejoin: "round" } as const;
+const line = {
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.75,
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+} as const;
 
 /** Line icon for each service, keyed by the service slug. */
 export function ServiceIcon({ slug, ...props }: IconProps & { slug: string }) {
