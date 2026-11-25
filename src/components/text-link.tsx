@@ -9,16 +9,16 @@ type TextLinkProps = {
   tone?: "light" | "dark";
 };
 
-/**
- * Inline text link with a plum underline. `plum` is too light for small text
- * (contrast below AA), so the text itself is navy (or white on navy).
- */
+/** Quiet link in small spaced caps with a thin underline that firms up on hover. */
 export function TextLink({ href, children, className = "", tone = "light" }: TextLinkProps) {
-  const color = tone === "dark" ? "text-white hover:decoration-white" : "text-navy hover:decoration-navy";
+  const color =
+    tone === "dark"
+      ? "text-white decoration-white/40 hover:decoration-white"
+      : "text-navy decoration-navy/30 hover:decoration-navy";
   return (
     <Link
       href={href}
-      className={`inline-flex min-h-11 items-center gap-1 font-medium underline decoration-plum decoration-2 underline-offset-4 ${color} ${className}`}
+      className={`caps-sm inline-flex min-h-11 items-center gap-1.5 underline underline-offset-8 transition-colors ${color} ${className}`}
     >
       {children}
     </Link>
