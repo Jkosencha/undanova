@@ -29,7 +29,6 @@ function formatEmail(v: ContactValues) {
     `Service of interest: ${labelFor(serviceOptions, v.service)}`,
     "",
     "Project description:",
-    "",
     v.message,
   ].join("\n");
 }
