@@ -1,6 +1,4 @@
-import { Glow, HeroWaves } from "@/components/brand-shapes";
 import { Button } from "@/components/button";
-import { PhotoBackground } from "@/components/photo-background";
 import { WhatsAppIcon } from "@/components/icons";
 import { Container } from "@/components/section";
 import { whatsappUrl } from "@/lib/site";
@@ -8,40 +6,27 @@ import { whatsappUrl } from "@/lib/site";
 type CTABandProps = {
   title?: string;
   text?: string;
-  /** Colour of the section above, so the card straddles it and the navy footer. */
-  from?: "paper" | "white" | "night";
 };
 
-/** Glowing navy card that sits half on the page and half on the footer. */
+/** Calm closing call to action: spaced caps title, two outlined buttons. */
 export function CTABand({
   title = "Have a project in mind? Let's talk.",
   text = "Tell us what you need and we'll get back to you within 24 hours.",
-  from = "paper",
 }: CTABandProps) {
   return (
-    <section
-      aria-labelledby="cta-title"
-      className={`bg-gradient-to-b to-navy to-50% pt-8 md:pt-12 ${{ paper: "from-paper", white: "from-white", night: "from-night" }[from]} from-50%`}
-    >
+    <section aria-labelledby="cta-title" className="border-t border-mist bg-white py-20 text-center md:py-28">
       <Container>
-        <div className="reveal relative isolate overflow-hidden border border-white/10 bg-navy px-6 py-14 text-center text-white md:px-16 md:py-20">
-          <PhotoBackground photo="satin" tint="soft" sizes="(min-width: 1200px) 1152px, 100vw" />
-          <Glow className="-left-24 -top-24 -z-10 size-96" />
-          <Glow className="-bottom-32 -right-16 -z-10 size-[28rem]" />
-          <HeroWaves className="bottom-0 -z-10 h-32 opacity-50" />
-          <h2 id="cta-title" className="mx-auto max-w-2xl text-[34px] md:text-5xl">
-            {title}
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-white/80">{text}</p>
-          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <Button href={whatsappUrl("Hi UndaNova, I'd like to talk about a project.")} tone="dark">
-              <WhatsAppIcon className="size-5" />
-              Chat on WhatsApp
-            </Button>
-            <Button href="/contact" tone="dark" variant="secondary">
-              Send a message
-            </Button>
-          </div>
+        <h2 id="cta-title" className="caps mx-auto max-w-3xl text-2xl text-navy md:text-3xl">
+          {title}
+        </h2>
+        <span aria-hidden className="mx-auto mt-6 block h-px w-12 bg-navy/40" />
+        <p className="mx-auto mt-6 max-w-xl text-ink/70">{text}</p>
+        <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+          <Button href={whatsappUrl("Hi UndaNova, I'd like to talk about a project.")} variant="secondary">
+            <WhatsAppIcon className="size-4" />
+            Chat on WhatsApp
+          </Button>
+          <Button href="/contact">Send a message</Button>
         </div>
       </Container>
     </section>
