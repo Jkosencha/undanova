@@ -35,7 +35,7 @@ export default function ContactPage() {
     <section aria-labelledby="contact-title" className="grid lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[0.95fr_1.05fr]">
       {/* Left: heading, guidance and details */}
       <div className="relative isolate overflow-clip bg-navy px-5 py-20 text-white sm:px-8 md:py-24 lg:pl-[max(2rem,calc((100vw-1200px)/2+2rem))] lg:pr-16">
-        <PhotoBackground photo="nightBalcony" veil="dark" priority sizes="(min-width: 1024px) 48vw, 100vw" />
+        <PhotoBackground photo="deskLamp" veil="dark" priority sizes="(min-width: 1024px) 48vw, 100vw" />
         <div className="max-w-md">
           <p className="caps-sm text-white/80">Contact</p>
           <h1 id="contact-title" className="caps mt-6 text-3xl leading-snug md:text-4xl">

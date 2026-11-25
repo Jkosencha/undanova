@@ -3,9 +3,9 @@ import analyticsLaptop from "@/assets/photos/analytics-laptop.jpg";
 import cafeCode from "@/assets/photos/cafe-code.jpg";
 import codeDesk from "@/assets/photos/code-desk.jpg";
 import codeSunset from "@/assets/photos/code-sunset.jpg";
+import deskLamp from "@/assets/photos/desk-lamp.jpg";
 import lakeSunset from "@/assets/photos/lake-sunset.jpg";
 import metricsScreen from "@/assets/photos/metrics-screen.jpg";
-import nightBalcony from "@/assets/photos/night-balcony.jpg";
 import openOffice from "@/assets/photos/open-office.jpg";
 import pathSunset from "@/assets/photos/path-sunset.jpg";
 import stickyBoard from "@/assets/photos/sticky-board.jpg";
@@ -20,17 +20,17 @@ import whiteDesk from "@/assets/photos/white-desk.jpg";
  * code, desktop files or personal names are blurred). Body images are free
  * Unsplash photos: studioDesk (Lasse Jensen), whiteDesk (Andrew Neel),
  * websiteImac (Annie Spratt), codeDesk (Rich Tervet), analyticsLaptop
- * (Luke Chesser), stickyBoard (Paymo), metricsScreen (Stephen Dawson) and
- * openOffice (Madeline Liu).
+ * (Luke Chesser), stickyBoard (Paymo), metricsScreen (Stephen Dawson),
+ * openOffice (Madeline Liu) and deskLamp (Iewek Gnos, on Contact).
  */
 export const photos = {
   analyticsLaptop,
   cafeCode,
   codeDesk,
   codeSunset,
+  deskLamp,
   lakeSunset,
   metricsScreen,
-  nightBalcony,
   openOffice,
   pathSunset,
   stickyBoard,
