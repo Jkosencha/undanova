@@ -25,17 +25,20 @@ type SectionHeadingProps = {
 };
 
 /**
- * Section title in wide-tracked caps, with an optional eyebrow and intro.
+ * Section title with an optional eyebrow and intro. Short titles use the wide-
+ * tracked caps; longer, sentence-like ones the lighter headline style.
  */
 export function SectionHeading({ id, title, intro, eyebrow, tone = "light", align = "center" }: SectionHeadingProps) {
   const dark = tone === "dark";
   const center = align === "center";
+  const long = typeof title === "string" && title.split(" ").length > 3;
+  const style = long ? "headline text-3xl md:text-[2.6rem]" : "caps text-2xl md:text-3xl";
   return (
     <div className={`max-w-2xl ${center ? "mx-auto text-center" : ""}`}>
       {eyebrow && <p className={`caps-sm mb-4 ${dark ? "text-white/60" : "text-ink"}`}>{eyebrow}</p>}
       <h2
         id={id}
-        className={`${center ? "reveal" : "reveal-left"} caps text-2xl md:text-3xl ${dark ? "text-white" : "text-navy"}`}
+        className={`${center ? "reveal" : "reveal-left"} ${style} ${dark ? "text-white" : "text-navy"}`}
       >
         {title}
       </h2>

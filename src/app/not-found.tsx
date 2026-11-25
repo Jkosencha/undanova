@@ -13,7 +13,7 @@ export default function NotFound() {
       <PhotoBackground photo="pathSunset" veil="dark" priority />
       <Container className="text-center">
         <p className="caps-sm text-white/80">Error 404</p>
-        <h1 className="caps mt-6 text-3xl md:text-5xl">This page wandered off.</h1>
+        <h1 className="headline mt-6 text-4xl md:text-6xl">This page wandered off.</h1>
         <p className="mx-auto mt-7 max-w-md text-white/85">
           The link may be old, or the address may have a typo. Try one of these instead.
         </p>

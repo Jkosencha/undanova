@@ -82,6 +82,14 @@
   letter-spacing: 0.28em;
   font-weight: 300;
 }
+/* Headline: for full-sentence headings (page titles, calls to action). Light,
+   sentence case and slightly tight, so longer lines stay easy to read; short
+   headings and labels keep the spaced caps. */
+@utility headline {
+  font-weight: 300;
+  letter-spacing: -0.015em;
+  line-height: 1.12;
+}
 @utility caps-sm {
   text-transform: uppercase;
   letter-spacing: 0.2em;

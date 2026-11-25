@@ -38,7 +38,7 @@ export default function ContactPage() {
         <PhotoBackground photo="deskLamp" veil="dark" priority sizes="(min-width: 1024px) 48vw, 100vw" />
         <div className="max-w-md">
           <p className="caps-sm text-white/80">Contact</p>
-          <h1 id="contact-title" className="caps mt-6 text-3xl leading-snug md:text-4xl">
+          <h1 id="contact-title" className="headline mt-6 text-4xl md:text-5xl">
             Let&apos;s build something meaningful.
           </h1>
           <p className="mt-7 text-lg text-white/85">

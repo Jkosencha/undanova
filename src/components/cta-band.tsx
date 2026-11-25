@@ -24,7 +24,7 @@ export function CTABand({
     >
       <PhotoBackground photo="lakeSunset" veil="dark" />
       <Container>
-        <h2 id="cta-title" className="reveal caps mx-auto max-w-3xl text-2xl md:text-3xl">
+        <h2 id="cta-title" className="reveal headline mx-auto max-w-3xl text-3xl md:text-5xl">
           {title}
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-white/80">{text}</p>
