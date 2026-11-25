@@ -5,9 +5,10 @@
 import type { Metadata } from "next";
 import { Button } from "@/components/button";
 import { CTABand } from "@/components/cta-band";
-import { ServiceIcon } from "@/components/icons";
-import { ConnectedVisual, InterfaceVisual } from "@/components/interface-visual";
+import { ArrowIcon, ServiceIcon } from "@/components/icons";
+import Link from "next/link";
 import { Container, Section, SectionHeading } from "@/components/section";
+import { LayeredPlanes, SystemDiagram } from "@/components/visuals";
 import { services } from "@/content/services";
 import { approach, differentiators } from "@/content/studio";
 import { site } from "@/lib/site";
@@ -43,7 +44,7 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          <InterfaceVisual />
+          <SystemDiagram className="mx-auto max-w-[560px]" />
         </Container>
       </section>
 
@@ -68,11 +69,30 @@ export default function Home() {
       <Section tone="paper" aria-labelledby="services-title">
         <SectionHeading id="services-title" title="What We Do" />
         <ul className="mt-16 grid gap-px bg-mist sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <li key={service.slug} className="reveal bg-white p-8 md:p-10">
-              <ServiceIcon slug={service.slug} className="size-8 text-navy" />
-              <h3 className="caps-sm mt-6 text-navy">{service.title}</h3>
-              <p className="mt-3 text-sm text-ink/70">{service.summary}</p>
+          {services.map((service, i) => (
+            <li key={service.slug} className="reveal flex">
+              <Link
+                href={`/services#${service.slug}`}
+                prefetch={false}
+                className="group relative flex w-full flex-col bg-white p-8 transition-colors duration-500 hover:bg-navy md:p-10"
+              >
+                <div className="flex items-start justify-between">
+                  <ServiceIcon
+                    slug={service.slug}
+                    className="size-8 text-navy transition-colors duration-500 group-hover:text-white"
+                  />
+                  <span className="text-xs font-semibold tracking-[0.2em] text-ink/70 transition-colors duration-500 group-hover:text-white/70">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <h3 className="caps-sm mt-8 text-navy transition-colors duration-500 group-hover:text-white">
+                  {service.title}
+                </h3>
+                <p className="mt-3 flex-1 text-sm text-ink/70 transition-colors duration-500 group-hover:text-white/80">
+                  {service.summary}
+                </p>
+                <ArrowIcon className="mt-6 size-4 text-plum transition-transform duration-500 group-hover:translate-x-2 group-hover:text-white" />
+              </Link>
             </li>
           ))}
         </ul>
@@ -107,19 +127,23 @@ export default function Home() {
               ))}
             </ul>
           </div>
-          <ConnectedVisual />
+          <LayeredPlanes className="mx-auto max-w-[460px]" />
         </div>
       </Section>
 
       {/* Our approach */}
-      <Section tone="navy" aria-labelledby="approach-title">
-        <SectionHeading id="approach-title" eyebrow="Our approach" title="From idea to implementation." tone="dark" />
-        <ol className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+      <Section tone="paper" aria-labelledby="approach-title">
+        <SectionHeading id="approach-title" eyebrow="Our approach" title="From idea to implementation." />
+        <ol className="relative mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
+          <span aria-hidden className="absolute left-0 right-0 top-[7px] hidden h-px bg-navy/25 lg:block" />
           {approach.map((step, i) => (
-            <li key={step.title} className="reveal border-t border-white/25 pt-6">
-              <span className="font-heading text-3xl font-light text-white/80">{String(i + 1).padStart(2, "0")}</span>
-              <h3 className="caps-sm mt-4 text-white">{step.title}</h3>
-              <p className="mt-3 text-sm text-white/75">{step.text}</p>
+            <li key={step.title} className="reveal relative">
+              <span aria-hidden className="relative block size-3.5 rotate-45 bg-plum ring-4 ring-paper" />
+              <span className="mt-8 block font-heading text-4xl font-light text-navy">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="caps-sm mt-4 text-navy">{step.title}</h3>
+              <p className="mt-3 text-sm text-ink/75">{step.text}</p>
             </li>
           ))}
         </ol>
