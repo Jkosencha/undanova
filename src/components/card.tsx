@@ -3,28 +3,23 @@ import type { ReactNode } from "react";
 
 type CardProps = {
   children: ReactNode;
-  /** When set, the whole card becomes a link that lifts on hover. */
+  /** When set, the whole card becomes a link. */
   href?: string;
-  /** "dark" is a glass card for navy sections. */
-  tone?: "light" | "dark";
   className?: string;
 };
 
-const tones = {
-  light: { base: "border-slate/25 bg-white", hover: "hover:border-navy/40" },
-  dark: { base: "border-white/10 bg-white/[0.04]", hover: "hover:border-plum/60 hover:bg-white/[0.08]" },
-};
+const base = "border border-mist bg-white";
 
-export function Card({ children, href, tone = "light", className = "" }: CardProps) {
-  const base = ` border ${tones[tone].base}`;
+/** Square, hairline-bordered card. Linked cards darken their border on hover. */
+export function Card({ children, href, className = "" }: CardProps) {
   if (href) {
     return (
       // No viewport prefetch: a page of cards would otherwise download every linked
-      // page up front, costing mobile data and main-thread time. Pages still load on tap.
+      // page up front, costing mobile data. Pages still load on tap.
       <Link
         href={href}
         prefetch={false}
-        className={`tilt group block transition-colors duration-300 ${base} ${tones[tone].hover} ${className}`}
+        className={`group block transition-colors duration-300 hover:border-navy/40 ${base} ${className}`}
       >
         {children}
       </Link>
