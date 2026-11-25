@@ -1,70 +1,42 @@
 @import "tailwindcss";
 
 /*
- * UndaNova design tokens (see CLAUDE.md §3).
- * Tailwind's default palette is cleared so only brand colours exist.
+ * UndaNova design tokens.
+ * Minimal and calm: mostly white and soft grey, with Imperial Blue for text,
+ * buttons and the footer, and a touch of Dusty Plum. Tailwind's default
+ * palette is cleared so only brand colours exist.
  */
 @theme {
   --color-*: initial;
-  /* Imperial Blue (Pantone 2768 C): primary: backgrounds, headings, buttons */
+  /* Imperial Blue (Pantone 2768 C): headings, buttons, footer */
   --color-navy: #001d51;
-  /* Deepest satin shadow, for the darkest backgrounds and gradients */
+  /* Darkest blue, for the footer's bottom bar */
   --color-night: #000b24;
-  /* Dusty Plum: the accent: highlights, focus rings, small details */
+  /* Dusty Plum: small accents (focus rings, rules, highlights) */
   --color-plum: #906e84;
-  /* Lilac satin: soft tint for gentle sections and sheen */
+  /* Soft lilac tint, used sparingly */
   --color-lilac: #d8c6d2;
-  /* Light background with a hint of plum */
-  --color-paper: #f6f2f5;
-  --color-ink: #0a0e17;
-  --color-slate: #8b8496;
+  /* Soft grey for alternating sections */
+  --color-paper: #f4f4f5;
+  /* Mid grey for borders and quiet bands */
+  --color-mist: #e4e4e7;
+  --color-ink: #1a1d24;
+  /* Muted grey for captions and secondary text on dark */
+  --color-slate: #8b8f98;
   --color-white: #ffffff;
 
-  --animate-drift: drift 22s linear infinite;
-  --animate-drift-slow: drift 36s linear infinite;
-  --animate-float: float 6s ease-in-out infinite;
-  --animate-float-delayed: float 6s ease-in-out 3s infinite;
-  --animate-glow: glow 5s ease-in-out infinite;
-  --animate-rise: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-rise: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
 @theme inline {
   --font-sans: var(--font-body);
   --font-heading: var(--font-display);
-  --font-serif: var(--font-accent);
-  --font-mono: var(--font-code);
-}
-
-@keyframes drift {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-12px);
-  }
-}
-
-@keyframes glow {
-  0%,
-  100% {
-    opacity: 0.55;
-  }
-  50% {
-    opacity: 0.9;
-  }
 }
 
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(16px);
   }
 }
 
@@ -76,11 +48,11 @@
   }
 
   body {
-    background-color: var(--color-paper);
+    background-color: var(--color-white);
     color: var(--color-ink);
     font-family: var(--font-body), system-ui, sans-serif;
     font-size: 1rem;
-    line-height: 1.6;
+    line-height: 1.7;
   }
 
   h1,
@@ -88,9 +60,8 @@
   h3,
   h4 {
     font-family: var(--font-display), system-ui, sans-serif;
-    font-weight: 600;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
+    font-weight: 400;
+    line-height: 1.25;
   }
 
   :focus-visible {
@@ -100,155 +71,57 @@
 }
 
 /*
- * Satin: the silky folds from the mood board, built from soft gradients
- * (no image download). "bg-satin" is deep blue, "bg-satin-plum" is lilac.
+ * Display caps: the reference's signature, wide-tracked uppercase.
+ * Source text stays in sentence case (screen readers read it normally);
+ * only the look is uppercase.
  */
-@utility bg-satin {
-  background-color: var(--color-navy);
-  background-image:
-    radial-gradient(120% 60% at 15% 10%, color-mix(in srgb, var(--color-plum) 35%, transparent), transparent 60%),
-    radial-gradient(90% 70% at 85% 30%, color-mix(in srgb, var(--color-lilac) 14%, transparent), transparent 55%),
-    linear-gradient(160deg, transparent 30%, color-mix(in srgb, var(--color-white) 7%, transparent) 42%, transparent 52%),
-    linear-gradient(200deg, var(--color-navy) 0%, var(--color-night) 100%);
+@utility caps {
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-weight: 300;
 }
-
-@utility bg-satin-plum {
-  background-color: var(--color-plum);
-  background-image:
-    radial-gradient(90% 70% at 20% 20%, color-mix(in srgb, var(--color-lilac) 55%, transparent), transparent 60%),
-    linear-gradient(155deg, transparent 30%, color-mix(in srgb, var(--color-white) 18%, transparent) 45%, transparent 58%),
-    linear-gradient(200deg, var(--color-plum) 0%, color-mix(in srgb, var(--color-plum) 70%, var(--color-navy)) 100%);
-}
-
-/* Fine diagonal lines, from the Modall reference's dark card. */
-@utility bg-lines {
-  background-image: repeating-linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--color-white) 5%, transparent) 0 1px,
-    transparent 1px 28px
-  );
-}
-
-/* Soft plum glow behind key elements on navy. */
-@utility glow-plum {
-  background: radial-gradient(closest-side, color-mix(in srgb, var(--color-plum) 55%, transparent), transparent);
-}
-
-/* Large headline text in a white-to-plum gradient (AA for large text on navy). */
-@utility text-gradient-plum {
-  background-image: linear-gradient(100deg, var(--color-white) 0%, var(--color-lilac) 45%, var(--color-plum) 95%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-/*
- * Scroll reveal with no JavaScript: in browsers that support scroll-driven
- * animations (Chrome on Android, most of our audience), elements rise in as
- * they enter the screen. Elsewhere they simply show.
- */
-@supports (animation-timeline: view()) {
-  .reveal {
-    animation: rise linear both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 40%;
-  }
+@utility caps-sm {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  font-weight: 600;
 }
 
 /* ------------------------------------------------------------------ */
-/* Motion                                                              */
+/* Motion: gentle and sparing                                          */
 /* ------------------------------------------------------------------ */
 
-/* Page transitions (app/template.tsx): each new page rises into place. */
+/* Each new page rises into place (app/template.tsx). Transform only, so the
+   first paint isn't delayed. */
 @keyframes page-rise {
   from {
-    transform: translateY(16px);
+    transform: translateY(12px);
   }
 }
 .page-in {
   animation: page-rise 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
-/* Headline words drift up on load. They stay visible throughout, so the
-   largest paint isn't delayed (opacity never starts at 0). */
-@keyframes word-up {
-  from {
-    transform: translateY(0.35em);
-  }
-}
-@utility word-in {
-  display: inline-block;
-  animation: word-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-}
-
-/* Glowing animated border for key buttons. A large conic gradient rotates
-   behind a white fill: only a transform animates, so the GPU handles it and
-   nothing is repainted each frame. */
-@keyframes spin {
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-@utility border-glow {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  background: transparent;
-  &::before {
-    content: "";
-    position: absolute;
-    z-index: -2;
-    top: 50%;
-    left: 50%;
-    width: 300%;
-    aspect-ratio: 1;
-    transform: translate(-50%, -50%);
-    background: conic-gradient(var(--color-plum), var(--color-lilac), var(--color-white), var(--color-plum));
-    animation: spin 4s linear infinite;
-  }
-  &::after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    inset: 1.5px;
-    border-radius: inherit;
-    background: var(--color-white);
+/* Sections fade up as they scroll into view, in browsers that support
+   scroll-driven animations (no JavaScript). Elsewhere they simply show. */
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: rise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
   }
 }
 
-/* Gentle 3D tilt on hover (pointer devices only). */
-@media (hover: hover) {
-  .tilt {
-    transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
-  }
-  .tilt:hover {
-    transform: perspective(900px) rotateX(3deg) rotateY(-4deg) translateY(-4px);
-  }
-}
-
-/* Reading progress bar and back-to-top button, driven by scroll (no JS).
-   Browsers without scroll timelines simply don't show them. */
-.scroll-progress,
+/* Back-to-top button appears after scrolling (scroll-driven, no JS). */
 .to-top {
   display: none;
 }
 @supports (animation-timeline: scroll()) {
-  .scroll-progress {
-    display: block;
-    transform-origin: 0 50%;
-    animation: grow-x linear both;
-    animation-timeline: scroll(root);
-  }
   .to-top {
     display: inline-flex;
     animation: appear linear both;
     animation-timeline: scroll(root);
     animation-range: 0 120vh;
-  }
-}
-@keyframes grow-x {
-  from {
-    transform: scaleX(0);
   }
 }
 @keyframes appear {
@@ -279,32 +152,11 @@ details[open]::details-content {
   block-size: auto;
 }
 
-/*
- * Touch devices (mostly mid-range Android phones for our audience) skip the
- * always-running loops: drifting waves, pulsing dots, the spinning border and
- * floating elements. They cost battery and main-thread time on budget phones
- * (about 8 Lighthouse points on Home). One-off entrance motion still plays.
- */
-@media (hover: none) {
-  .animate-drift,
-  .animate-drift-slow,
-  .animate-ping,
-  .animate-float,
-  .animate-float-delayed,
-  .animate-glow,
-  .border-glow::before {
-    animation: none;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,
   ::after {
     animation: none !important;
     transition: none !important;
-  }
-  .tilt:hover {
-    transform: none;
   }
 }
